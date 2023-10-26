@@ -1,0 +1,35 @@
+// ==============================
+// Custom style
+// 自定义样式
+// ==============================
+.home .home-profile {
+    .home-title {
+        font-size: 2.5rem;
+    }
+
+    .home-avatar img {
+        width: 16rem;
+    }
+}
+
+@media only screen and (min-width: 681px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+
+        .column-40 {
+            flex-basis: 40%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .column-60 {
+            flex-basis: 60%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    }
+}

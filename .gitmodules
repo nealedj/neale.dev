@@ -1,0 +1,9 @@
+[submodule "themes/nightfall"]
+	path = themes/nightfall
+	url = git@github.com:LordMathis/hugo-theme-nightfall.git
+[submodule "themes/adritian"]
+	path = themes/adritian
+	url = git@github.com:zetxek/adritian-free-hugo-theme.git
+[submodule "themes/loveit"]
+	path = themes/loveit
+	url = git@github.com:dillonzq/LoveIt.git
