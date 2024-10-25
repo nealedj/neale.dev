@@ -1,0 +1,45 @@
+baseURL = 'https://neale.dev'
+
+title = "David Neale"
+theme = 'hugo-resume'
+languageCode = "en-gb"
+PygmentsCodeFences = true
+PygmentsCodeFencesGuessSyntax = true
+PygmentsStyle = "monokai"
+enableGitInfo = false
+
+[params]
+address = "Cardiff, UK"
+email = "david@neale.dev"
+favicon = "/favicon.ico"
+firstName = "David"
+lastName = "Neale"
+phone = "1-555-555-1234"
+profileImage = "img/davidportrait.jpg"
+showQr = false
+showContact = false
+sections = ["skills","experience"]
+
+
+[params.google]
+
+[params.google.analytics]
+trackerID = "G-CNYBLK0WJ0"
+
+[[params.handles]]
+link = "https://www.linkedin.com/in/davidjneale/"
+name = "LinkedIn"
+
+[[params.handles]]
+link = "https://github.com/nealedj/"
+name = "GitHub"
+
+[[params.handles]]
+link = "https://stackoverflow.com/users/234645/david-neale"
+name = "Stack Overflow"
+
+[outputs]
+home = ["HTML", "JSON"]
+
+[taxonomies]
+tag = "tags"
