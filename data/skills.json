@@ -1,6 +1,6 @@
 [
   {
-      "grouping":"Architecture",
+      "grouping":" Architecture",
       "skills":[ "Public Cloud", "API Design", "Domain Modeling", "Microservices", "Distributed Systems", "TOGAF", "Cybersecurity"]
   },
   {
@@ -26,14 +26,7 @@
       "skills":[
           {"name":"Docker","link":"https://docker.com"},
           {"name":"AWS","link":"https://aws.amazon.com"},
-          {"name":"Google Cloud","link":"https://cloud.google.com"}
+          {"name":"GCP", "icon": "google-cloud-platform", "link":"https://cloud.google.com"}
       ]
-  },
-  {
-    "grouping": "certifications",
-    "skills": [
-      {"name": "TOGAF® 9 Certified", "link": "https://www.credly.com/badges/7d239bd9-8580-4584-a330-2266b6d3a7ad/public_url"},
-      {"name": "Certified Cloud Security Professional (CCSP)", "link": "https://www.credly.com/badges/69bf745c-ba05-4520-b408-a67e98b9d1ed/public_url"}
-    ]
   }
 ]

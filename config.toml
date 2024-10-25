@@ -19,7 +19,8 @@ profileImage = "img/davidportrait.jpg"
 showQr = false
 showContact = false
 sections = ["skills","experience"]
-
+showSocializations = true
+showCertifications = true
 
 [params.google]
 
@@ -36,7 +37,7 @@ name = "GitHub"
 
 [[params.handles]]
 link = "https://stackoverflow.com/users/234645/david-neale"
-name = "Stack Overflow"
+name = "Stack-Overflow"
 
 [outputs]
 home = ["HTML", "JSON"]

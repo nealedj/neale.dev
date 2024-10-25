@@ -1,23 +1,15 @@
 [
 	{
-		"name":"AWS Solutions Architect",
-		"description": "AWS Certified Solutions Architect – Associate",
-		"badge":"https://images.credly.com/size/340x340/images/4bc21d8b-4afe-4fbd-9a90-a9de8bf7b240/AWS-SolArchitect-Associate-2020.png",
-		"proof":"https://www.credly.com/badges/9c168644-e23c-4605-9d98-91b5db56e6c9"
+		"name":"TOGAF® 9",
+		"description": "TOGAF® 9 Certified",
+		"badge":"https://images.credly.com/size/680x680/images/24c75efb-9a99-47f7-ab6d-fcd359534c1e/badge-togaf9-certified.png",
+		"proof":"https://www.credly.com/badges/7d239bd9-8580-4584-a330-2266b6d3a7ad/public_url"
 
 	},
 	{
-		"name":"ACP-JSD",
-		"description": "Jira Service Desk Administator",
-		"badge":"https://www.certmetrics.com/api/ob/image/atlassian/c/4/",
-		"proof":"https://www.certmetrics.com/atlassian/public/badge.aspx?i=4&t=c&d=2020-05-11&ci=AT00143196"
-
-	},
-	{
-		"name":"ACP-JCA",
-		"description": "Jira Cloud Administator",
-		"badge":"https://www.certmetrics.com/api/ob/image/atlassian/c/26/",
-		"proof":"https://www.certmetrics.com/atlassian/public/badge.aspx?i=26&t=c&d=2020-08-07&ci=AT00143196"
-		
+		"name":"CCSP",
+		"description": "Certified Cloud Security Professional",
+		"badge":"https://images.credly.com/size/680x680/images/38b12225-5b48-44e1-8750-20928cc595ea/image.png",
+		"proof":"https://www.credly.com/badges/69bf745c-ba05-4520-b408-a67e98b9d1ed/public_url"
 	}
 ]
