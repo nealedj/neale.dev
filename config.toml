@@ -11,7 +11,7 @@ enableGitInfo = false
 [params]
 address = "Cardiff, UK"
 email = "david@neale.dev"
-favicon = "/favicon.ico"
+favicon = "img/logo.svg"
 firstName = "David"
 lastName = "Neale"
 phone = "1-555-555-1234"
