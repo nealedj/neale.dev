@@ -14,6 +14,7 @@ email = "david@neale.dev"
 favicon = "img/logo.svg"
 firstName = "David"
 lastName = "Neale"
+description = "A highly experienced technical architect with over 17 years in diverse sectors, currently serving as Chief Architect at Admiral Money."
 phone = "1-555-555-1234"
 profileImage = "img/davidportrait.jpg"
 showQr = false
