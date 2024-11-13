@@ -19,7 +19,7 @@ phone = "1-555-555-1234"
 profileImage = "img/davidportrait.jpg"
 showQr = false
 showContact = false
-sections = ["skills","experience"]
+sections = ["skills","experience","contributions"]
 showSocializations = true
 showCertifications = true
 

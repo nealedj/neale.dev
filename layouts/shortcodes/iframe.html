@@ -1,0 +1,8 @@
+<iframe 
+  width="{{ .Get "width" | default "100%" }}" 
+  height="{{ .Get "height" | default "500" }}" 
+  src="{{ .Get "src" }}" 
+  frameborder="{{ .Get "frameborder" | default "0" }}"
+  style="{{ .Get "style" }}"
+  allowfullscreen="{{ .Get "allowfullscreen" | default "true" }}">
+</iframe>

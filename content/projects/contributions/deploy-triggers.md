@@ -1,14 +1,15 @@
 ---
 title: "Atlassian Deployment Triggers"
-link: "https://bitbucket.org/atlassianlabs/bamboo-after-deployment-trigger/pull-requests/2/fixes-issue-2-eliminate/diff"
-image: "/img/deploysonly.webp"
-description: "Uses Async call to lucene index for super fast autocompletion to address performance issue loading config."
+image: ""
+description: "A Rust application to calculates loan amortisation schedules."
 featured: true
-tags: ["Java","jQuery","REST APIs","Bamboo","JSON"]
-fact: "Reduce page load time from minutes to instantaneous."
+tags: ["Rust","WASM"]
 weight: 100
 sitemap: 
     priority : 0.8
 ---
 
-Addressed pretty significant page load performance issue founde in larger deployments. Eliminates uses of intensive backend query, replacing it with an asynchronous API call against a lucene index. This change reduces page load from from 2+ minutes to nearly instant, with an incredibly responsive UI.
+Written in Rust and available as a CLI tool along with being compiled to a WASM binary so that it can be used from this test bed. [https://github.com/nealedj/loan-amortisation-rust](https://github.com/nealedj/loan-amortisation-rust)
+
+{{< iframe src="https://nealedj.github.io/loan-amortisation-rust/" height="1000" >}}
+
