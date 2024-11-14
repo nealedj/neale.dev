@@ -12,3 +12,5 @@ This application calculates loan amortisation schedules. It uses a root finding 
 It was written as a curiosity exercise to learn Rust.
 
 Also compiled to a WASM binary and testable via a [simple web frontend](https://nealedj.github.io/loan-amortisation-rust/).
+
+{{< iframe src="https://nealedj.github.io/loan-amortisation-rust/" height="1000" >}}
