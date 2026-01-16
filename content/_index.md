@@ -11,6 +11,6 @@ outputs:
 ---
 A delivery-oriented technical strategist helping teams ship resilient software.
 
-Extensive experience across software engineering, AWS, GCP, Kubernetes, and cybersecurity—focused on pragmatic architecture, operability, and outcomes.
+Extensive experience across software engineering, AWS, GCP, Kubernetes, and cybersecurity focused on pragmatic architecture, operability, and outcomes.
 
-Currently Chief Architect at Admiral Money. I work best where reliability, security, and delivery speed all matter—and trade-offs need to be made explicit. I partner with product and engineering leaders to turn strategy into executable roadmaps and measurable delivery.
+Currently Chief Architect at Admiral Money. I work best where reliability, security, and delivery speed all matter and trade-offs need to be made explicit. I partner with product and engineering leaders to turn strategy into executable roadmaps and measurable delivery.
