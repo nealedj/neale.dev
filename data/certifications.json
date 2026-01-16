@@ -1,5 +1,17 @@
 [
 	{
+		"name":"AWS Solutions Architect Professional",
+		"description": "AWS Certified Solutions Architect - Professional",
+		"badge":"https://images.credly.com/size/680x680/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png",
+		"proof":"https://www.credly.com/badges/e5462b2c-eff6-44dd-b7bf-8ea3e4ab5e98/public_url"
+	},
+	{
+		"name":"AWS Solutions Architect Associate",
+		"description": "AWS Certified Solutions Architect - Associate",
+		"badge":"https://images.credly.com/size/680x680/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+		"proof":"https://www.credly.com/badges/596cc852-33b2-4861-9bd4-413ca09745d0/public_url"
+	},
+	{
 		"name":"TOGAF® 9",
 		"description": "TOGAF® 9 Certified",
 		"badge":"https://images.credly.com/size/680x680/images/24c75efb-9a99-47f7-ab6d-fcd359534c1e/badge-togaf9-certified.png",
