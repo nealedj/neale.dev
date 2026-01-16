@@ -10,4 +10,4 @@ This page represents the landing page for "projects" section. It is also shown u
 IN the dfault theme, "projects" is divided among "Creations" you authored and "contributions" made to others projects.
 
 -->
-<p>This section contains projects <a href="/projects/creations">created</a> and <a href="/projects/contributions">contributed</a> to by Eddie.  Everything listed is an open source effort, the distinction is only my role as owner or contributor.</p>
+<p>A collection of projects <a href="/projects/creations">I've created</a> and <a href="/projects/contributions">contributed to</a>. Everything listed is open source; the distinction is simply my role as owner or contributor.</p>

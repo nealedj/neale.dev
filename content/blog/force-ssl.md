@@ -1,8 +1,6 @@
 ---
 title: 'Forcing Visits to use SSL'
-date: Thu, 01 Jan 2009 14:09:10 +0000
-draft: false
-tags: [apache, apache, redirect, rewrite, ssl, web development]
+draft: true
 ---
 
 Intro

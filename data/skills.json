@@ -1,32 +1,30 @@
 [
   {
-      "grouping":" Architecture",
-      "skills":[ "Public Cloud", "API Design", "Domain Modeling", "Microservices", "Distributed Systems", "TOGAF", "Cybersecurity"]
+      "grouping":"Core",
+      "skills":["Cloud Architecture", "Cybersecurity", {"name":"AWS","link":"https://aws.amazon.com"}, "Kubernetes", "Terraform"]
   },
   {
-      "grouping":"Languages, Operating Systems & Tools",
-      "skills":[ "Java","Python","git","Linux","ReactJS","Docker","Kubernetes","Terraform", "nginx"]
+      "grouping":"Cloud Platforms",
+      "skills":[{"name":"Amazon Web Services","link":"https://aws.amazon.com"}, {"name":"Google Cloud Platform","link":"https://cloud.google.com"}]
   },
   {
-      "grouping":"Platform Development & Administration",
-      "skills":[ "Jira","Concourse","Bitbucket","Gitlab", "GitHub", "Google App Engine"]
+      "grouping":"Architecture & Strategy",
+      "skills":["Technical Strategy", "API Design", "Microservices", "Distributed Systems", "TOGAF"]
   },
   {
-      "grouping":"Data Management",
+      "grouping":"Languages & Frameworks",
+      "skills":["Python", "TypeScript", "Go", "Angular", "React"]
+  },
+  {
+      "grouping":"Infrastructure & DevOps",
+      "skills":["Docker", "Terraform", "git", "Linux", "GitHub", "Gitlab"]
+  },
+  {
+      "grouping":"Data",
       "skills":[
         {"name":"PostgreSQL","icon":"database"},
         {"name":"MySQL","icon":"database"},
-        "MongoDB",
-        "DynamoDB",
-        "Google Cloud Datastore"
-      ]
-  },
-  {
-    "grouping":"Containers & Cloud",
-      "skills":[
-          {"name":"Docker","link":"https://docker.com"},
-          {"name":"AWS","link":"https://aws.amazon.com"},
-          {"name":"GCP", "icon": "google-cloud-platform", "link":"https://cloud.google.com"}
+        "DynamoDB"
       ]
   }
 ]
