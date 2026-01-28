@@ -1,0 +1,7 @@
+<h3 class="mb-3"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+<div class="resume-item d-flex flex-column flex-md-row mb-3">
+  <div class="resume-content">
+    <p>{{ .Params.description | default .Description | safeHTML }}</p>
+    <p><a href="{{.Permalink}}">Read more..</a></p>
+  </div>
+</div>

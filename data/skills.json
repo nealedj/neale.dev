@@ -1,7 +1,7 @@
 [
   {
       "grouping":"Core",
-      "skills":["Cloud Architecture", "Cybersecurity", {"name":"AWS","link":"https://aws.amazon.com"}, "Kubernetes", "Terraform"]
+      "skills":["Cloud Architecture", "Cybersecurity", "Gen AI", {"name":"AWS","link":"https://aws.amazon.com"}, "Kubernetes", "Terraform"]
   },
   {
       "grouping":"Cloud Platforms",

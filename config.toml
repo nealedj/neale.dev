@@ -19,7 +19,7 @@ phone = ""
 profileImage = "img/davidportrait.jpg"
 showQr = false
 showContact = false
-sections = ["skills","experience", "creations"]
+sections = ["skills","experience"]
 showSocializations = true
 showCertifications = true
 
@@ -42,6 +42,9 @@ name = "Stack-Overflow"
 
 [outputs]
 home = ["HTML", "JSON"]
+
+[markup.goldmark.renderer]
+unsafe = true
 
 [taxonomies]
 tag = "tags"
