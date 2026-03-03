@@ -1,21 +1,29 @@
+body {
+    color: #333;
+}
+
 .list-social-icons a:hover {
-    color: #005E7C;
+    color: #1a6b7a;
 }
 
 .list-icons .list-inline-item i:hover {
-    color: #005E7C;
+    color: #1a6b7a;
 }
 
 .bg-primary {
-    background-color: #005E7C !important;
+    background-color: #1a6b7a !important;
 }
 
 .text-primary {
-    color: #005E7C !important;
+    color: #1a6b7a !important;
 }
 
 a {
-    color: #005E7C;
+    color: #1a6b7a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
 }
 
 a:hover,
@@ -39,7 +47,7 @@ a:active {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, #005E7C, #0088b3);
+    background: linear-gradient(to bottom, #1a6b7a, #0088b3);
     transform: translateX(-50%);
 }
 
@@ -65,17 +73,17 @@ a:active {
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    border-left: 4px solid #005E7C;
+    border-left: 4px solid #1a6b7a;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
     border-left: none;
-    border-right: 4px solid #005E7C;
+    border-right: 4px solid #1a6b7a;
 }
 
 .timeline-date {
     font-weight: 700;
-    color: #005E7C;
+    color: #1a6b7a;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -111,7 +119,7 @@ a:active {
     left: 50%;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #005E7C, #0088b3);
+    background: linear-gradient(135deg, #1a6b7a, #0088b3);
     border: 4px solid #ffffff;
     border-radius: 50%;
     transform: translateX(-50%);
@@ -160,7 +168,7 @@ a:active {
     }
     
     .timeline-item:nth-child(even) .timeline-content {
-        border-left: 4px solid #005E7C;
+        border-left: 4px solid #1a6b7a;
         border-right: none;
     }
     

@@ -7,7 +7,7 @@ sitemap:
   priority: 0.8
 ---
 
-## Glider Pilot (SPL)
+## Glider Pilot
 
 Welcome to my aviation journey! 
 
