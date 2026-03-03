@@ -11,7 +11,7 @@ sitemap:
 
 Welcome to my aviation journey! 
 
-I first went gliding at 14 with the Air Scouts and promptly forgot about it for two decades. Returning in 2022, I somehow ended up buying my own glider, flying the French Alps, and somewhere along the way I bought a glider. This page documents how that happened.
+I first went gliding at 14 with the Air Scouts and promptly forgot about it for two decades. Returning in 2022, I somehow ended up becoming a member of South Wales Gliding Club, flying the French Alps, learning to fly motorgliders and somewhere along the way I bought my own glider. This page documents how that happened.
 
 I hold a Sailplane License (SPL). I've achieved my FAI Silver C badge (1000m height gain, 50km distance and 5 hours duration) and my 100km diploma.
 
