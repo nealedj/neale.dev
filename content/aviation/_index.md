@@ -9,9 +9,11 @@ sitemap:
 
 ## Glider Pilot (SPL)
 
-Welcome to my aviation journey!
+Welcome to my aviation journey! 
 
-I'm a glider pilot holding a Sailplane Licence (SPL), with a passion for soaring and a keen interest in motorglider cross-country flying. My aviation journey spans from early training as a teenager with the Air Scouts to completing my SPL qualification and exploring the full potential of motorgliding.
+I first went gliding at 14 with the Air Scouts and promptly forgot about it for two decades. Returning in 2022, I somehow ended up buying my own glider, flying the French Alps, and somewhere along the way I bought a glider. This page documents how that happened.
+
+I hold a Sailplane License (SPL). I've achieved my FAI Silver C badge (1000m height gain, 50km distance and 5 hours duration) and my 100km diploma.
 
 This section documents my aviation achievements, including the milestones that shaped my development as a pilot, the practical tools I've created to help fellow pilots in their training, and the adventures I've experienced in the skies.
 
@@ -80,7 +82,7 @@ A chronological record of my journey as a pilot, from first learning to glide to
     <div class="timeline-content">
         <div class="timeline-date">August 2024</div>
         <div class="timeline-title">Bought a PIK 20D</div>
-        <div class="timeline-description">Purchased a PIK 20D glider in August 2024.</div>
+        <div class="timeline-description">Bought a PIK 20D — a Finnish high-performance glider from the late 1970s that still flies beautifully. Owning an aircraft is a different kind of commitment: you're responsible for its maintenance, its airworthiness, and everything that follows from taking it into the air. It's also deeply satisfying in a way that's hard to explain if you haven't done it.</div>
         <div class="timeline-image-container">
             <img src="/img/aviation/dly.jpg" alt="PIK 20D glider" class="timeline-image">
         </div>

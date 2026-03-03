@@ -7,9 +7,9 @@
     "featured":true
 }
 
-This application calculates loan amortisation schedules. It uses a root finding algorithm to find the optimum monthly payment. Supports all of the common interest calculation methods.
+I built this to get hands-on with Rust and WebAssembly - running a financial calculation entirely in the browser, with no server involved, felt like a well-scoped problem to learn on. It turns out Rust is very well-suited to this kind of thing, and WASM makes the result genuinely portable. The maths isn't complicated; the interesting part was the toolchain.
 
-It was written as a curiosity exercise to learn Rust.
+This application calculates loan amortisation schedules. It uses a root finding algorithm to find the optimum monthly payment. Supports all of the common interest calculation methods.
 
 Also compiled to a WASM binary and testable via a [simple web frontend](https://nealedj.github.io/loan-amortisation-rust/).
 

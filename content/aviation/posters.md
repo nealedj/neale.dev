@@ -2,7 +2,7 @@
 title: "TMG Posters"
 date: 2025-01-27
 weight: 30
-description: "A few posters I created to help commit mnemonics to memory"
+description: "During TMG training I found myself struggling to memorise the various checklists and mnemonics through repetition alone, so I designed a set of visual reference posters to make them stick. Partly a learning aid, partly an excuse to do something practical with the material."
 ---
 
 ## TMG Training Mnemonics
