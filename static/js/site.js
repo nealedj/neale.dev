@@ -55,7 +55,9 @@
   }
 
   // ── Altimeter ────────────────────────────────────────────────────────────
-  // An SVG altimeter in the sidebar whose needle tracks scroll progress.
+  // SVG altimeter styled after a standard Kollsman-type GA pressure altimeter.
+  // One full needle revolution = 10,000 ft (scroll top→bottom).
+  // Numbers 0–9 represent ×1,000 ft; 50 tick divisions (one per 200 ft).
 
   function initAltimeter() {
     var container = document.getElementById('altimeter-container');
@@ -71,99 +73,114 @@
 
     var svg = svgEl('svg', { viewBox: '0 0 120 120', class: 'altimeter-svg' });
 
-    // Face
+    // ── Outer bezel ring
     svg.appendChild(svgEl('circle', {
-      cx: 60, cy: 60, r: 56,
-      fill: '#0d2329', stroke: '#1a6b7a', 'stroke-width': 2
+      cx: 60, cy: 60, r: 58,
+      fill: '#1a1a1a', stroke: '#555', 'stroke-width': 1.5
     }));
 
-    // Inner decorative ring
+    // ── Black instrument face
     svg.appendChild(svgEl('circle', {
-      cx: 60, cy: 60, r: 49,
-      fill: 'none', stroke: '#1a6b7a', 'stroke-width': '0.5', opacity: '0.35'
+      cx: 60, cy: 60, r: 54,
+      fill: '#0a0a0a'
     }));
 
-    // Tick marks — 36 total (every 10°), major every 30°
-    for (var i = 0; i < 36; i++) {
-      var rad   = (i * 10) * Math.PI / 180;
-      var major = (i % 3 === 0);
-      var r1    = major ? 42 : 46;
+    // ── Tick marks: 50 divisions per revolution (every 7.2°)
+    //    Major tick at each number (every 36° = 1,000 ft)
+    //    Medium tick at midpoint   (every 18° = 500 ft)
+    //    Minor tick elsewhere      (every 7.2° = 200 ft)
+    for (var i = 0; i < 50; i++) {
+      var deg  = i * 7.2;
+      var rad  = deg * Math.PI / 180;
+      var isMajor = (i % 5 === 0);   // at each number (every 1,000 ft)
+      var rOuter  = 51;
+      var rInner = isMajor ? 40 : 46;
       svg.appendChild(svgEl('line', {
-        x1: (60 + r1 * Math.sin(rad)).toFixed(2),
-        y1: (60 - r1 * Math.cos(rad)).toFixed(2),
-        x2: (60 + 52 * Math.sin(rad)).toFixed(2),
-        y2: (60 - 52 * Math.cos(rad)).toFixed(2),
-        stroke: major ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.3)',
-        'stroke-width': major ? 1.5 : 0.75,
-        'stroke-linecap': 'round'
+        x1: (60 + rInner * Math.sin(rad)).toFixed(2),
+        y1: (60 - rInner * Math.cos(rad)).toFixed(2),
+        x2: (60 + rOuter * Math.sin(rad)).toFixed(2),
+        y2: (60 - rOuter * Math.cos(rad)).toFixed(2),
+        stroke: 'white',
+        'stroke-width': isMajor ? 1.5 : 0.75,
+        'stroke-linecap': 'round',
+        opacity: isMajor ? 1 : 0.7
       }));
     }
 
-    // Numbers 0–9 (clockwise from 12 o'clock, every 36°)
+    // ── Numbers 0–9 (clockwise from 12 o'clock, every 36°, radius 32)
+    //    Each number represents 1,000 ft.
     for (var n = 0; n < 10; n++) {
       var nRad = (n * 36) * Math.PI / 180;
-      var r    = 36;
+      var rN   = 32;
       var txt  = svgEl('text', {
-        x: (60 + r * Math.sin(nRad)).toFixed(2),
-        y: (60 - r * Math.cos(nRad) + 3).toFixed(2),
+        x: (60 + rN * Math.sin(nRad)).toFixed(2),
+        y: (60 - rN * Math.cos(nRad) + 3.5).toFixed(2),
         'text-anchor': 'middle',
-        'font-size': 8,
-        fill: 'rgba(255,255,255,0.65)',
+        'font-size': 9,
+        fill: 'white',
         'font-family': 'Saira Extra Condensed, sans-serif',
-        'font-weight': 600
+        'font-weight': '700'
       });
       txt.textContent = n;
       svg.appendChild(txt);
     }
 
-    // Needle group
+    // ── "×1000 FT" label — two lines below centre, teal tint
+    var lbl1 = svgEl('text', {
+      x: 60, y: 82,
+      'text-anchor': 'middle',
+      'font-size': 5.5,
+      fill: 'rgba(26,107,122,0.9)',
+      'font-family': 'Saira Extra Condensed, sans-serif',
+      'letter-spacing': 1
+    });
+    lbl1.textContent = '\u00d71000';   // ×1000
+    svg.appendChild(lbl1);
+    var lbl2 = svgEl('text', {
+      x: 60, y: 89,
+      'text-anchor': 'middle',
+      'font-size': 5.5,
+      fill: 'rgba(26,107,122,0.9)',
+      'font-family': 'Saira Extra Condensed, sans-serif',
+      'letter-spacing': 2
+    });
+    lbl2.textContent = 'FT';
+    svg.appendChild(lbl2);
+
+    // ── Needle group (appended last so it renders on top)
     var needleGroup = svgEl('g', { id: 'altimeter-needle-group' });
 
-    // Main needle (white, long, tapers to tip at 12 o'clock)
+    // Long white needle — slim, tapers to a fine point at 12 o'clock
     needleGroup.appendChild(svgEl('path', {
-      d: 'M60,14 L57.8,59 L60,64 L62.2,59 Z',
-      fill: 'white',
-      opacity: '0.92'
+      d: 'M60,13 L58.8,58 L60,62 L61.2,58 Z',
+      fill: 'white'
     }));
 
-    // Counter-weight tail (short, teal)
+    // Short counterweight tail — slightly wider, darker
     needleGroup.appendChild(svgEl('path', {
-      d: 'M60,64 L58.5,73 L60,75.5 L61.5,73 Z',
-      fill: '#1a6b7a'
+      d: 'M60,62 L58.5,71 L60,73.5 L61.5,71 Z',
+      fill: 'rgba(200,200,200,0.7)'
     }));
 
-    // Centre cap
+    // Centre cap — small black circle with white ring, authentic look
     needleGroup.appendChild(svgEl('circle', {
-      cx: 60, cy: 60, r: 5,
-      fill: '#1a6b7a', stroke: 'rgba(255,255,255,0.6)', 'stroke-width': 1
+      cx: 60, cy: 60, r: 4,
+      fill: '#111', stroke: 'rgba(255,255,255,0.7)', 'stroke-width': 1
     }));
 
     svg.appendChild(needleGroup);
 
-    // "ALT" label below centre
-    var label = svgEl('text', {
-      x: 60, y: 89,
-      'text-anchor': 'middle',
-      'font-size': 7,
-      fill: 'rgba(26,107,122,0.75)',
-      'font-family': 'Saira Extra Condensed, sans-serif',
-      'letter-spacing': 2.5
-    });
-    label.textContent = 'ALT';
-    svg.appendChild(label);
-
-    container.appendChild(svg);
-
-    // Scroll → needle rotation
-    // Needle starts at 0° (pointing to "0" at 12 o'clock) and sweeps 324°
-    // (nine full number increments × 36°) as you reach the bottom of the page.
+    // ── Scroll → needle rotation
+    // One full revolution (360°) = 10,000 ft.
+    // At scroll top: needle at 0 (pointing to "0" at 12 o'clock).
+    // At scroll bottom: needle completes one full revolution = 10,000 ft.
     function updateNeedle() {
-      var scrollTop   = window.pageYOffset || document.documentElement.scrollTop;
-      var docHeight   = Math.max(
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = Math.max(
         document.documentElement.scrollHeight - window.innerHeight, 1
       );
-      var progress    = scrollTop / docHeight;
-      var angle       = progress * 324;
+      var progress = scrollTop / docHeight;
+      var angle    = progress * 360;
       needleGroup.setAttribute('transform', 'rotate(' + angle.toFixed(1) + ', 60, 60)');
     }
 
