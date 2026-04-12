@@ -32,6 +32,23 @@ a:active {
     color: #001242;
 }
 
+/* Mobile-only profile photo in about section */
+.mobile-profile-img {
+  max-width: 150px !important;
+  height: auto;
+}
+
+/* Reduce section top padding so content shows above fold */
+section.resume-section {
+  padding-top: 3rem !important;
+}
+
+/* Certification badge uniform height */
+.certification-badge img {
+  height: 80px;
+  width: auto;
+}
+
 /* Aviation Timeline Styles */
 .aviation-timeline {
     position: relative;
@@ -53,7 +70,7 @@ a:active {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
 }

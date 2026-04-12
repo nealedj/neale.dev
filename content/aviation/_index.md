@@ -3,6 +3,7 @@ title: "Aviation"
 date: 2025-01-27
 weight: 10
 image: /img/aviation/aviation-hero.jpg
+description: "Glider pilot and SPL holder. FAI Silver C badge (1000m height gain, 50km distance, 5 hours), 100km diploma. Member of South Wales Gliding Club."
 sitemap:
   priority: 0.8
 ---
