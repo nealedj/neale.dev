@@ -92,10 +92,15 @@ section.resume-section {
 }
 
 @media (max-width: 768px) {
-    /* tweaks.css sets line-height: 48px on mobile links for tap targets,
-       which causes excessive spacing on lines containing inline links */
+    /* tweaks.css applies tap-target sizing to all <a> elements on mobile,
+       which forces line box height on inline links causing excessive spacing */
     a {
         line-height: inherit !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+        min-inline-size: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
 
