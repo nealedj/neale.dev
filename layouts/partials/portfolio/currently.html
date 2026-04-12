@@ -1,0 +1,18 @@
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="currently">
+  <div class="my-auto">
+    <h2 class="mb-1">Currently</h2>
+    <div class="subheading mb-5">What I'm working on and thinking about</div>
+
+    <div class="currently-list">
+      {{ range .Data.currently }}
+      <div class="currently-item">
+        <div class="currently-dot"></div>
+        <div class="currently-content">
+          <h5 class="currently-title">{{ .item }}</h5>
+          <p class="currently-detail">{{ .detail }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

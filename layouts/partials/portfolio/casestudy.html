@@ -1,0 +1,21 @@
+{{ $cs := .Data.casestudy }}
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="casestudy">
+  <div class="my-auto">
+    <div class="casestudy-label text-primary mb-1">
+      <i class="fas {{ $cs.icon }} mr-2"></i>{{ $cs.label }}
+    </div>
+    <h2 class="mb-1">{{ $cs.title }}</h2>
+    <div class="subheading mb-4">{{ $cs.organisation }} &middot; {{ $cs.period }}</div>
+
+    <p class="casestudy-intro">{{ $cs.intro }}</p>
+
+    <div class="casestudy-sections">
+      {{ range $cs.sections }}
+      <div class="casestudy-block">
+        <h5 class="casestudy-heading">{{ .heading }}</h5>
+        <p>{{ .body }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

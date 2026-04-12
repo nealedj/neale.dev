@@ -1,0 +1,28 @@
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+  <div class="my-auto">
+    <h2 class="mb-5">Skills</h2>
+
+    {{ range .Data.skills }}
+    <div class="skills-tier mb-5">
+      <div class="skills-tier-header mb-3">
+        <h4 class="skills-tier-label">{{ .grouping }}</h4>
+        {{ if .description }}<p class="skills-tier-description">{{ .description }}</p>{{ end }}
+      </div>
+      <ul class="list-inline skills-list">
+        {{ range .skills }}
+          {{ if eq (kindOf .) "map" }}
+          <li class="list-inline-item">
+            <a href="{{ .link }}" class="skill-badge skill-badge--linked" target="_blank" rel="noopener">{{ .name }}</a>
+          </li>
+          {{ else }}
+          <li class="list-inline-item">
+            <span class="skill-badge">{{ . }}</span>
+          </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
