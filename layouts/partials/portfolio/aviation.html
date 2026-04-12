@@ -1,0 +1,14 @@
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="aviation">
+  <div class="my-auto">
+    <h2 class="mb-5">{{ i18n "aviation" }}</h2>
+    {{ $page := .GetPage "/aviation" }}
+    {{ if $page }}
+    <div class="resume-item d-flex flex-column flex-md-row mb-3">
+      <div class="resume-content">
+        <p>{{ $page.Params.description | default $page.Description | safeHTML }}</p>
+        <p><a href="{{ $page.Permalink }}">Read more..</a></p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>

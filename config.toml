@@ -19,7 +19,7 @@ phone = ""
 profileImage = "img/davidportrait.jpg"
 showQr = false
 showContact = false
-sections = ["skills","experience"]
+sections = ["skills","experience","aviation"]
 showSocializations = true
 showCertifications = true
 
