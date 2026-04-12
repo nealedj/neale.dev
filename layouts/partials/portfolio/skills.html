@@ -10,7 +10,7 @@
       </div>
       <ul class="list-inline skills-list">
         {{ range .skills }}
-          {{ if reflect.IsMap . }}
+          {{ if eq (kindOf .) "map" }}
           <li class="list-inline-item">
             <a href="{{ .link }}" class="skill-badge skill-badge--linked" target="_blank" rel="noopener">{{ .name }}</a>
           </li>

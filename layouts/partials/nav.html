@@ -14,9 +14,11 @@
         <a class="nav-link js-scroll-trigger" href="{{ "#about" | relURL }}">{{ i18n "about" }}</a>
       </li>
       {{ range .Site.Params.sections }}
+      {{ if ne . "aviation" }}
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="/#{{.}}">{{ . | i18n }}</a>
       </li>
+      {{ end }}
       {{ end }}
       <li class="nav-item">
         <a class="nav-link" href="/aviation/">{{ "aviation" | i18n }}</a>
