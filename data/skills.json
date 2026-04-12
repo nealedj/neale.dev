@@ -1,30 +1,43 @@
 [
   {
-      "grouping":"Core",
-      "skills":["Cloud Architecture", "Cybersecurity", "Gen AI", {"name":"AWS","link":"https://aws.amazon.com"}, "Kubernetes", "Terraform"]
+    "grouping": "Expert",
+    "description": "Use daily, know deeply",
+    "skills": [
+      "Cloud Architecture",
+      {"name":"Amazon Web Services","link":"https://aws.amazon.com"},
+      "Kubernetes",
+      "Terraform",
+      "Technical Strategy",
+      "Python",
+      "Microservices",
+      "Distributed Systems",
+      "Docker"
+    ]
   },
   {
-      "grouping":"Cloud Platforms",
-      "skills":[{"name":"Amazon Web Services","link":"https://aws.amazon.com"}, {"name":"Google Cloud Platform","link":"https://cloud.google.com"}]
+    "grouping": "Proficient",
+    "description": "Strong working knowledge, regular use",
+    "skills": [
+      "Go",
+      "TypeScript",
+      {"name":"Google Cloud Platform","link":"https://cloud.google.com"},
+      "API Design",
+      "TOGAF",
+      "Cybersecurity",
+      "Gen AI",
+      "Linux",
+      "PostgreSQL",
+      "DynamoDB",
+      "git"
+    ]
   },
   {
-      "grouping":"Architecture & Strategy",
-      "skills":["Technical Strategy", "API Design", "Microservices", "Distributed Systems", "TOGAF"]
-  },
-  {
-      "grouping":"Languages & Frameworks",
-      "skills":["Python", "TypeScript", "Go", "Angular", "React"]
-  },
-  {
-      "grouping":"Infrastructure & DevOps",
-      "skills":["Docker", "Terraform", "git", "Linux", "GitHub", "Gitlab"]
-  },
-  {
-      "grouping":"Data",
-      "skills":[
-        {"name":"PostgreSQL","icon":"database"},
-        {"name":"MySQL","icon":"database"},
-        "DynamoDB"
-      ]
+    "grouping": "Familiar",
+    "description": "Working knowledge, less recent use",
+    "skills": [
+      "React",
+      "Angular",
+      "MySQL"
+    ]
   }
 ]
