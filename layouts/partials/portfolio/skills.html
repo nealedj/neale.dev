@@ -3,12 +3,9 @@
     <h2 class="mb-5">Skills</h2>
 
     {{ range .Data.skills }}
-    <div class="skills-tier mb-5">
-      <div class="skills-tier-header mb-3">
-        <h4 class="skills-tier-label">{{ .grouping }}</h4>
-        {{ if .description }}<p class="skills-tier-description">{{ .description }}</p>{{ end }}
-      </div>
-      <ul class="list-inline skills-list">
+    <div class="skills-tier mb-4">
+      <h4 class="skills-tier-label">{{ .grouping }}</h4>
+      <ul class="list-inline skills-list mb-4">
         {{ range .skills }}
         <li class="list-inline-item">
           {{ if .link }}
