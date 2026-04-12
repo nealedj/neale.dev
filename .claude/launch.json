@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "Hugo Dev Server",
-      "runtimeExecutable": "powershell",
-      "runtimeArgs": ["-NonInteractive", "-Command", "hugo server --port 1313 --disableFastRender"],
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "hugo-server.cmd"],
       "port": 1313
     }
   ]
