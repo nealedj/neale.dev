@@ -3,41 +3,41 @@
     "grouping": "Expert",
     "description": "Use daily, know deeply",
     "skills": [
-      "Cloud Architecture",
-      {"name":"Amazon Web Services","link":"https://aws.amazon.com"},
-      "Kubernetes",
-      "Terraform",
-      "Technical Strategy",
-      "Python",
-      "Microservices",
-      "Distributed Systems",
-      "Docker"
+      {"name": "Cloud Architecture"},
+      {"name": "Amazon Web Services", "link": "https://aws.amazon.com"},
+      {"name": "Kubernetes"},
+      {"name": "Terraform"},
+      {"name": "Technical Strategy"},
+      {"name": "Python"},
+      {"name": "Microservices"},
+      {"name": "Distributed Systems"},
+      {"name": "Docker"}
     ]
   },
   {
     "grouping": "Proficient",
     "description": "Strong working knowledge, regular use",
     "skills": [
-      "Go",
-      "TypeScript",
-      {"name":"Google Cloud Platform","link":"https://cloud.google.com"},
-      "API Design",
-      "TOGAF",
-      "Cybersecurity",
-      "Gen AI",
-      "Linux",
-      "PostgreSQL",
-      "DynamoDB",
-      "git"
+      {"name": "Go"},
+      {"name": "TypeScript"},
+      {"name": "Google Cloud Platform", "link": "https://cloud.google.com"},
+      {"name": "API Design"},
+      {"name": "TOGAF"},
+      {"name": "Cybersecurity"},
+      {"name": "Gen AI"},
+      {"name": "Linux"},
+      {"name": "PostgreSQL"},
+      {"name": "DynamoDB"},
+      {"name": "git"}
     ]
   },
   {
     "grouping": "Familiar",
     "description": "Working knowledge, less recent use",
     "skills": [
-      "React",
-      "Angular",
-      "MySQL"
+      {"name": "React"},
+      {"name": "Angular"},
+      {"name": "MySQL"}
     ]
   }
 ]
