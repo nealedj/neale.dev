@@ -52,13 +52,15 @@ section.resume-section {
 /* Altimeter */
 .altimeter-container {
     display: none;
-    padding: 1.5rem 1rem 1rem;
-    text-align: center;
 }
 
 @media (min-width: 992px) {
     .altimeter-container {
         display: block;
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
