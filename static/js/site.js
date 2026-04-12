@@ -172,9 +172,17 @@
   }
 
   // ── Boot ─────────────────────────────────────────────────────────────────
-  document.addEventListener('DOMContentLoaded', function () {
+  // Guard against the script running after DOMContentLoaded has already fired
+  // (e.g. if loaded async or cached).
+  function boot() {
     initMetricCounters();
     initAltimeter();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
 
 }());

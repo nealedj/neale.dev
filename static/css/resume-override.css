@@ -60,13 +60,6 @@ section.resume-section {
     .altimeter-container {
         display: block;
     }
-
-    /* Push altimeter to the bottom of the sidebar */
-    #sideNav .navbar-collapse {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-    }
 }
 
 .altimeter-svg {
