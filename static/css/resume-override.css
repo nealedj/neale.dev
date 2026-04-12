@@ -91,6 +91,14 @@ section.resume-section {
     background: #c8e0e4;
 }
 
+@media (max-width: 768px) {
+    /* tweaks.css sets line-height: 48px on mobile links for tap targets,
+       which causes excessive spacing on lines containing inline links */
+    a {
+        line-height: inherit !important;
+    }
+}
+
 @media (max-width: 576px) {
     .metrics-strip {
         justify-content: center;

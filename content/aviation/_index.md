@@ -83,7 +83,7 @@ A chronological record of my journey as a pilot, from first learning to glide to
     <div class="timeline-content">
         <div class="timeline-date">August 2024</div>
         <div class="timeline-title">Bought a PIK 20D</div>
-        <div class="timeline-description">Bought a PIK 20D — a Finnish high-performance glider from the late 1970s that still flies beautifully. Owning an aircraft is a different kind of commitment: you're responsible for its maintenance, its airworthiness, and everything that follows from taking it into the air. It's also deeply satisfying in a way that's hard to explain if you haven't done it.</div>
+        <div class="timeline-description">Bought a PIK 20D, a Finnish high-performance glider from the late 1970s that still flies beautifully. Owning an aircraft is a different kind of commitment: you're responsible for its maintenance, its airworthiness, and everything that follows from taking it into the air. It's also deeply satisfying.</div>
         <div class="timeline-image-container">
             <img src="/img/aviation/dly.jpg" alt="PIK 20D glider" class="timeline-image">
         </div>
