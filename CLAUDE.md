@@ -10,6 +10,9 @@ Hugo static site for neale.dev — personal portfolio and CV. Content is mostly 
 # Start dev server (live reload at localhost:1313)
 hugo server
 
+# On Windows with Device Guard policy (e.g. corp machines), use the .cmd wrapper:
+# hugo-server.cmd — this routes through cmd.exe to bypass WDAC restrictions
+
 # Production build
 hugo --gc --minify
 
