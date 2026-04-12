@@ -182,12 +182,6 @@ section.resume-section {
     text-decoration: none;
 }
 
-/* Dim the Familiar tier slightly to create visual hierarchy */
-.skills-tier:last-child .skill-badge {
-    background: #f4f4f4;
-    color: #888;
-    border-color: #ddd;
-}
 
 /* Currently Section */
 .currently-list {
