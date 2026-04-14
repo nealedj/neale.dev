@@ -49,14 +49,20 @@ section.resume-section {
   width: auto;
 }
 
-/* Altimeter */
-.altimeter-container {
+/* Instruments bar (altimeter + variometer) */
+.instruments-bar {
     display: none;
 }
 
+/* Desktop: 2×2 grid at the bottom of the sidebar */
 @media (min-width: 992px) {
-    .altimeter-container {
-        display: block;
+    .instruments-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        align-items: center;
+        max-width: 148px;
         position: absolute;
         bottom: 1.5rem;
         left: 50%;
@@ -64,12 +70,46 @@ section.resume-section {
     }
 }
 
-.altimeter-svg {
-    width: 90px;
-    height: 90px;
+/* Mobile: fixed bottom strip across full viewport width */
+@media (max-width: 991px) {
+    .instruments-bar {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 4px 0;
+        background: rgba(17, 72, 83, 0.93);
+        z-index: 1025;
+    }
+
+    /* Reserve space so bottom content isn't hidden behind the bar */
+    body {
+        padding-bottom: 72px;
+    }
+}
+
+.altimeter-svg,
+.variometer-svg,
+.asi-svg,
+.ai-svg {
+    width: 70px;
+    height: 70px;
     display: block;
-    margin: 0 auto;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 991px) {
+    .altimeter-svg,
+    .variometer-svg,
+    .asi-svg,
+    .ai-svg {
+        width: 58px;
+        height: 58px;
+    }
 }
 
 /* Metrics Strip */
