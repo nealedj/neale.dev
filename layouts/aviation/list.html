@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Neale / Aviation</title>
+  <meta name="description" content="{{ .Description }}">
+  <meta property="og:title" content="David Neale / Aviation">
+  <meta property="og:description" content="{{ .Description }}">
+  <meta property="og:image" content="{{ .Site.Params.profileImage | absURL }}">
+  <meta property="og:type" content="website">
+  <meta name="author" content="David Neale">
+  <link rel="icon" href="/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/terminal.css">
+</head>
+<body class="terminal-page" data-scanlines="on">
+
+<nav class="t-nav">
+  <div class="t-nav-inner">
+    <a href="/" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
+    <div class="t-nav-links">
+      <a href="/#about">About</a>
+      <a href="/#case">Case</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#currently">Now</a>
+      <a href="/aviation/" class="active">Aviation</a>
+    </div>
+  </div>
+</nav>
+
+<aside class="instrument-rail" aria-hidden="true"></aside>
+
+<main class="t-shell" id="top">
+
+  <!-- HERO -->
+  <section class="avi-hero">
+    <div>
+      <div class="t-hero-meta" style="margin-bottom:28px;">
+        <span>§ 00 &nbsp;//&nbsp; AVIATION</span>
+        <span class="coord" data-coord>51.4816°N&nbsp;&nbsp;3.1791°W</span>
+      </div>
+      <div class="t-hero-role">Sailplane Pilot Licence · Silver C · 100k Diploma</div>
+      <h1 class="t-hero-title" style="font-size: clamp(48px, 8vw, 104px);">
+        <span class="given">Aviation</span>
+        <span class="surname t-dim">logbook.</span>
+      </h1>
+      <p class="t-hero-bio" style="margin-top: 8px;">
+        Glider pilot and SPL holder. FAI Silver C badge: 1000m height gain, 50km distance,
+        5 hours. 100km diploma. Member of South Wales Gliding Club.
+      </p>
+    </div>
+
+    <div class="avi-panel" aria-hidden="true">
+      <div class="rail-gauge" id="panel-att"></div>
+      <div class="rail-gauge" id="panel-asi"></div>
+      <div class="rail-gauge" id="panel-alt"></div>
+      <div class="rail-gauge" id="panel-vsi"></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="t-hero-footer" style="border-top:none; padding-top:0;">
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="1000">0</span><span class="unit">m</span></div>
+        <div class="t-stat-label">Silver C height gain</div>
+      </div>
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="100">0</span><span class="unit">km</span></div>
+        <div class="t-stat-label">Diploma distance</div>
+      </div>
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="5">0</span><span class="unit">hr</span></div>
+        <div class="t-stat-label">Silver duration</div>
+      </div>
+      <div class="t-stat">
+        <div class="t-stat-num">PIK<span class="unit">20D</span></div>
+        <div class="t-stat-label">Glider, owned 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">§ 01 / Journey</div>
+      <h2 class="section-title">From Air Scouts at 14 <span class="t-dim">to the French Alps. Twenty-five years in three acts.</span></h2>
+    </div>
+    <div class="t-grid-2">
+      <p class="t-lede">
+        A passion for soaring and a keen interest in motorglider cross-country flying.
+      </p>
+      <div class="t-prose">
+        <p>
+          I first went gliding at 14 with the Air Scouts and promptly forgot about it for
+          two decades. Returning in 2022, I somehow ended up becoming a member of South Wales
+          Gliding Club, flying the French Alps, learning to fly motorgliders and somewhere
+          along the way I bought my own glider.
+        </p>
+        <p>
+          This section documents my milestones as a pilot, the practical tools I've created
+          to help fellow pilots in their training, and the adventures I've experienced in
+          the skies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">§ 02 / Milestones</div>
+      <h2 class="section-title">Chronology <span class="t-dim">/ logbook entries, big days.</span></h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-year">AUG 2000</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>First flight at Aston Down</h3>
+          <p>Started gliding with the Air Scouts at age 14.</p>
+        </div>
+      </div>
+
+      <div class="tl-year">APR 2022</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>Returned to gliding</h3>
+          <p>Resumed training at South Wales Gliding Club after a long break.</p>
+        </div>
+      </div>
+
+      <div class="tl-year">APR 2023</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>First solo</h3>
+          <p>Completed first solo flight in April 2023.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/first_solo.jpg" alt="First solo flight">
+        </div>
+      </div>
+
+      <div class="tl-year">MAY 2024</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>Silver duration (5 hours)</h3>
+          <p>Flew for five hours in May 2024 for Silver badge duration.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/silver_duration.jpg" alt="Silver duration achievement">
+        </div>
+      </div>
+
+      <div class="tl-year">JUL 2024</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>SPL achieved</h3>
+          <p>Passed the SPL (Sailplane Pilot Licence) in July 2024.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/license.jpg" alt="Sailplane Pilot Licence">
+        </div>
+      </div>
+
+      <div class="tl-year">AUG 2024</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>Bought a PIK 20D</h3>
+          <p>Purchased a PIK 20D glider, a Finnish high-performance single-seater from the late 1970s with a rich competition heritage. Owning an aircraft is a different kind of commitment: you're responsible for its maintenance, its airworthiness, and everything that follows from taking it into the air.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/dly.jpg" alt="PIK 20D glider">
+        </div>
+      </div>
+
+      <div class="tl-year">OCT 2024</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>Started TMG training</h3>
+          <p>Began motorglider (TMG) training in October 2024.</p>
+        </div>
+      </div>
+
+      <div class="tl-year">JAN 2025</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>First TMG solo</h3>
+          <p>First solo flight in a motorglider, January 2025.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/first_tmg_solo.jpg" alt="First TMG solo flight">
+        </div>
+      </div>
+
+      <div class="tl-year">MAY 2025</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>Silver distance &amp; height</h3>
+          <p>Completed a 50km flight and 3,281ft height gain for the Silver badge in May 2025.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/silver_distance.jpg" alt="Silver distance achievement">
+        </div>
+      </div>
+
+      <div class="tl-year">JUN 2025</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>100km diploma</h3>
+          <p>Flew 100km in June 2025 for the 100k diploma.</p>
+        </div>
+      </div>
+
+      <div class="tl-year">JUN 2025</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>TMG cross-country</h3>
+          <p>Completed qualifying cross-country flight in a TMG, June 2025.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/tmg_xc.jpg" alt="TMG cross-country flight">
+        </div>
+      </div>
+
+      <div class="tl-year">JUL 2025</div>
+      <div class="tl-item">
+        <div class="tl-body">
+          <h3>Flying in the French Alps</h3>
+          <p>Flew in the French Alps: ridge, wave and thermal soaring among serious terrain.</p>
+        </div>
+        <div class="tl-media">
+          <img src="/img/aviation/glacier_blanc.jpg" alt="Glacier Blanc, French Alps">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIDE PROJECTS -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">§ 03 / Related</div>
+      <h2 class="section-title">Side projects <span class="t-dim">/ for pilots, by a pilot.</span></h2>
+    </div>
+    <div class="t-checklist">
+      <div class="t-checklist-item">
+        <div class="t-checklist-num">ITEM · 01</div>
+        <h4><a href="/aviation/gallery/">Gallery</a></h4>
+        <p>A selection of gliding photos from South Wales, England and the Alps.</p>
+      </div>
+      <div class="t-checklist-item">
+        <div class="t-checklist-num">ITEM · 02</div>
+        <h4><a href="/aviation/posters/">TMG Posters</a></h4>
+        <p>Posters I created to help commit mnemonics to memory during TMG training.</p>
+      </div>
+      <div class="t-checklist-item">
+        <div class="t-checklist-num">ITEM · 03</div>
+        <h4>Glider avionics</h4>
+        <p>Custom instrumentation for the PIK 20D, where embedded electronics meets soaring.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="t-foot">
+    <span>© David Neale · Cardiff, UK</span>
+    <span data-coord>N 51°28'54" &nbsp;&nbsp; W 3°10'44"</span>
+    <span><a href="/">← Home</a></span>
+  </footer>
+
+</main>
+
+<script src="/js/instruments.js"></script>
+<script src="/js/tweaks.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var railUpdaters = DNInstruments.mountRail(".instrument-rail",
+    ["altimeter", "airspeed", "vario", "attitude"]);
+
+  var panelUpdaters = [];
+  panelUpdaters.push(DNInstruments.createInstrument(document.getElementById("panel-att"), "attitude"));
+  panelUpdaters.push(DNInstruments.createInstrument(document.getElementById("panel-asi"), "airspeed"));
+  panelUpdaters.push(DNInstruments.createInstrument(document.getElementById("panel-alt"), "altimeter"));
+  panelUpdaters.push(DNInstruments.createInstrument(document.getElementById("panel-vsi"), "vario"));
+
+  DNInstruments.setUpdaters(railUpdaters.concat(panelUpdaters));
+  DNInstruments.start();
+
+  var counters = document.querySelectorAll("[data-count]");
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  counters.forEach(function(el) {
+    var target = parseFloat(el.dataset.count);
+    var duration = 1800;
+    var start = performance.now() + 200;
+    function step(now) {
+      var t = Math.max(0, Math.min(1, (now - start) / duration));
+      var v = target * ease(t);
+      if (target >= 100) el.textContent = Math.round(v).toLocaleString();
+      else el.textContent = Math.round(v).toString();
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+});
+</script>
+
+{{ if .Site.Params.google.analytics.trackerID }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.google.analytics.trackerID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ .Site.Params.google.analytics.trackerID }}');
+</script>
+{{ end }}
+
+</body>
+</html>
