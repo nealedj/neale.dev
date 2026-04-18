@@ -1,22 +1,465 @@
-{{ define "main" }}
-   {{ partial "about.html" .}}
-   {{ $projects := slice "contributions" }}
-   {{ $sections := slice "publications" "blog" }}
-   {{ $site := .Site }}
-   {{ range .Site.Params.sections }}
-      {{ $sectionName := . }}
-      {{ if in $projects . }}
-         {{ with $site.GetPage "section" (printf "projects/%s" .) }}
-            {{ .Scratch.Set "sectionId" $sectionName }} 
-            {{ partial "sectionSummary" . }}
-         {{ end }}
-      {{ else if in $sections . }}
-         {{ with $site.GetPage "section" . }}
-            {{ .Scratch.Set "sectionId" $sectionName }} 
-            {{ partial "sectionSummary" . }}
-         {{ end }}
-      {{ else }}
-         {{ partial (printf "portfolio/%s" . ) $site }}
-      {{ end }}
-   {{ end }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Neale — Chief Architect</title>
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <meta property="og:title" content="David Neale — Chief Architect">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:image" content="{{ .Site.Params.profileImage | absURL }}">
+  <meta property="og:type" content="website">
+  <meta name="author" content="David Neale">
+  <link rel="icon" href="/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/terminal.css">
+</head>
+<body class="terminal-page" data-scanlines="on">
+
+<nav class="t-nav">
+  <div class="t-nav-inner">
+    <a href="#top" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
+    <div class="t-nav-links">
+      <a href="#about" class="active">About</a>
+      <a href="#case">Case</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#currently">Now</a>
+      <a href="/aviation/">Aviation</a>
+    </div>
+  </div>
+</nav>
+
+<aside class="instrument-rail" aria-hidden="true"></aside>
+
+<main class="t-shell" id="top">
+
+  <!-- HERO -->
+  <section class="t-hero" id="about">
+    <div class="t-hero-meta">
+      <span>§ 00 &nbsp;//&nbsp; HOME</span>
+      <span class="coord" data-coord>51.4816°N&nbsp;&nbsp;3.1791°W</span>
+      <span>CARDIFF · UK</span>
+    </div>
+
+    <div class="t-hero-main">
+      <div>
+        <div class="t-hero-role">Chief Architect · Admiral Money</div>
+        <h1 class="t-hero-title">
+          <span class="given">David</span>
+          <span class="surname">Neale.</span>
+        </h1>
+        <p class="t-hero-bio">
+          I help organisations build, deliver and manage software that's reliable, secure,
+          and does the job. Currently owning the technology strategy for a £1.8bn consumer
+          lending business — and learning to fly in my spare time.
+        </p>
+      </div>
+      <div class="t-hero-portrait">
+        <img src="/img/davidportrait.jpg" alt="David Neale" width="320" height="400">
+        <div class="t-hero-portrait-caption">
+          <span>DAVID&nbsp;/&nbsp;2025</span>
+          <span>ID&nbsp;//&nbsp;001</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-hero-footer">
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="1.8" data-fmt="currency">£0</span><span class="unit">bn</span></div>
+        <div class="t-stat-label">Loan book built</div>
+      </div>
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="1">0</span><span class="unit">m</span></div>
+        <div class="t-stat-label">Concurrent users engineered for</div>
+      </div>
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="123">0</span></div>
+        <div class="t-stat-label">Countries reached</div>
+      </div>
+      <div class="t-stat">
+        <div class="t-stat-num"><span data-count="80">0</span><span class="unit">+</span></div>
+        <div class="t-stat-label">Engineers led</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT LONGFORM -->
+  <section id="about-long">
+    <div class="section-head">
+      <div class="section-num">§ 01 / About</div>
+      <h2 class="section-title">An unusual arc: <span class="t-dim">from police software, to Google, to the UK's first digital census, to Admiral Money.</span></h2>
+    </div>
+    <div class="t-grid-2">
+      <p class="t-lede">
+        Each step has been about larger scale, higher stakes, and more complex trade-offs.
+      </p>
+      <div class="t-prose">
+        <p>
+          I'm currently <strong>Chief Architect at Admiral Money</strong>, where I own the
+          technology strategy for a £1.8bn consumer lending business. Day to day that means
+          navigating the tension between moving fast and not breaking things — something I
+          find genuinely interesting.
+        </p>
+        <p>
+          I've also been driving adoption of AI tooling: from governed LLM access across the
+          business, to agentic developer tooling with Claude Code, to early-stage
+          experiments in underwriting and contact-centre automation.
+        </p>
+        <p>
+          Aviation has sharpened how I think about engineering. Holding a Sailplane Pilot
+          Licence and working towards further ratings has given me a deep respect for
+          systems thinking and human factors. In safety-critical environments, clear
+          checklists, unambiguous communication and disciplined decision-making are what
+          keeps things from going wrong. I bring that same diligence to architecture
+          decisions, incident response, and the moments when there's no one else in the room
+          to defer to.
+        </p>
+        <p>
+          Outside of work you'll find me flying, tinkering with electronics (including the
+          avionics panel of my <a href="/aviation/">PIK 20D glider</a>), walking, or
+          failing to make time for guitar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section id="case">
+    <div class="section-head">
+      <div class="section-num">§ 02 / Featured work</div>
+      <h2 class="section-title">2021 UK Digital-First Census <span class="t-dim">— one chance, every ten years.</span></h2>
+    </div>
+    <div class="t-case">
+      <aside>
+        <div class="tag">Case study</div>
+        <div><span class="t-dim">Client</span><br>Office for National Statistics</div>
+        <div style="margin-top:14px;"><span class="t-dim">Dates</span><br>2018 – 2019</div>
+        <div style="margin-top:14px;"><span class="t-dim">Role</span><br>Technical Lead / Architect</div>
+        <div style="margin-top:14px;"><span class="t-dim">Scale</span><br>~1M concurrent users</div>
+      </aside>
+      <div>
+        <h3>The UK counts itself once a decade — and 2021 was the first to be designed digital-first.</h3>
+
+        <h4>The challenge</h4>
+        <p>
+          The existing survey data collection platform was running on AWS. The architectural
+          team had two mandates: prove that the system was cloud-portable by migrating it to
+          Google Cloud Platform, and validate that it could handle the anticipated peak load —
+          roughly one million households attempting to submit simultaneously on census day.
+        </p>
+
+        <h4>My role</h4>
+        <p>
+          I joined the ONS architecture team as a technical lead, working across software
+          engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
+          introducing Kubernetes-native deployments as part of the migration. I also designed
+          the performance testing strategy — generating a million concurrent, realistic
+          synthetic users is a non-trivial problem in itself, requiring careful modelling of
+          submission behaviour and infrastructure headroom.
+        </p>
+
+        <h4>The outcome</h4>
+        <p>
+          On 21 March 2021, the census launched and the digital collection system held. The
+          groundwork laid during the architecture phase — cloud portability, Kubernetes
+          orchestration, validated performance envelopes — proved robust under real-world
+          load. It remains one of the largest public-sector digital delivery projects in UK
+          government history.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head">
+      <div class="section-num">§ 03 / Skills</div>
+      <h2 class="section-title">Stack <span class="t-dim">— what I actually use and lead on.</span></h2>
+    </div>
+    <div class="t-skills-grid">
+      <div class="t-skill-group">
+        <h4>Architecture &amp; Strategy</h4>
+        <ul class="t-skill-list">
+          <li>Cloud Architecture</li>
+          <li>Technical Strategy</li>
+          <li>API Design</li>
+          <li>Microservices</li>
+          <li>Distributed Systems</li>
+          <li>TOGAF</li>
+          <li>Cybersecurity</li>
+          <li>Gen AI</li>
+        </ul>
+      </div>
+      <div class="t-skill-group">
+        <h4>Cloud &amp; Infrastructure</h4>
+        <ul class="t-skill-list">
+          <li>Amazon Web Services</li>
+          <li>Google Cloud Platform</li>
+          <li>Kubernetes</li>
+          <li>Terraform</li>
+          <li>Docker</li>
+          <li>Linux</li>
+          <li>git</li>
+        </ul>
+      </div>
+      <div class="t-skill-group">
+        <h4>Languages &amp; Frameworks</h4>
+        <ul class="t-skill-list">
+          <li>Python</li>
+          <li>Go</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Angular</li>
+        </ul>
+      </div>
+      <div class="t-skill-group">
+        <h4>Data</h4>
+        <ul class="t-skill-list">
+          <li>PostgreSQL</li>
+          <li>MySQL</li>
+          <li>DynamoDB</li>
+        </ul>
+        <h4 style="margin-top:32px;">Certifications</h4>
+        <ul class="t-skill-list">
+          <li>AWS SA Professional</li>
+          <li>AWS SA Associate</li>
+          <li>TOGAF® 9</li>
+          <li>CCSP</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-num">§ 04 / Experience</div>
+      <h2 class="section-title">Logbook <span class="t-dim">— roles, flown in order.</span></h2>
+    </div>
+    <div class="t-log">
+
+      <div class="t-log-entry">
+        <div class="t-log-meta">
+          <span class="date">2019 — NOW</span>
+          <span>CARDIFF</span>
+          <span>5+ YRS</span>
+        </div>
+        <div class="t-log-body">
+          <h3>Chief Architect</h3>
+          <div class="co">Admiral Money</div>
+          <p>
+            Lead the technology strategy and oversee the development of scalable and secure
+            systems. Joined when the company had £400m of loan balances pre-profit; in 2025
+            it managed £1.8bn with £26m profit.
+          </p>
+          <ul>
+            <li>Direct integration with Price Comparison Websites offering real-rate loan quotes, including a high-performance decision engine.</li>
+            <li>Designed and delivered a secure, scalable microservice application platform.</li>
+            <li>Designed and implemented a loan originations system; extended into wider CRM capabilities.</li>
+            <li>Led AI adoption across the business: governed self-hosted LLM platform, Claude Code for agentic dev tooling, early underwriting and contact-centre experiments.</li>
+          </ul>
+          <div class="t-log-tech"><span class="k">TECH ·</span> Kubernetes · AWS · Go · Terraform · Docker</div>
+        </div>
+      </div>
+
+      <div class="t-log-entry">
+        <div class="t-log-meta">
+          <span class="date">2018 — 2019</span>
+          <span>ONS</span>
+          <span>1Y 4M</span>
+        </div>
+        <div class="t-log-body">
+          <h3>Technical Lead</h3>
+          <div class="co">Office for National Statistics</div>
+          <p>
+            Tech lead on a multidisciplinary team developing the dynamic form builder
+            powering online surveys. Moved into the architectural team focused on the 2021
+            UK digital-first census systems.
+          </p>
+          <ul>
+            <li>Led cloud portability: AWS to GCP migration with Kubernetes-native deployments.</li>
+            <li>Designed a scalable perf testing solution simulating 1M concurrent users.</li>
+            <li>Worked across engineering, DevOps and architecture disciplines.</li>
+          </ul>
+          <div class="t-log-tech"><span class="k">TECH ·</span> Kubernetes · GCP · AWS · Python · Go · Terraform · React · Docker</div>
+        </div>
+      </div>
+
+      <div class="t-log-entry">
+        <div class="t-log-meta">
+          <span class="date">2012 — 2018</span>
+          <span>LONDON</span>
+          <span>5Y 9M</span>
+        </div>
+        <div class="t-log-body">
+          <h3>Senior Developer</h3>
+          <div class="co">Potato London Ltd</div>
+          <p>
+            Joined as a contractor working on Google projects and was offered a permanent
+            role; promoted to senior developer not long after.
+          </p>
+          <ul>
+            <li>Architected two web applications for Google's flagship open-source programmes — Summer of Code and Code-in — tech lead on a team of up to 18 on a $2m project in 123 countries.</li>
+            <li>Designed Google Partners' global incentivisation programme with 30-language support and a bespoke fault-tolerant distributed transaction system.</li>
+            <li>Tech lead for the backend API of Google Ideas' (Jigsaw) Montage — collaborative YouTube discovery platform, later sold to Storyful and open-sourced.</li>
+            <li>Rewrote engineering hiring test to be both more revealing and more respectful of candidates' time.</li>
+          </ul>
+          <div class="t-log-tech"><span class="k">TECH ·</span> Python · JS · Go · App Engine · Django · Angular · React · MySQL</div>
+        </div>
+      </div>
+
+      <div class="t-log-entry">
+        <div class="t-log-meta">
+          <span class="date">2011 — 2012</span>
+          <span>CARDIFF</span>
+          <span>1Y</span>
+        </div>
+        <div class="t-log-body">
+          <h3>Senior Web Developer</h3>
+          <div class="co">The Number UK Ltd (118 118)</div>
+          <p>
+            Continued development of the ASP.NET MVC website, then co-architected a
+            cloud-hosted global search API used across kgb's international group. Wrote a
+            durable, multi-threaded distribution system keeping data indexed across SQL,
+            MongoDB and ElasticSearch.
+          </p>
+          <div class="t-log-tech"><span class="k">TECH ·</span> C# · Python · ASP.NET MVC · Django · AWS · MongoDB · ElasticSearch · RabbitMQ</div>
+        </div>
+      </div>
+
+      <div class="t-log-entry">
+        <div class="t-log-meta">
+          <span class="date">2010 — 2011</span>
+          <span>CARDIFF</span>
+          <span>10M</span>
+        </div>
+        <div class="t-log-body">
+          <h3>Senior Web Developer</h3>
+          <div class="co">Zipporah Ltd</div>
+          <p>
+            Re-architected a suite of solutions in use across local government in UK and
+            Australia. Guided a team of six in MVC, NHibernate, IoC and unit testing;
+            introduced continuous integration.
+          </p>
+          <div class="t-log-tech"><span class="k">TECH ·</span> C# · JS · ASP.NET MVC · MS SQL Server</div>
+        </div>
+      </div>
+
+      <div class="t-log-entry">
+        <div class="t-log-meta">
+          <span class="date">2007 — 2010</span>
+          <span>BRISTOL</span>
+          <span>3Y 3M</span>
+        </div>
+        <div class="t-log-body">
+          <h3>Software Engineer</h3>
+          <div class="co">Avon and Somerset Constabulary</div>
+          <p>
+            Formative technology experience, working initially in 2nd line application
+            support and then in software development.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURRENTLY -->
+  <section id="currently">
+    <div class="section-head">
+      <div class="section-num">§ 05 / Currently</div>
+      <h2 class="section-title">What I'm working on <span class="t-dim">and thinking about.</span></h2>
+    </div>
+    <div class="t-checklist">
+      <div class="t-checklist-item">
+        <div class="t-checklist-num">ITEM · 01</div>
+        <h4>Electronics &amp; embedded systems</h4>
+        <p>Working through Arduino projects and getting comfortable at the hardware/software boundary.</p>
+      </div>
+      <div class="t-checklist-item">
+        <div class="t-checklist-num">ITEM · 02</div>
+        <h4>Glider avionics panel</h4>
+        <p>Designing and building custom instrumentation for my PIK 20D, where electronics meets aviation.</p>
+      </div>
+      <div class="t-checklist-item">
+        <div class="t-checklist-num">ITEM · 03</div>
+        <h4>Agentic AI in software delivery</h4>
+        <p>Running Claude Code extensively across my engineering team and thinking about what agentic tooling means for how software gets built.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="t-foot">
+    <span>© David Neale · Cardiff, UK</span>
+    <span data-coord>N 51°28'54" &nbsp;&nbsp; W 3°10'44"</span>
+    <span><a href="/aviation/">Aviation →</a></span>
+  </footer>
+
+</main>
+
+<script src="/js/instruments.js"></script>
+<script src="/js/tweaks.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var updaters = DNInstruments.mountRail(".instrument-rail",
+    ["altimeter", "airspeed", "vario", "attitude"]);
+  DNInstruments.setUpdaters(updaters);
+  DNInstruments.start();
+
+  // Animated counters
+  var counters = document.querySelectorAll("[data-count]");
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  counters.forEach(function(el) {
+    var target = parseFloat(el.dataset.count);
+    var fmt = el.dataset.fmt || "int";
+    var duration = 1800;
+    var start = performance.now() + 200;
+    function step(now) {
+      var t = Math.max(0, Math.min(1, (now - start) / duration));
+      var v = target * ease(t);
+      if (fmt === "currency") {
+        el.textContent = "\xA3" + v.toFixed(1);
+      } else if (target < 10) {
+        el.textContent = v.toFixed(1).replace(/\.0$/, "");
+      } else {
+        el.textContent = Math.round(v).toString();
+      }
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+
+  // Nav active state
+  var sections = ["about", "case", "skills", "experience", "currently"];
+  var links = document.querySelectorAll(".t-nav-links a");
+  function updateNav() {
+    var active = "about";
+    for (var i = 0; i < sections.length; i++) {
+      var el = document.getElementById(sections[i]);
+      if (!el) continue;
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.5) active = sections[i];
+    }
+    links.forEach(function(a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + active);
+    });
+  }
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav();
+});
+</script>
+
+{{ if .Site.Params.google.analytics.trackerID }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.google.analytics.trackerID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ .Site.Params.google.analytics.trackerID }}');
+</script>
 {{ end }}
+
+</body>
+</html>
