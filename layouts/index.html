@@ -21,7 +21,7 @@
 <nav class="t-nav">
   <div class="t-nav-inner">
     <a href="#top" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
-    <div class="t-nav-links">
+    <div class="t-nav-links" id="t-nav-links">
       <a href="#about" class="active">About</a>
       <a href="#case">Case</a>
       <a href="#skills">Skills</a>
@@ -29,6 +29,7 @@
       <a href="#currently">Now</a>
       <a href="/aviation/">Aviation</a>
     </div>
+    <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
   </div>
 </nav>
 
@@ -392,6 +393,28 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-head">
+      <div class="section-num">§ 06 / Contact</div>
+      <h2 class="section-title">Get in touch <span class="t-dim">or find me elsewhere.</span></h2>
+    </div>
+    <div class="t-contact-strip">
+      <a href="https://www.linkedin.com/in/davidneale/" target="_blank" rel="noopener" class="t-contact-link">
+        <span>LinkedIn</span>
+        <span class="t-contact-arrow">→</span>
+      </a>
+      <a href="https://github.com/davidneale" target="_blank" rel="noopener" class="t-contact-link">
+        <span>GitHub</span>
+        <span class="t-contact-arrow">→</span>
+      </a>
+      <a href="https://neale.dev/" target="_blank" rel="noopener" class="t-contact-link">
+        <span>neale.dev</span>
+        <span class="t-contact-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
   <footer class="t-foot">
     <span>© David Neale · Cardiff, UK</span>
     <span data-coord>N 51°28'54" &nbsp;&nbsp; W 3°10'44"</span>
@@ -432,8 +455,22 @@ document.addEventListener("DOMContentLoaded", function() {
     requestAnimationFrame(step);
   });
 
+  // Hamburger
+  var hamburger = document.getElementById("t-nav-hamburger");
+  var navLinks = document.getElementById("t-nav-links");
+  hamburger.addEventListener("click", function() {
+    var open = navLinks.classList.toggle("open");
+    hamburger.textContent = open ? "CLOSE" : "MENU";
+  });
+  navLinks.querySelectorAll("a").forEach(function(a) {
+    a.addEventListener("click", function() {
+      navLinks.classList.remove("open");
+      hamburger.textContent = "MENU";
+    });
+  });
+
   // Nav active state
-  var sections = ["about", "case", "skills", "experience", "currently"];
+  var sections = ["about", "case", "skills", "experience", "currently", "contact"];
   var links = document.querySelectorAll(".t-nav-links a");
   function updateNav() {
     var active = "about";

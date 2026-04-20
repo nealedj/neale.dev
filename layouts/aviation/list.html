@@ -21,7 +21,7 @@
 <nav class="t-nav">
   <div class="t-nav-inner">
     <a href="/" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
-    <div class="t-nav-links">
+    <div class="t-nav-links" id="t-nav-links">
       <a href="/#about">About</a>
       <a href="/#case">Case</a>
       <a href="/#skills">Skills</a>
@@ -29,6 +29,7 @@
       <a href="/#currently">Now</a>
       <a href="/aviation/" class="active">Aviation</a>
     </div>
+    <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
   </div>
 </nav>
 
@@ -279,6 +280,20 @@
 <script src="/js/tweaks.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Hamburger
+  var hamburger = document.getElementById("t-nav-hamburger");
+  var navLinks = document.getElementById("t-nav-links");
+  hamburger.addEventListener("click", function() {
+    var open = navLinks.classList.toggle("open");
+    hamburger.textContent = open ? "CLOSE" : "MENU";
+  });
+  navLinks.querySelectorAll("a").forEach(function(a) {
+    a.addEventListener("click", function() {
+      navLinks.classList.remove("open");
+      hamburger.textContent = "MENU";
+    });
+  });
+
   var railUpdaters = DNInstruments.mountRail(".instrument-rail",
     ["altimeter", "airspeed", "vario", "attitude"]);
 
