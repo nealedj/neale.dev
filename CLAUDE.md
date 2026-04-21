@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Hugo static site for neale.dev — personal portfolio and CV. Content is mostly JSON-driven; Markdown is used only for long-form sections (aviation timeline, projects).
+Hugo static site for neale.dev — personal portfolio and CV. All site content is hardcoded directly in the layout templates. Markdown is used for long-form secondary pages (aviation subpages, projects).
 
 The site uses a fully custom terminal-aesthetic design — there is no theme submodule. All templates live directly in `layouts/`.
 
@@ -21,18 +21,14 @@ hugo --gc --minify
 
 ## How Content Works
 
-**Prefer JSON for structured data.** Layouts read `data/*.json` automatically — no layout changes needed for most content updates.
+The homepage (`layouts/index.html`) and aviation page (`layouts/aviation/list.html`) are fully standalone HTML files — all content (skills, experience, case study, currently, certifications) is hardcoded in the template HTML.
 
-| File | What it renders |
-|---|---|
-| `data/experience.json` | Work history timeline |
-| `data/skills.json` | Skills grid (grouped by category) |
-| `data/certifications.json` | Cert badges with Credly links |
-| `data/education.json` | Education section |
-
-**Use Markdown for prose sections:**
-- `content/_index.md` — homepage bio summary
+**Use Markdown for secondary pages:**
+- `content/_index.md` — homepage bio (not rendered on homepage; kept for Hugo's page model)
 - `content/aviation/_index.md` — aviation timeline (uses raw HTML inside Markdown; `unsafe = true` is set in config)
+- `content/aviation/gallery.md` — photo gallery
+- `content/aviation/posters.md` — TMG training poster pages
+- `content/projects/creations/loan-amortisation.md` — project page
 
 ## Layout Structure
 
@@ -40,7 +36,7 @@ There is no theme submodule. All layouts are custom:
 
 - `layouts/index.html` — standalone homepage (terminal aesthetic, does not use baseof)
 - `layouts/aviation/list.html` — standalone aviation page (terminal aesthetic, does not use baseof)
-- `layouts/_default/baseof.html` — base shell for secondary pages (gallery, posters, projects, search)
+- `layouts/_default/baseof.html` — base shell for secondary pages (gallery, posters, projects)
 - `layouts/partials/nav.html` — terminal-style nav used by baseof
 - `layouts/shortcodes/iframe.html` — iframe embed shortcode
 
@@ -53,33 +49,24 @@ There is no theme submodule. All layouts are custom:
 
 No Bootstrap, jQuery, or icon font libraries are used.
 
-## Configuration
-
-`config.toml` key params:
-
-```toml
-sections = ["casestudy","skills","experience","aviation","currently"]  # homepage sections
-showCertifications = true           # Toggle certifications section
-showSocializations = true           # Toggle social links
-```
-
 ## Gotchas
 
 - `unsafe = true` in `[markup.goldmark.renderer]` allows raw HTML in Markdown (needed for aviation page)
-- JSON output is enabled (`home = ["HTML", "JSON"]`) — this powers the search page
 - The homepage and aviation page are standalone HTML files — they do not extend baseof.html
+- Favicon is served from `/favicon.ico` (i.e. `static/favicon.ico`)
 
 ## Images
 
-Profile photo: `static/img/davidportrait.jpg`  
-Aviation gallery: `static/img/aviation/`  
-Logo/favicon: `static/img/logo.svg`, `static/img/favicon.ico`
+Profile photo: `static/img/davidportrait.jpg`
+Aviation gallery: `static/img/aviation/`
+Logo: `static/img/logo.svg`
+Favicon: `static/favicon.ico`
 
 Images are referenced in templates as `/img/...` (no `/static/` prefix).
 
 ## Deployment
 
-Push to `main` → GitHub Actions builds and deploys to GitHub Pages automatically.  
+Push to `main` → GitHub Actions builds and deploys to GitHub Pages automatically.
 Workflow: `.github/workflows/hugo.yaml`
 
 Do not commit the `public/` directory — it is built by CI.

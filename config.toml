@@ -2,48 +2,23 @@ baseURL = 'https://neale.dev'
 
 title = "David Neale"
 languageCode = "en-gb"
-PygmentsCodeFences = true
-PygmentsCodeFencesGuessSyntax = true
-PygmentsStyle = "monokai"
 enableGitInfo = false
 
 [params]
-address = "Cardiff, UK"
 email = "david@neale.dev"
 favicon = "img/logo.svg"
 firstName = "David"
 lastName = "Neale"
 description = "A delivery-oriented technical strategist with extensive experience across software engineering, AWS, GCP, Kubernetes, and cybersecurity. Chief Architect at Admiral Money."
-phone = ""
 profileImage = "img/davidportrait.jpg"
-showQr = false
-showContact = false
-sections = ["casestudy","skills","experience","aviation","currently"]
-showSocializations = true
-showCertifications = true
 
 [params.google]
 
 [params.google.analytics]
 trackerID = "G-CNYBLK0WJ0"
 
-[[params.handles]]
-link = "https://www.linkedin.com/in/davidjneale/"
-name = "LinkedIn"
-
-[[params.handles]]
-link = "https://github.com/nealedj/"
-name = "GitHub"
-
-[[params.handles]]
-link = "https://stackoverflow.com/users/234645/david-neale"
-name = "Stack-Overflow"
-
 [outputs]
 home = ["HTML"]
 
 [markup.goldmark.renderer]
 unsafe = true
-
-[taxonomies]
-tag = "tags"
