@@ -5,7 +5,8 @@
       "name": "Hugo Dev Server",
       "runtimeExecutable": "cmd",
       "runtimeArgs": ["/c", "hugo-server.cmd"],
-      "port": 1313
+      "port": 1313,
+      "autoPort": true
     }
   ]
 }

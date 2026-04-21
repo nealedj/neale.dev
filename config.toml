@@ -1,7 +1,6 @@
 baseURL = 'https://neale.dev'
 
 title = "David Neale"
-theme = 'hugo-resume'
 languageCode = "en-gb"
 PygmentsCodeFences = true
 PygmentsCodeFencesGuessSyntax = true
@@ -41,7 +40,7 @@ link = "https://stackoverflow.com/users/234645/david-neale"
 name = "Stack-Overflow"
 
 [outputs]
-home = ["HTML", "JSON"]
+home = ["HTML"]
 
 [markup.goldmark.renderer]
 unsafe = true

@@ -848,3 +848,33 @@ footer.t-foot a:hover { color: var(--phosphor); }
 /* utility */
 .t-mono { font-family: var(--mono); }
 .t-dim { color: var(--mute); }
+
+/* gallery grid (aviation/gallery page) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.gallery-item {
+    text-align: center;
+    background: var(--surface, #1a1f2e);
+    border-radius: 4px;
+    padding: 1rem;
+    border: 1px solid var(--border, #2a3040);
+}
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.gallery-item img:hover { transform: scale(1.03); }
+.gallery-item p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--mute);
+    line-height: 1.4;
+}
