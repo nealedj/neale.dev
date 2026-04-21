@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main class="t-main t-avi-page">
+  <header{{ if not .Description }} class="t-avi-page-header-nodesc"{{ end }}>
+    <div class="t-avi-page-eyebrow">Aviation</div>
+    <h1 class="t-avi-page-title">{{ .Title }}</h1>
+    {{ if .Description }}<p class="t-avi-page-desc">{{ .Description }}</p>{{ end }}
+  </header>
+  <div class="t-avi-page-body">
+    {{ .Content }}
+  </div>
+</main>
+{{ end }}
