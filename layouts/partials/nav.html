@@ -1,39 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-  <a class="navbar-brand js-scroll-trigger" href="#page-top">
-    <span class="d-block d-lg-none">{{ .Site.Params.firstName }} {{ .Site.Params.lastName }}</span>
-    <span class="d-none d-lg-block">
-      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ .Site.Params.profileImage | relURL }}" alt="">
-    </span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="{{ "#about" | relURL }}">{{ i18n "about" }}</a>
-      </li>
-      {{ range .Site.Params.sections }}
-      {{ if ne . "aviation" }}
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="/#{{.}}">{{ . | i18n }}</a>
-      </li>
-      {{ end }}
-      {{ end }}
-      <li class="nav-item">
-        <a class="nav-link" href="/aviation/">{{ "aviation" | i18n }}</a>
-      </li>
-      {{ if .Site.Params.showContact}}
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">{{ i18n "contact" }}</a>
-          </li>
-      {{ end }}
-    </ul>
-  </div>
-  <div class="instruments-bar" aria-hidden="true">
-    <div id="altimeter-container"></div>
-    <div id="variometer-container"></div>
-    <div id="asi-container"></div>
-    <div id="ai-container"></div>
+<nav class="t-nav">
+  <div class="t-nav-inner">
+    <a href="/" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
+    <div class="t-nav-links" id="t-nav-links">
+      <a href="/#about">About</a>
+      <a href="/#case">Case</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#currently">Now</a>
+      <a href="/aviation/"{{ if hasPrefix .RelPermalink "/aviation" }} class="active"{{ end }}>Aviation</a>
+    </div>
+    <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
   </div>
 </nav>

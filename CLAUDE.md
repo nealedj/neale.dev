@@ -4,6 +4,8 @@
 
 Hugo static site for neale.dev — personal portfolio and CV. Content is mostly JSON-driven; Markdown is used only for long-form sections (aviation timeline, projects).
 
+The site uses a fully custom terminal-aesthetic design — there is no theme submodule. All templates live directly in `layouts/`.
+
 ## Essential Commands
 
 ```bash
@@ -15,14 +17,11 @@ hugo server
 
 # Production build
 hugo --gc --minify
-
-# Init theme submodule (needed after fresh clone)
-git submodule update --init --recursive
 ```
 
 ## How Content Works
 
-**Prefer JSON for structured data.** The theme renders `data/*.json` automatically — no layout changes needed for most content updates.
+**Prefer JSON for structured data.** Layouts read `data/*.json` automatically — no layout changes needed for most content updates.
 
 | File | What it renders |
 |---|---|
@@ -35,32 +34,40 @@ git submodule update --init --recursive
 - `content/_index.md` — homepage bio summary
 - `content/aviation/_index.md` — aviation timeline (uses raw HTML inside Markdown; `unsafe = true` is set in config)
 
-## Layout Overrides
+## Layout Structure
 
-Theme lives in `themes/hugo-resume/` — **do not edit it directly** (it's a git submodule). Override in `layouts/` instead:
+There is no theme submodule. All layouts are custom:
 
-- `layouts/index.html` — controls which sections appear on homepage
-- `layouts/_default/baseof.html` — base HTML shell (head, analytics, nav)
-- `layouts/partials/nav.html` — top navigation bar
-- `layouts/partials/aviationSummary.html` — aviation summary card on homepage
-- `static/css/resume-override.css` — all custom CSS goes here
+- `layouts/index.html` — standalone homepage (terminal aesthetic, does not use baseof)
+- `layouts/aviation/list.html` — standalone aviation page (terminal aesthetic, does not use baseof)
+- `layouts/_default/baseof.html` — base shell for secondary pages (gallery, posters, projects, search)
+- `layouts/partials/nav.html` — terminal-style nav used by baseof
+- `layouts/shortcodes/iframe.html` — iframe embed shortcode
+
+## CSS / JS
+
+- `static/css/terminal.css` — all site styles (terminal aesthetic)
+- `static/js/instruments.js` — SVG aviation gauge instruments
+- `static/js/tweaks.js` — UI tweaker panel (accent colour, scanlines, density)
+- `static/js/site.js` — metric counters and intersection observers
+
+No Bootstrap, jQuery, or icon font libraries are used.
 
 ## Configuration
 
 `config.toml` key params:
 
 ```toml
-sections = ["skills","experience"]  # Controls homepage section order/visibility
+sections = ["casestudy","skills","experience","aviation","currently"]  # homepage sections
 showCertifications = true           # Toggle certifications section
 showSocializations = true           # Toggle social links
 ```
 
-## Theme Gotchas
+## Gotchas
 
-- The theme uses Bootstrap 4.5 — do not use Bootstrap 5 syntax in overrides
 - `unsafe = true` in `[markup.goldmark.renderer]` allows raw HTML in Markdown (needed for aviation page)
 - JSON output is enabled (`home = ["HTML", "JSON"]`) — this powers the search page
-- FontAwesome 5 icon names are used for skill/social icons (not FA6)
+- The homepage and aviation page are standalone HTML files — they do not extend baseof.html
 
 ## Images
 
