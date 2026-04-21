@@ -849,32 +849,154 @@ footer.t-foot a:hover { color: var(--phosphor); }
 .t-mono { font-family: var(--mono); }
 .t-dim { color: var(--mute); }
 
-/* gallery grid (aviation/gallery page) */
+/* -------- Secondary page layout -------- */
+.t-content-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  position: relative;
+  z-index: 3;
+}
+
+.t-main {
+  padding-top: calc(48px + clamp(48px, 6vw, 96px));
+  padding-bottom: var(--pad-y);
+}
+
+.t-main.t-prose { max-width: 62ch; }
+
+.t-prose h1 {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 32px;
+}
+.t-prose h2 {
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 48px 0 16px;
+}
+.t-prose h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--phosphor);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 40px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.t-prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------- Aviation subpages (gallery, posters) -------- */
+.t-avi-page { max-width: 1100px; }
+
+.t-avi-page-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--phosphor);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.t-avi-page-title {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+.t-avi-page-desc {
+  font-size: var(--fs-lead);
+  color: var(--ink-2);
+  max-width: 62ch;
+  margin: 0;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.55;
+}
+.t-avi-page-header-nodesc { padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+
+.t-avi-page-body { padding-top: 40px; }
+
+.t-avi-page-body h2 {
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+}
+.t-avi-page-body h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--phosphor);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 56px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+.t-avi-page-body > h3:first-child { margin-top: 0; }
+.t-avi-page-body p {
+  color: var(--ink-2);
+  max-width: 62ch;
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+.t-avi-page-body img {
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule-2);
+  margin: 0 0 20px;
+}
+
+/* Gallery grid */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px;
+  margin-top: 0;
 }
 .gallery-item {
-    text-align: center;
-    background: var(--surface, #1a1f2e);
-    border-radius: 4px;
-    padding: 1rem;
-    border: 1px solid var(--border, #2a3040);
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.gallery-item a {
+  display: block;
+  overflow: hidden;
 }
 .gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
+  width: 100%;
+  max-width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s, filter 0.4s;
+  filter: grayscale(0.3) contrast(1.05);
+  cursor: pointer;
+  border: none;
+  margin: 0;
 }
-.gallery-item img:hover { transform: scale(1.03); }
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0) contrast(1.05);
+}
 .gallery-item p {
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--mute);
-    line-height: 1.4;
+  padding: 10px 14px;
+  margin: 0;
+  max-width: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--mute);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  border-top: 1px solid var(--rule);
 }
