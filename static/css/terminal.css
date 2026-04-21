@@ -605,6 +605,7 @@ body.terminal-page a:hover { color: var(--phosphor); }
   top: 100px;
   align-self: start;
 }
+@media (max-width: 900px) { .t-case aside { position: static; } }
 .t-case aside .tag {
   display: inline-block;
   padding: 4px 8px;
