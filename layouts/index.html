@@ -54,8 +54,8 @@
         </h1>
         <p class="t-hero-bio">
           I help organisations build, deliver and manage software that's reliable, secure,
-          and does the job. Currently owning the technology strategy for a £1.8bn consumer
-          lending business — and learning to fly in my spare time.
+          and effective. Currently owning the technology strategy for a £1.8bn consumer
+          lending business.
         </p>
       </div>
       <div class="t-hero-portrait">
@@ -77,8 +77,8 @@
         <div class="t-stat-label">Concurrent users engineered for</div>
       </div>
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="123">0</span></div>
-        <div class="t-stat-label">Countries reached</div>
+        <div class="t-stat-num"><span data-count="19">19</span><span class="unit">yrs</span></div>
+        <div class="t-stat-label">Professional experience</div>
       </div>
       <div class="t-stat">
         <div class="t-stat-num"><span data-count="80">0</span><span class="unit">+</span></div>
@@ -91,37 +91,32 @@
   <section id="about-long">
     <div class="section-head">
       <div class="section-num">§ 01 / About</div>
-      <h2 class="section-title">An unusual arc: <span class="t-dim">from police software, to Google, to the UK's first digital census, to Admiral Money.</span></h2>
+      <h2 class="section-title">My career: <span class="t-dim">from police software, to Google, to the UK's first digital census, to Admiral Money.</span></h2>
     </div>
     <div class="t-grid-2">
       <p class="t-lede">
-        Each step has been about larger scale, higher stakes, and more complex trade-offs.
+        Varied technologies, a range of industries, and always with complex trade-offs.
       </p>
       <div class="t-prose">
         <p>
           I'm currently <strong>Chief Architect at Admiral Money</strong>, where I own the
-          technology strategy for a £1.8bn consumer lending business. Day to day that means
-          navigating the tension between moving fast and not breaking things — something I
-          find genuinely interesting.
+          technology strategy for a £1.8bn consumer lending business.
         </p>
         <p>
           I've also been driving adoption of AI tooling: from governed LLM access across the
           business, to agentic developer tooling with Claude Code, to early-stage
-          experiments in underwriting and contact-centre automation.
+          experiments in contact-centre automation.
         </p>
         <p>
-          Aviation has sharpened how I think about engineering. Holding a Sailplane Pilot
-          Licence and working towards further ratings has given me a deep respect for
-          systems thinking and human factors. In safety-critical environments, clear
-          checklists, unambiguous communication and disciplined decision-making are what
-          keeps things from going wrong. I bring that same diligence to architecture
-          decisions, incident response, and the moments when there's no one else in the room
-          to defer to.
+          Aviation has sharpened how I think about engineering. Achieving my Sailplane Pilot
+          Licence and working towards other endorsements has systems thinking and human factors.
+          In safety-critical environments, clear checklists, unambiguous communication and disciplined
+          decision-making are what keeps things from going wrong. I bring that same diligence to
+          architecture decisions and incident response.
         </p>
         <p>
-          Outside of work you'll find me flying, tinkering with electronics (including the
-          avionics panel of my <a href="/aviation/">PIK 20D glider</a>), walking, or
-          failing to make time for guitar.
+          Outside of work you'll usually find me flying, travelling around in my camper van, tinkering
+          with electronics, cooking, walking, or playing music (piano and guitar).
         </p>
       </div>
     </div>
@@ -131,7 +126,7 @@
   <section id="case">
     <div class="section-head">
       <div class="section-num">§ 02 / Featured work</div>
-      <h2 class="section-title">2021 UK Digital-First Census <span class="t-dim">— one chance, every ten years.</span></h2>
+      <h2 class="section-title">2021 UK Digital-First Census <span class="t-dim">- one huge event, every ten years.</span></h2>
     </div>
     <div class="t-case">
       <aside>
@@ -142,34 +137,40 @@
         <div style="margin-top:14px;"><span class="t-dim">Scale</span><br>~1M concurrent users</div>
       </aside>
       <div>
-        <h3>The UK counts itself once a decade — and 2021 was the first to be designed digital-first.</h3>
+        <h3>The UK holds a census once a decade and 2021 was the first to be designed digital-first.</h3>
 
         <h4>The challenge</h4>
         <p>
           The existing survey data collection platform was running on AWS. The architectural
           team had two mandates: prove that the system was cloud-portable by migrating it to
-          Google Cloud Platform, and validate that it could handle the anticipated peak load —
-          roughly one million households attempting to submit simultaneously on census day.
+          Google Cloud Platform, and validate that it could handle the anticipated peak load -
+          roughly one million households attempting to complete simultaneously on census day.
         </p>
 
         <h4>My role</h4>
         <p>
-          I joined the ONS architecture team as a technical lead, working across software
-          engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
+          I joined the ONS architecture team as a technical lead for the electronic questionnaire
+          (eQ) application,. I subsequently moved into the Cloud Architecture team to work
+          across software engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
           introducing Kubernetes-native deployments as part of the migration. I also designed
           the performance testing strategy — generating a million concurrent, realistic
           synthetic users is a non-trivial problem in itself, requiring careful modelling of
-          submission behaviour and infrastructure headroom.
+          submission behaviour and infrastructure headroom. This required close working with
+          Google engineers to consider usage patterns that were beyond their usual planned levels.
         </p>
 
         <h4>The outcome</h4>
         <p>
-          On 21 March 2021, the census launched and the digital collection system held. The
+          On 21 March 2021, the census launched and the digital collection system held. It handled 
+          a peak of 30,186 requests per second with 427,838 submissions during that peak hour. The
           groundwork laid during the architecture phase — cloud portability, Kubernetes
           orchestration, validated performance envelopes — proved robust under real-world
           load. It remains one of the largest public-sector digital delivery projects in UK
           government history.
         </p>
+
+        <p>A technical review of the delivery can be downloaded from the ONS:
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/articles/deliveringthecensus2021digitalservice/2021-10-04/pdf">Delivering the Census 2021 digital service</a>.
       </div>
     </div>
   </section>
@@ -178,7 +179,7 @@
   <section id="skills">
     <div class="section-head">
       <div class="section-num">§ 03 / Skills</div>
-      <h2 class="section-title">Stack <span class="t-dim">— what I actually use and lead on.</span></h2>
+      <h2 class="section-title">Stack <span class="t-dim">- technologies I've had the most exposure to</span></h2>
     </div>
     <div class="t-skills-grid">
       <div class="t-skill-group">
@@ -200,7 +201,6 @@
           <li>Amazon Web Services</li>
           <li>Google Cloud Platform</li>
           <li>Kubernetes</li>
-          <li>Terraform</li>
           <li>Docker</li>
           <li>Linux</li>
           <li>git</li>
@@ -209,11 +209,13 @@
       <div class="t-skill-group">
         <h4>Languages &amp; Frameworks</h4>
         <ul class="t-skill-list">
+          <li>Cloud Code</li>
           <li>Python</li>
           <li>Go</li>
           <li>TypeScript</li>
           <li>React</li>
-          <li>Angular</li>
+          <li>Java</li>
+          <li>Terraform</li>
         </ul>
       </div>
       <div class="t-skill-group">
@@ -238,7 +240,7 @@
   <section id="experience">
     <div class="section-head">
       <div class="section-num">§ 04 / Experience</div>
-      <h2 class="section-title">Logbook <span class="t-dim">— roles, flown in order.</span></h2>
+      <h2 class="section-title">Professional experience</h2>
     </div>
     <div class="t-log">
 
@@ -260,9 +262,9 @@
             <li>Direct integration with Price Comparison Websites offering real-rate loan quotes, including a high-performance decision engine.</li>
             <li>Designed and delivered a secure, scalable microservice application platform.</li>
             <li>Designed and implemented a loan originations system; extended into wider CRM capabilities.</li>
-            <li>Led AI adoption across the business: governed self-hosted LLM platform, Claude Code for agentic dev tooling, early underwriting and contact-centre experiments.</li>
+            <li>Drove AI adoption across the business: governed self-hosted AI chat platform, Claude Code for agentic dev tooling, early contact-centre experiments.</li>
           </ul>
-          <div class="t-log-tech"><span class="k">TECH ·</span> Kubernetes · AWS · Go · Terraform · Docker</div>
+          <div class="t-log-tech"><span class="k">TECH ·</span> Kubernetes · AWS · Go · Python · Terraform · Docker</div>
         </div>
       </div>
 
@@ -270,7 +272,7 @@
         <div class="t-log-meta">
           <span class="date">2018 — 2019</span>
           <span>ONS</span>
-          <span>1Y 4M</span>
+          <span>1Y 5M</span>
         </div>
         <div class="t-log-body">
           <h3>Technical Lead</h3>
@@ -293,7 +295,7 @@
         <div class="t-log-meta">
           <span class="date">2012 — 2018</span>
           <span>LONDON</span>
-          <span>5Y 9M</span>
+          <span>5Y 10M</span>
         </div>
         <div class="t-log-body">
           <h3>Senior Developer</h3>
@@ -305,10 +307,10 @@
           <ul>
             <li>Architected two web applications for Google's flagship open-source programmes — Summer of Code and Code-in — tech lead on a team of up to 18 on a $2m project in 123 countries.</li>
             <li>Designed Google Partners' global incentivisation programme with 30-language support and a bespoke fault-tolerant distributed transaction system.</li>
-            <li>Tech lead for the backend API of Google Ideas' (Jigsaw) Montage — collaborative YouTube discovery platform, later sold to Storyful and open-sourced.</li>
+            <li>Tech lead for the backend API of Google Ideas' (Jigsaw) Montage - collaborative YouTube discovery platform, later sold to Storyful and open-sourced.</li>
             <li>Rewrote engineering hiring test to be both more revealing and more respectful of candidates' time.</li>
           </ul>
-          <div class="t-log-tech"><span class="k">TECH ·</span> Python · JS · Go · App Engine · Django · Angular · React · MySQL</div>
+          <div class="t-log-tech"><span class="k">TECH ·</span> Python · JS · App Engine · Django · Angular · MySQL</div>
         </div>
       </div>
 
@@ -316,7 +318,7 @@
         <div class="t-log-meta">
           <span class="date">2011 — 2012</span>
           <span>CARDIFF</span>
-          <span>1Y</span>
+          <span>1Y 1M</span>
         </div>
         <div class="t-log-body">
           <h3>Senior Web Developer</h3>
@@ -335,7 +337,7 @@
         <div class="t-log-meta">
           <span class="date">2010 — 2011</span>
           <span>CARDIFF</span>
-          <span>10M</span>
+          <span>11M</span>
         </div>
         <div class="t-log-body">
           <h3>Senior Web Developer</h3>
@@ -353,7 +355,7 @@
         <div class="t-log-meta">
           <span class="date">2007 — 2010</span>
           <span>BRISTOL</span>
-          <span>3Y 3M</span>
+          <span>3Y 4M</span>
         </div>
         <div class="t-log-body">
           <h3>Software Engineer</h3>
@@ -383,7 +385,7 @@
       <div class="t-checklist-item">
         <div class="t-checklist-num">ITEM · 02</div>
         <h4>Glider avionics panel</h4>
-        <p>Designing and building custom instrumentation for my PIK 20D, where electronics meets aviation.</p>
+        <p>Designing and building custom instrumentation for my PIK 20D.</p>
       </div>
       <div class="t-checklist-item">
         <div class="t-checklist-num">ITEM · 03</div>
@@ -400,16 +402,16 @@
       <h2 class="section-title">Get in touch <span class="t-dim">or find me elsewhere.</span></h2>
     </div>
     <div class="t-contact-strip">
-      <a href="https://www.linkedin.com/in/davidneale/" target="_blank" rel="noopener" class="t-contact-link">
+      <a href="https://www.linkedin.com/in/davidjneale/" target="_blank" rel="noopener" class="t-contact-link">
         <span>LinkedIn</span>
         <span class="t-contact-arrow">→</span>
       </a>
-      <a href="https://github.com/davidneale" target="_blank" rel="noopener" class="t-contact-link">
+      <a href="https://github.com/nealedj/" target="_blank" rel="noopener" class="t-contact-link">
         <span>GitHub</span>
         <span class="t-contact-arrow">→</span>
       </a>
-      <a href="https://neale.dev/" target="_blank" rel="noopener" class="t-contact-link">
-        <span>neale.dev</span>
+      <a href="https://www.instagram.com/neale.dj/" target="_blank" rel="noopener" class="t-contact-link">
+        <span>Instagram</span>
         <span class="t-contact-arrow">→</span>
       </a>
     </div>
