@@ -6,9 +6,9 @@ Personal portfolio and CV website for David Neale — Chief Architect, AWS/GCP s
 
 ## Tech Stack
 
-- **Generator:** [Hugo](https://gohugo.io/) v0.115.4
-- **Theme:** [hugo-resume](https://github.com/eddiewebb/hugo-resume) (git submodule)
-- **CSS:** Bootstrap 4.5.3 + custom overrides
+- **Generator:** [Hugo Extended](https://gohugo.io/) v0.115.4
+- **Design:** Fully custom terminal-aesthetic (no theme dependency)
+- **CSS:** Custom (`static/css/terminal.css`) — no CSS framework
 - **Hosting:** GitHub Pages via GitHub Actions
 - **Analytics:** Google Analytics 4
 
@@ -21,19 +21,21 @@ neale.dev/
 │   ├── _index.md            # Homepage bio and summary
 │   ├── aviation/            # Aviation/gliding section
 │   └── projects/            # Projects and creations
-├── data/                    # JSON data files (edited for most content updates)
+├── data/                    # JSON data files (edit for most content updates)
 │   ├── certifications.json  # Professional certifications with Credly badge links
-│   ├── education.json       # Academic history
+│   ├── casestudy.json       # Featured case study
+│   ├── currently.json       # Current work/interests
 │   ├── experience.json      # Career history
 │   └── skills.json          # Skills grouped by category
-├── layouts/                 # Hugo template overrides
-│   ├── index.html           # Homepage layout
-│   ├── _default/baseof.html # Base HTML shell
+├── layouts/                 # All Hugo templates (fully custom)
+│   ├── index.html           # Standalone homepage layout
+│   ├── aviation/list.html   # Standalone aviation page layout
+│   ├── _default/baseof.html # Base shell for secondary pages
 │   └── partials/            # Reusable template partials
-├── static/
-│   ├── css/resume-override.css  # Custom CSS on top of theme
-│   └── img/                 # Profile photo and aviation gallery images
-└── themes/hugo-resume/      # Theme (git submodule — do not edit directly)
+└── static/
+    ├── css/terminal.css     # All site styles
+    ├── js/                  # site.js, tweaks.js, instruments.js
+    └── img/                 # Profile photo and aviation gallery images
 ```
 
 ## Local Development
@@ -41,19 +43,12 @@ neale.dev/
 ### Prerequisites
 
 - [Hugo Extended](https://gohugo.io/installation/) v0.115.4+
-- Git (with submodule support)
 
 ### Setup
 
 ```bash
-git clone --recurse-submodules https://github.com/nealedj/neale.dev.git
+git clone https://github.com/nealedj/neale.dev.git
 cd neale.dev
-```
-
-If you already cloned without submodules:
-
-```bash
-git submodule update --init --recursive
 ```
 
 ### Run dev server
@@ -63,6 +58,12 @@ hugo server
 ```
 
 Site will be available at [http://localhost:1313](http://localhost:1313) with live reload.
+
+**Windows note:** On machines with Device Guard / WDAC restrictions, use the included wrapper instead:
+
+```cmd
+hugo-server.cmd
+```
 
 ### Build for production
 
@@ -74,23 +75,17 @@ Output goes to `public/`.
 
 ## Content Updates
 
-Most content lives in `data/` as JSON — no Markdown editing required for the common cases:
+Most content lives in `data/` as JSON — no layout changes needed for common updates:
 
 | What to update | File |
 |---|---|
 | Work experience | `data/experience.json` |
 | Skills | `data/skills.json` |
 | Certifications | `data/certifications.json` |
-| Education | `data/education.json` |
+| Case study | `data/casestudy.json` |
+| Current interests | `data/currently.json` |
 | Bio / intro text | `content/_index.md` |
 | Aviation timeline | `content/aviation/_index.md` |
-
-Homepage sections are controlled by `config.toml`:
-
-```toml
-[params]
-sections = ["skills","experience"]
-```
 
 ## Deployment
 
