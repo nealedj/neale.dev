@@ -588,6 +588,24 @@ body.terminal-page a:hover { color: var(--phosphor); }
   line-height: 1.55;
 }
 
+/* Projects */
+.t-proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) { .t-proj-grid { grid-template-columns: 1fr; } }
+.t-proj-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--phosphor);
+  text-transform: uppercase;
+}
+.t-proj-link:hover { text-decoration: underline; }
+
 /* Case study */
 .t-case {
   display: grid;

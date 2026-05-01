@@ -7,6 +7,7 @@
       <a href="/#skills">Skills</a>
       <a href="/#experience">Experience</a>
       <a href="/#currently">Now</a>
+      <a href="/projects/creations/"{{ if hasPrefix .RelPermalink "/projects" }} class="active"{{ end }}>Projects</a>
       <a href="/aviation/"{{ if hasPrefix .RelPermalink "/aviation" }} class="active"{{ end }}>Aviation</a>
     </div>
     <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
