@@ -14,6 +14,6 @@ From there it applies MacCready theory: given a thermal strength setting, it cal
 
 Supports multiple unit types and allows users to overlay two gliders in order to compare their performance.
 
-Test it properly by clicking [here](https://nealedj.github.io/loan-amortisation-rust/).
+Test it properly by clicking [here](https://nealedj.github.io/polar-visualiser/).
 
 {{< iframe src="https://nealedj.github.io/polar-visualiser/" height="900" >}}
