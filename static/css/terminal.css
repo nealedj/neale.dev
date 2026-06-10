@@ -39,6 +39,18 @@
   --fs-stat: clamp(40px, 6vw, 72px);
 }
 
+/* Night lighting — red cockpit illumination, panel lights turned down.
+   The accent itself is forced red by tweaks.js. */
+[data-lighting="night"] {
+  --bg:      #0b0908;
+  --bg-soft: #120e0c;
+  --ink:     #d6c3b3;
+  --ink-2:   #a18b7b;
+  --mute:    #715f53;
+  --rule:    #251c16;
+  --rule-2:  #33261e;
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -474,6 +486,40 @@ body.terminal-page a:hover { color: var(--phosphor); }
 .t-log {
   display: flex; flex-direction: column;
 }
+.t-log-head {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 40px;
+  padding-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+/* Double rule above the totals line, like a paper logbook page */
+.t-log-totals {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 40px;
+  padding: 18px 0;
+  border-top: 3px double var(--mute);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.t-log-totals-label { color: var(--phosphor); }
+.t-log-totals-vals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  color: var(--ink);
+}
+@media (max-width: 720px) {
+  .t-log-head { display: none; }
+  .t-log-totals { grid-template-columns: 1fr; gap: 10px; padding: 16px 0; }
+}
 .t-log-entry {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -716,9 +762,28 @@ footer.t-foot {
 footer.t-foot a:hover { color: var(--phosphor); }
 
 /* -------- Tweaks panel -------- */
-.tweaks {
+.tweaks-launcher {
   position: fixed;
   bottom: 20px; right: 20px;
+  z-index: 100;
+  background: var(--bg);
+  border: 1px solid var(--rule-2);
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+.tweaks-launcher:hover {
+  color: var(--phosphor);
+  border-color: var(--phosphor);
+}
+.tweaks {
+  position: fixed;
+  bottom: 62px; right: 20px;
   background: #0a0908;
   border: 1px solid var(--rule-2);
   padding: 18px;
@@ -737,10 +802,8 @@ footer.t-foot a:hover { color: var(--phosphor); }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--phosphor);
-  display: flex; justify-content: space-between; align-items: center;
 }
-.tweaks h5::after { content: "TWEAKS"; color: var(--phosphor); }
-.tweaks h5 span::before { content: "▶ "; }
+.tweaks h5::before { content: "▶ "; }
 .tweak-row {
   display: flex; justify-content: space-between; align-items: center;
   padding: 8px 0;

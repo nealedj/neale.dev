@@ -1,17 +1,40 @@
-// Tweaks: accent hue, density, instrument rail, scanlines
+// Tweaks: panel lighting (day/night), accent hue, density, instrument rail,
+// chart grid, coordinates. Opened from the fixed TWEAKS launcher; state
+// persists across pages via localStorage.
 (function () {
+  var STORE = "dn-tweaks";
+
   var state = {
+    lighting: "day",
     accentHue: 75,
     density: "roomy",
     rail: true,
     scanlines: true,
     coordinates: true
   };
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORE) || "null");
+    if (saved && typeof saved === "object") {
+      Object.keys(state).forEach(function (k) {
+        if (k in saved) state[k] = saved[k];
+      });
+    }
+  } catch (e) { /* storage unavailable — defaults stand */ }
+
+  function accent() {
+    // Night = red cockpit lighting: the accent is forced to a dimmed red
+    // regardless of the chosen day hue, like turning the panel lights down.
+    if (state.lighting === "night") return { l: 0.66, c: 0.19, h: 25 };
+    return { l: 0.82, c: 0.15, h: state.accentHue };
+  }
 
   function apply() {
-    document.documentElement.style.setProperty("--phosphor", "oklch(0.82 0.15 " + state.accentHue + ")");
-    document.documentElement.style.setProperty("--phosphor-dim", "oklch(0.82 0.15 " + state.accentHue + " / 0.35)");
-    document.documentElement.style.setProperty("--phosphor-glow", "oklch(0.82 0.15 " + state.accentHue + " / 0.15)");
+    var a = accent();
+    var base = a.l + " " + a.c + " " + a.h;
+    document.documentElement.style.setProperty("--phosphor", "oklch(" + base + ")");
+    document.documentElement.style.setProperty("--phosphor-dim", "oklch(" + base + " / 0.35)");
+    document.documentElement.style.setProperty("--phosphor-glow", "oklch(" + base + " / 0.12)");
+    document.body.dataset.lighting = state.lighting;
     document.body.dataset.density = state.density;
     document.body.dataset.scanlines = state.scanlines ? "on" : "off";
     document.querySelectorAll(".instrument-rail").forEach(function(r) {
@@ -25,18 +48,23 @@
   function set(key, value) {
     state[key] = value;
     apply();
+    try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {}
   }
 
   function buildPanel() {
     var panel = document.createElement("div");
     panel.className = "tweaks";
     panel.innerHTML = [
-      '<h5><span>Tweaks</span></h5>',
+      '<h5>Tweaks</h5>',
+      '<div class="tweak-row">',
+        '<label>Lighting</label>',
+        '<button data-toggle-lighting></button>',
+      '</div>',
       '<div class="tweak-row">',
         '<label>Accent</label>',
         '<div class="tweak-swatches">',
           [75, 145, 45, 260, 320].map(function(h) {
-            return '<button data-hue="' + h + '" style="background: oklch(0.82 0.15 ' + h + ');"></button>';
+            return '<button data-hue="' + h + '" aria-label="Accent hue ' + h + '" style="background: oklch(0.82 0.15 ' + h + ');"></button>';
           }).join(""),
         '</div>',
       '</div>',
@@ -52,6 +80,14 @@
       '<div class="tweak-row"><label>Coordinates</label><button data-toggle="coordinates"></button></div>'
     ].join("");
     document.body.appendChild(panel);
+
+    var lightBtn = panel.querySelector("[data-toggle-lighting]");
+    function syncLight() { lightBtn.textContent = state.lighting === "night" ? "Night" : "Day"; }
+    syncLight();
+    lightBtn.addEventListener("click", function() {
+      set("lighting", state.lighting === "night" ? "day" : "night");
+      syncLight();
+    });
 
     panel.querySelectorAll("[data-hue]").forEach(function(b) {
       b.addEventListener("click", function() { set("accentHue", parseInt(b.dataset.hue, 10)); });
@@ -69,12 +105,30 @@
     return panel;
   }
 
+  function buildLauncher(panel) {
+    var btn = document.createElement("button");
+    btn.className = "tweaks-launcher";
+    btn.setAttribute("aria-label", "Open the tweaks panel");
+    btn.textContent = "Tweaks";
+    document.body.appendChild(btn);
+    function sync(open) {
+      btn.textContent = open ? "Close" : "Tweaks";
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    sync(false);
+    btn.addEventListener("click", function() {
+      sync(panel.classList.toggle("show"));
+    });
+    return { sync: sync };
+  }
+
   var panel = buildPanel();
+  var launcher = buildLauncher(panel);
   apply();
 
   window.addEventListener("message", function(e) {
     if (!e.data || typeof e.data !== "object") return;
-    if (e.data.type === "__activate_edit_mode") panel.classList.add("show");
-    if (e.data.type === "__deactivate_edit_mode") panel.classList.remove("show");
+    if (e.data.type === "__activate_edit_mode") { panel.classList.add("show"); launcher.sync(true); }
+    if (e.data.type === "__deactivate_edit_mode") { panel.classList.remove("show"); launcher.sync(false); }
   });
 })();
