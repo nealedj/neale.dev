@@ -39,10 +39,13 @@ There is no theme submodule. All layouts are custom:
 - `layouts/_default/baseof.html` — base shell for secondary pages (gallery, posters, projects)
 - `layouts/partials/nav.html` — terminal-style nav used by baseof
 - `layouts/shortcodes/iframe.html` — iframe embed shortcode
+- `layouts/404.html` — standalone "off-airfield landing" error page
+- `content/colophon.md` — how the site is built (rendered via baseof)
 
 ## CSS / JS
 
 - `static/css/terminal.css` — all site styles (flight-deck aesthetic: B612 type, amber accent)
+- `static/fonts/` — self-hosted B612 / B612 Mono woff2 (no Google Fonts requests)
 - `static/js/instruments.js` — SVG aviation gauge instruments
 - `static/js/drums.js` — mechanical drum-roll stat counters
 - `static/js/metar.js` — live EGFF METAR for the hero meta strip (api.met.no, static fallback)
