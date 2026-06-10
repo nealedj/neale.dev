@@ -1,7 +1,7 @@
 // Tweaks: accent hue, density, instrument rail, scanlines
 (function () {
   var state = {
-    accentHue: 145,
+    accentHue: 75,
     density: "roomy",
     rail: true,
     scanlines: true,
@@ -35,7 +35,7 @@
       '<div class="tweak-row">',
         '<label>Accent</label>',
         '<div class="tweak-swatches">',
-          [145, 90, 45, 260, 320].map(function(h) {
+          [75, 145, 45, 260, 320].map(function(h) {
             return '<button data-hue="' + h + '" style="background: oklch(0.82 0.15 ' + h + ');"></button>';
           }).join(""),
         '</div>',
@@ -48,7 +48,7 @@
         '</select>',
       '</div>',
       '<div class="tweak-row"><label>Instrument rail</label><button data-toggle="rail"></button></div>',
-      '<div class="tweak-row"><label>Scanlines</label><button data-toggle="scanlines"></button></div>',
+      '<div class="tweak-row"><label>Chart grid</label><button data-toggle="scanlines"></button></div>',
       '<div class="tweak-row"><label>Coordinates</label><button data-toggle="coordinates"></button></div>'
     ].join("");
     document.body.appendChild(panel);

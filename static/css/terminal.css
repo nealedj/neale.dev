@@ -1,20 +1,24 @@
 /* =========================================================
-   Design system — Dark terminal / phosphor / engineer log
+   Design system — Flight deck / instrument panel / logbook
+   Palette drawn from cockpit instruments: warmed near-black
+   panel, instrument-ivory text, cockpit-amber accent.
+   Type: B612 — the typeface Airbus commissioned for cockpit
+   display legibility. B612 Mono for labels and data.
    ========================================================= */
 :root {
-  --bg:        #0b0d0e;
-  --bg-soft:   #101315;
-  --ink:       #e8e6e1;
-  --ink-2:     #b5b1a8;
-  --mute:      #7c7870;
-  --rule:      #1f2223;
-  --rule-2:    #2a2d2f;
-  --phosphor:  oklch(0.82 0.15 145);
-  --phosphor-dim: oklch(0.82 0.15 145 / 0.35);
-  --phosphor-glow: oklch(0.82 0.15 145 / 0.15);
+  --bg:        #0f0e0c;
+  --bg-soft:   #15130f;
+  --ink:       #ebe6da;
+  --ink-2:     #b6b0a2;
+  --mute:      #807a6c;
+  --rule:      #25221b;
+  --rule-2:    #322e24;
+  --phosphor:  oklch(0.82 0.15 75);
+  --phosphor-dim: oklch(0.82 0.15 75 / 0.35);
+  --phosphor-glow: oklch(0.82 0.15 75 / 0.12);
 
-  --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: "B612", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --mono: "B612 Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --pad-y: clamp(96px, 10vw, 160px);
   --pad-x: clamp(20px, 4vw, 64px);
@@ -24,9 +28,9 @@
   --fs-body: 16px;
   --fs-lead: 19px;
   --fs-h3: 22px;
-  --fs-h2: clamp(32px, 4vw, 56px);
-  --fs-h1: clamp(56px, 9vw, 128px);
-  --fs-stat: clamp(36px, 7vw, 96px);
+  --fs-h2: clamp(30px, 3.6vw, 50px);
+  --fs-h1: clamp(48px, 8vw, 112px);
+  --fs-stat: clamp(34px, 6vw, 84px);
 }
 
 [data-density="compact"] {
@@ -61,17 +65,15 @@ body.terminal-page::before {
     radial-gradient(800px 600px at -10% 110%, rgba(255,255,255,0.03), transparent 60%);
 }
 
+/* Faint chart grid — graph-paper texture, like a sectional chart graticule */
 body.terminal-page[data-scanlines="on"]::after {
   content: "";
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 2;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0 2px,
-    rgba(255,255,255,0.012) 2px 3px
-  );
-  mix-blend-mode: overlay;
+  background:
+    repeating-linear-gradient(to bottom, rgba(235,230,218,0.02) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(to right, rgba(235,230,218,0.02) 0 1px, transparent 1px 72px);
 }
 
 body.terminal-page a { color: inherit; text-decoration: none; }
@@ -251,9 +253,9 @@ body.terminal-page a:hover { color: var(--phosphor); }
 }
 .t-hero-title {
   font-size: var(--fs-h1);
-  font-weight: 500;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
   margin: 0 0 24px;
 }
 .t-hero-title .surname { display: block; color: var(--ink); }
@@ -298,24 +300,6 @@ body.terminal-page a:hover { color: var(--phosphor); }
 .t-hero-portrait:hover img {
   filter: grayscale(0.7) contrast(1.05) brightness(0.95);
 }
-.t-hero-portrait::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(11,13,14,0.8));
-  pointer-events: none;
-}
-.t-hero-portrait-caption {
-  position: absolute;
-  bottom: 12px; left: 14px; right: 14px;
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--phosphor);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: flex; justify-content: space-between;
-  z-index: 2;
-}
-
 .t-hero-footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -341,6 +325,29 @@ body.terminal-page a:hover { color: var(--phosphor); }
   font-variant-numeric: tabular-nums;
 }
 .t-stat-num .unit { font-size: 0.4em; color: var(--mute); margin-left: 4px; font-weight: 400; }
+
+/* Drum counters — digits roll like a mechanical Veeder-Root readout */
+.t-drums { display: inline-flex; align-items: baseline; }
+.t-drums .drum {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  line-height: 1;
+}
+.t-drums .drum-col {
+  display: block;
+  transform: translateY(0);
+  transition: transform 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+.t-drums .drum-col span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-drums .drum-col { transition: none; }
+}
 .t-stat-label {
   font-family: var(--mono);
   font-size: 11px;
@@ -367,12 +374,15 @@ body.terminal-page a:hover { color: var(--phosphor); }
 }
 .instrument-rail.show { opacity: 1; }
 .instrument-rail.hidden { display: none; }
-@media (max-width: 1100px) {
+/* Hide whenever the rail would overlap the content column:
+   content is maxw 1440 with 64px side padding; the rail needs
+   ~120px of clear viewport margin beyond the text edge. */
+@media (max-width: 1552px) {
   .instrument-rail { display: none; }
 }
 .rail-gauge {
   width: 84px; height: 84px;
-  background: #07090a;
+  background: #0a0908;
   border: 1px solid var(--rule-2);
   border-radius: 50%;
   position: relative;
@@ -709,7 +719,7 @@ footer.t-foot a:hover { color: var(--phosphor); }
 .tweaks {
   position: fixed;
   bottom: 20px; right: 20px;
-  background: #07090a;
+  background: #0a0908;
   border: 1px solid var(--rule-2);
   padding: 18px;
   width: 260px;
@@ -779,7 +789,7 @@ footer.t-foot a:hover { color: var(--phosphor); }
   aspect-ratio: 1/1;
   max-width: 520px;
   width: 100%;
-  background: #07090a;
+  background: #0a0908;
   border: 1px solid var(--rule-2);
   padding: 28px;
   display: grid;

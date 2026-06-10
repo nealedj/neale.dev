@@ -13,7 +13,7 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/terminal.css">
 </head>
 <body class="terminal-page" data-scanlines="on">
@@ -23,7 +23,7 @@
     <a href="#top" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
     <div class="t-nav-links" id="t-nav-links">
       <a href="#about" class="active">About</a>
-      <a href="#case">Case</a>
+      <a href="#case">Work</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#currently">Now</a>
@@ -61,28 +61,24 @@
       </div>
       <div class="t-hero-portrait">
         <img src="/img/davidportrait.jpg" alt="David Neale" width="320" height="400">
-        <div class="t-hero-portrait-caption">
-          <span>DAVID&nbsp;/&nbsp;2025</span>
-          <span>ID&nbsp;//&nbsp;001</span>
-        </div>
       </div>
     </div>
 
     <div class="t-hero-footer">
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="1.8" data-fmt="currency">£0</span><span class="unit">bn</span></div>
+        <div class="t-stat-num"><span data-drums>£1.8</span><span class="unit">bn</span></div>
         <div class="t-stat-label">Loan book built</div>
       </div>
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="1">0</span><span class="unit">m</span></div>
+        <div class="t-stat-num"><span data-drums>1</span><span class="unit">m</span></div>
         <div class="t-stat-label">Concurrent users engineered for</div>
       </div>
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="19">19</span><span class="unit">yrs</span></div>
+        <div class="t-stat-num"><span data-drums>19</span><span class="unit">yrs</span></div>
         <div class="t-stat-label">Professional experience</div>
       </div>
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="80">0</span><span class="unit">+</span></div>
+        <div class="t-stat-num"><span data-drums>80</span><span class="unit">+</span></div>
         <div class="t-stat-label">Engineers led</div>
       </div>
     </div>
@@ -151,7 +147,7 @@
         <h4>My role</h4>
         <p>
           I joined the ONS architecture team as a technical lead for the electronic questionnaire
-          (eQ) application,. I subsequently moved into the Cloud Architecture team to work
+          (eQ) application. I subsequently moved into the Cloud Architecture team to work
           across software engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
           introducing Kubernetes-native deployments as part of the migration. I also designed
           the performance testing strategy — generating a million concurrent, realistic
@@ -172,6 +168,7 @@
 
         <p>A technical review of the delivery can be downloaded from the ONS:
           <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/articles/deliveringthecensus2021digitalservice/2021-10-04/pdf">Delivering the Census 2021 digital service</a>.
+        </p>
       </div>
     </div>
   </section>
@@ -210,7 +207,7 @@
       <div class="t-skill-group">
         <h4>Languages &amp; Frameworks</h4>
         <ul class="t-skill-list">
-          <li>Cloud Code</li>
+          <li>Claude Code</li>
           <li>Python</li>
           <li>Go</li>
           <li>TypeScript</li>
@@ -451,6 +448,7 @@
 </main>
 
 <script src="/js/instruments.js"></script>
+<script src="/js/drums.js"></script>
 <script src="/js/tweaks.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -459,28 +457,7 @@ document.addEventListener("DOMContentLoaded", function() {
   DNInstruments.setUpdaters(updaters);
   DNInstruments.start();
 
-  // Animated counters
-  var counters = document.querySelectorAll("[data-count]");
-  function ease(t) { return 1 - Math.pow(1 - t, 3); }
-  counters.forEach(function(el) {
-    var target = parseFloat(el.dataset.count);
-    var fmt = el.dataset.fmt || "int";
-    var duration = 1800;
-    var start = performance.now() + 200;
-    function step(now) {
-      var t = Math.max(0, Math.min(1, (now - start) / duration));
-      var v = target * ease(t);
-      if (fmt === "currency") {
-        el.textContent = "\xA3" + v.toFixed(1);
-      } else if (target < 10) {
-        el.textContent = v.toFixed(1).replace(/\.0$/, "");
-      } else {
-        el.textContent = Math.round(v).toString();
-      }
-      if (t < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  });
+  DNDrums.init();
 
   // Hamburger
   var hamburger = document.getElementById("t-nav-hamburger");

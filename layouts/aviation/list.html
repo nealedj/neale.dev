@@ -13,7 +13,7 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/terminal.css">
 </head>
 <body class="terminal-page" data-scanlines="on">
@@ -23,10 +23,11 @@
     <a href="/" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
     <div class="t-nav-links" id="t-nav-links">
       <a href="/#about">About</a>
-      <a href="/#case">Case</a>
+      <a href="/#case">Work</a>
       <a href="/#skills">Skills</a>
       <a href="/#experience">Experience</a>
       <a href="/#currently">Now</a>
+      <a href="/#projects">Projects</a>
       <a href="/aviation/" class="active">Aviation</a>
     </div>
     <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
@@ -67,15 +68,15 @@
   <section>
     <div class="t-hero-footer" style="border-top:none; padding-top:0;">
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="1000">0</span><span class="unit">m</span></div>
+        <div class="t-stat-num"><span data-drums>1,000</span><span class="unit">m</span></div>
         <div class="t-stat-label">Silver C height gain</div>
       </div>
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="100">0</span><span class="unit">km</span></div>
+        <div class="t-stat-num"><span data-drums>100</span><span class="unit">km</span></div>
         <div class="t-stat-label">Diploma distance</div>
       </div>
       <div class="t-stat">
-        <div class="t-stat-num"><span data-count="5">0</span><span class="unit">hr</span></div>
+        <div class="t-stat-num"><span data-drums>5</span><span class="unit">hr</span></div>
         <div class="t-stat-label">Silver duration</div>
       </div>
       <div class="t-stat">
@@ -266,7 +267,6 @@
       <div class="t-checklist-item">
         <div class="t-checklist-num">ITEM · 03</div>
         <h4><a href="/projects/creations/polar-visualiser/">Glider Polar Visualiser</a></h4>
-        <h4>Glider Polar Visualiser</h4>
         <p>Interactive polar curve visualiser for gliders.</p>
       </div>
     </div>
@@ -281,6 +281,7 @@
 </main>
 
 <script src="/js/instruments.js"></script>
+<script src="/js/drums.js"></script>
 <script src="/js/tweaks.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -310,21 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
   DNInstruments.setUpdaters(railUpdaters.concat(panelUpdaters));
   DNInstruments.start();
 
-  var counters = document.querySelectorAll("[data-count]");
-  function ease(t) { return 1 - Math.pow(1 - t, 3); }
-  counters.forEach(function(el) {
-    var target = parseFloat(el.dataset.count);
-    var duration = 1800;
-    var start = performance.now() + 200;
-    function step(now) {
-      var t = Math.max(0, Math.min(1, (now - start) / duration));
-      var v = target * ease(t);
-      if (target >= 100) el.textContent = Math.round(v).toLocaleString();
-      else el.textContent = Math.round(v).toString();
-      if (t < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  });
+  DNDrums.init();
 });
 </script>
 
