@@ -7,13 +7,15 @@
   <meta name="description" content="{{ .Description }}">
   <meta property="og:title" content="David Neale / Aviation">
   <meta property="og:description" content="{{ .Description }}">
-  <meta property="og:image" content="{{ .Site.Params.profileImage | absURL }}">
+  <meta property="og:image" content="{{ "img/og-card.png" | absURL }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="author" content="David Neale">
   <link rel="icon" href="/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/b612-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/b612mono-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/terminal.css">
 </head>
 <body class="terminal-page" data-scanlines="on">
@@ -330,7 +332,7 @@
   <footer class="t-foot">
     <span>© David Neale · Cardiff, UK</span>
     <span data-coord>N 51°28'54" &nbsp;&nbsp; W 3°10'44"</span>
-    <span><a href="/">← Home</a></span>
+    <span><a href="/colophon/">Colophon</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/">← Home</a></span>
   </footer>
 
 </main>

@@ -22,9 +22,8 @@
   <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
 
   <link rel="icon" href="/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/b612-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/b612mono-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/terminal.css">
 
   {{ hugo.Generator }}

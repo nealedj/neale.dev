@@ -4,7 +4,44 @@
    panel, instrument-ivory text, cockpit-amber accent.
    Type: B612 — the typeface Airbus commissioned for cockpit
    display legibility. B612 Mono for labels and data.
+   Self-hosted from /fonts (no third-party font requests).
    ========================================================= */
+@font-face {
+  font-family: "B612";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/b612-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "B612";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/b612-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "B612";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/b612-bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "B612 Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/b612mono-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "B612 Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/b612mono-bold.woff2") format("woff2");
+}
+
 :root {
   --bg:        #0f0e0c;
   --bg-soft:   #15130f;
@@ -642,6 +679,60 @@ body.terminal-page a:hover { color: var(--phosphor); }
   color: var(--ink-2);
   font-size: 14px;
   line-height: 1.55;
+}
+
+/* Currently — challenge–response checklist */
+.t-clist {
+  max-width: 880px;
+  border-top: 1px solid var(--rule);
+}
+.t-clist-row {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.t-clist-line {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.t-clist-challenge {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0;
+  flex-shrink: 0;
+}
+.t-clist-challenge::before {
+  content: "▢";
+  color: var(--phosphor);
+  font-size: 14px;
+  margin-right: 12px;
+}
+.t-clist-leader {
+  flex: 1;
+  min-width: 40px;
+  border-bottom: 2px dotted var(--rule-2);
+  transform: translateY(-4px);
+}
+.t-clist-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--phosphor);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.t-clist-note {
+  margin: 8px 0 0 26px;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 62ch;
+}
+@media (max-width: 560px) {
+  .t-clist-line { flex-wrap: wrap; gap: 8px; }
+  .t-clist-leader { display: none; }
+  .t-clist-note { margin-left: 0; }
 }
 
 /* Projects */
