@@ -42,10 +42,15 @@ There is no theme submodule. All layouts are custom:
 
 ## CSS / JS
 
-- `static/css/terminal.css` — all site styles (terminal aesthetic)
+- `static/css/terminal.css` — all site styles (flight-deck aesthetic: B612 type, amber accent)
 - `static/js/instruments.js` — SVG aviation gauge instruments
-- `static/js/tweaks.js` — UI tweaker panel (accent colour, scanlines, density)
-- `static/js/site.js` — metric counters and intersection observers
+- `static/js/drums.js` — mechanical drum-roll stat counters
+- `static/js/metar.js` — live EGFF METAR for the hero meta strip (api.met.no, static fallback)
+- `static/js/tweaks.js` — tweaks panel (day/night lighting, accent, density, grid); opened via the fixed TWEAKS launcher; state persists in localStorage
+- `static/js/site.js` — legacy; not referenced by current templates
+
+`scripts/igc-trace.js` regenerates the aviation page's inline SVG flight-trace
+section from an IGC log (source logs in `scripts/data/`).
 
 No Bootstrap, jQuery, or icon font libraries are used.
 
