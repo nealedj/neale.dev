@@ -21,15 +21,15 @@
   function altimeter(svg) {
     const g = el("g");
     svg.appendChild(g);
-    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0a0c0d", stroke: "#2a2d2f", "stroke-width": 0.6 }));
-    g.appendChild(el("circle", { cx: 50, cy: 50, r: 44, fill: "none", stroke: "#171a1b", "stroke-width": 0.4 }));
+    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0c0b09", stroke: "#322e24", "stroke-width": 0.6 }));
+    g.appendChild(el("circle", { cx: 50, cy: 50, r: 44, fill: "none", stroke: "#1b1916", "stroke-width": 0.4 }));
     for (let i = 0; i < 10; i++) {
       const a = (i / 10) * 360;
       const [x1, y1] = polar(50, 50, 43, a);
       const [x2, y2] = polar(50, 50, 38, a);
       g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#7c7870", "stroke-width": 0.6 }));
       const [tx, ty] = polar(50, 50, 33, a);
-      const t = el("text", { x: tx, y: ty, "text-anchor": "middle", "dominant-baseline": "central", "font-family": "JetBrains Mono, monospace", "font-size": 5, fill: "#9a968d" });
+      const t = el("text", { x: tx, y: ty, "text-anchor": "middle", "dominant-baseline": "central", "font-family": "B612 Mono, monospace", "font-size": 5, fill: "#9d9789" });
       t.textContent = i.toString();
       g.appendChild(t);
     }
@@ -40,7 +40,7 @@
       const [x2, y2] = polar(50, 50, 41, a);
       g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#444", "stroke-width": 0.3 }));
     }
-    const lab = el("text", { x: 50, y: 68, "text-anchor": "middle", "font-family": "JetBrains Mono, monospace", "font-size": 4, fill: "#7c7870", "letter-spacing": 0.3 });
+    const lab = el("text", { x: 50, y: 68, "text-anchor": "middle", "font-family": "B612 Mono, monospace", "font-size": 4, fill: "#7c7870", "letter-spacing": 0.3 });
     lab.textContent = "ALT \xd7 1000 FT";
     g.appendChild(lab);
     const long = el("line", { x1: 50, y1: 50, x2: 50, y2: 14, stroke: PHOSPHOR, "stroke-width": 1.2, "stroke-linecap": "round" });
@@ -64,15 +64,15 @@
   function airspeed(svg) {
     const g = el("g");
     svg.appendChild(g);
-    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0a0c0d", stroke: "#2a2d2f", "stroke-width": 0.6 }));
+    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0c0b09", stroke: "#322e24", "stroke-width": 0.6 }));
     const TICKS = [0, 20, 40, 60, 80, 100, 120, 140];
     TICKS.forEach(function(v, i) {
       const a = -135 + (i / (TICKS.length - 1)) * 270;
       const [x1, y1] = polar(50, 50, 43, a);
       const [x2, y2] = polar(50, 50, 38, a);
-      g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#9a968d", "stroke-width": 0.7 }));
+      g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#9d9789", "stroke-width": 0.7 }));
       const [tx, ty] = polar(50, 50, 32, a);
-      const t = el("text", { x: tx, y: ty, "text-anchor": "middle", "dominant-baseline": "central", "font-family": "JetBrains Mono, monospace", "font-size": 5, fill: "#9a968d" });
+      const t = el("text", { x: tx, y: ty, "text-anchor": "middle", "dominant-baseline": "central", "font-family": "B612 Mono, monospace", "font-size": 5, fill: "#9d9789" });
       t.textContent = v;
       g.appendChild(t);
     });
@@ -87,7 +87,7 @@
     arc(-135 + (40 / 140) * 270, -135 + (100 / 140) * 270, "#3a5a2a");
     arc(-135 + (100 / 140) * 270, -135 + (130 / 140) * 270, "#a38a1f");
     arc(-135 + (130 / 140) * 270 - 1, -135 + (140 / 140) * 270, "#8a2a2a");
-    const lab = el("text", { x: 50, y: 68, "text-anchor": "middle", "font-family": "JetBrains Mono, monospace", "font-size": 4, fill: "#7c7870" });
+    const lab = el("text", { x: 50, y: 68, "text-anchor": "middle", "font-family": "B612 Mono, monospace", "font-size": 4, fill: "#7c7870" });
     lab.textContent = "KNOTS";
     g.appendChild(lab);
     const needle = el("line", { x1: 50, y1: 50, x2: 50, y2: 12, stroke: PHOSPHOR, "stroke-width": 1.6, "stroke-linecap": "round" });
@@ -106,25 +106,25 @@
   function vario(svg) {
     const g = el("g");
     svg.appendChild(g);
-    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0a0c0d", stroke: "#2a2d2f", "stroke-width": 0.6 }));
+    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0c0b09", stroke: "#322e24", "stroke-width": 0.6 }));
     const vals = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5];
     vals.forEach(function(v) {
       const frac = (v + 5) / 10;
       const a = -135 + frac * 270;
       const [x1, y1] = polar(50, 50, 43, a);
       const [x2, y2] = polar(50, 50, 38, a);
-      g.appendChild(el("line", { x1, y1, x2, y2, stroke: v === 0 ? PHOSPHOR : "#9a968d", "stroke-width": v === 0 ? 1 : 0.6 }));
+      g.appendChild(el("line", { x1, y1, x2, y2, stroke: v === 0 ? PHOSPHOR : "#9d9789", "stroke-width": v === 0 ? 1 : 0.6 }));
       const [tx, ty] = polar(50, 50, 32, a);
-      const t = el("text", { x: tx, y: ty, "text-anchor": "middle", "dominant-baseline": "central", "font-family": "JetBrains Mono, monospace", "font-size": 5, fill: v === 0 ? PHOSPHOR : "#9a968d" });
+      const t = el("text", { x: tx, y: ty, "text-anchor": "middle", "dominant-baseline": "central", "font-family": "B612 Mono, monospace", "font-size": 5, fill: v === 0 ? PHOSPHOR : "#9d9789" });
       t.textContent = Math.abs(v);
       g.appendChild(t);
     });
-    const lab = el("text", { x: 50, y: 70, "text-anchor": "middle", "font-family": "JetBrains Mono, monospace", "font-size": 4, fill: "#7c7870" });
+    const lab = el("text", { x: 50, y: 70, "text-anchor": "middle", "font-family": "B612 Mono, monospace", "font-size": 4, fill: "#7c7870" });
     lab.textContent = "VSI  KT";
     g.appendChild(lab);
-    const up = el("text", { x: 30, y: 48, "text-anchor": "middle", "font-family": "JetBrains Mono, monospace", "font-size": 6, fill: "#6a8a4a" });
+    const up = el("text", { x: 30, y: 48, "text-anchor": "middle", "font-family": "B612 Mono, monospace", "font-size": 6, fill: "#6a8a4a" });
     up.textContent = "\u2191";
-    const down = el("text", { x: 70, y: 48, "text-anchor": "middle", "font-family": "JetBrains Mono, monospace", "font-size": 6, fill: "#8a5a3a" });
+    const down = el("text", { x: 70, y: 48, "text-anchor": "middle", "font-family": "B612 Mono, monospace", "font-size": 6, fill: "#8a5a3a" });
     down.textContent = "\u2193";
     g.appendChild(up); g.appendChild(down);
     const needle = el("line", { x1: 50, y1: 50, x2: 50, y2: 10, stroke: PHOSPHOR, "stroke-width": 1.6, "stroke-linecap": "round" });
@@ -151,7 +151,7 @@
     clip.appendChild(el("circle", { cx: 50, cy: 50, r: 42 }));
     defs.appendChild(clip);
     g.appendChild(defs);
-    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0a0c0d", stroke: "#2a2d2f", "stroke-width": 0.6 }));
+    g.appendChild(el("circle", { cx: 50, cy: 50, r: 48, fill: "#0c0b09", stroke: "#322e24", "stroke-width": 0.6 }));
     const horiz = el("g", { "clip-path": "url(#" + clipId + ")", transform: "rotate(0 50 50)" });
     const inner = el("g");
     horiz.appendChild(inner);
@@ -173,7 +173,7 @@
     [-60, -45, -30, -15, 0, 15, 30, 45, 60].forEach(function(b) {
       const [x1, y1] = polar(50, 50, 42, b);
       const [x2, y2] = polar(50, 50, b === 0 ? 36 : 38, b);
-      g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#9a968d", "stroke-width": 0.6 }));
+      g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#9d9789", "stroke-width": 0.6 }));
     });
     g.appendChild(el("path", { d: "M 50 12 L 47 7 L 53 7 Z", fill: PHOSPHOR }));
 
