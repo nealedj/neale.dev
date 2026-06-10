@@ -42,7 +42,7 @@
   <section class="t-hero" id="about">
     <div class="t-hero-meta">
       <span>§ 00 &nbsp;//&nbsp; HOME</span>
-      <span class="coord" data-coord>51.4816°N&nbsp;&nbsp;3.1791°W</span>
+      <span class="coord" data-coord data-metar title="Live weather at Cardiff Airport (METAR)">51.4816°N&nbsp;&nbsp;3.1791°W</span>
       <span>CARDIFF · UK</span>
     </div>
 
@@ -238,9 +238,14 @@
   <section id="experience">
     <div class="section-head">
       <div class="section-num">§ 04 / Experience</div>
-      <h2 class="section-title">Professional experience</h2>
+      <h2 class="section-title">Engineering logbook <span class="t-dim">— professional experience.</span></h2>
     </div>
     <div class="t-log">
+
+      <div class="t-log-head" aria-hidden="true">
+        <span>Dates · Base · Time</span>
+        <span>Role &amp; remarks</span>
+      </div>
 
       <div class="t-log-entry">
         <div class="t-log-meta">
@@ -365,6 +370,16 @@
         </div>
       </div>
 
+      <div class="t-log-totals">
+        <div class="t-log-totals-label">Totals carried forward</div>
+        <div class="t-log-totals-vals">
+          <span>19 yrs</span>
+          <span>6 companies</span>
+          <span>80+ engineers led</span>
+          <span>£1.8bn loan book</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -449,6 +464,7 @@
 
 <script src="/js/instruments.js"></script>
 <script src="/js/drums.js"></script>
+<script src="/js/metar.js"></script>
 <script src="/js/tweaks.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
