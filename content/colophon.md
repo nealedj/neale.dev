@@ -24,8 +24,9 @@ up as you read down the page.
 ## Flight data
 
 The flight trace on the [aviation page](/aviation/) is the actual GPS track
-from my 100km diploma flight (Usk – Hereford Cathedral – Ledbury – Usk,
-June 2025), plotted straight from the IGC logger file by a small script. The
+from my 300km Gold distance and Diamond goal flight (Usk – Worcester –
+Lake Vyrnwy – Usk, July 2026), plotted straight from the IGC logger file by a
+small script — trace, turnpoints and barogram all come out of the log. The
 weather line in the header is the live METAR for Cardiff (EGFF), fetched from
 the Norwegian Meteorological Institute's open API.
 

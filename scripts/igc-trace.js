@@ -1,15 +1,28 @@
 // igc-trace.js — renders an IGC flight log as the inline SVG "Flight trace"
 // section used in layouts/aviation/list.html.
 //
-// Usage: node scripts/igc-trace.js scripts/data/20250602-100km-diploma.igc
+// Usage: node scripts/igc-trace.js scripts/data/20260719-300km-gold-diamond.igc \
+//          --title "The 300km Gold distance flight"
 //
 // Prints the full <section> markup to stdout; paste it over the existing
 // FLIGHT TRACE section in the template. Stats (distances, altitude, duration)
 // are computed from the log's B records; the dashed task triangle comes from
-// the declared task C records. Turnpoint label offsets and the date/glider
-// lines are flight-specific — adjust them in the emitter below for a new log.
+// the declared task C records; date and glider come from the H records. The
+// only flight-specific tuning left is the section title (--title) and, for a
+// turnpoint whose label collides with the trace, an entry in LABELS below.
 const fs = require('fs');
-const lines = fs.readFileSync(process.argv[2], 'utf8').split(/\r?\n/);
+const args = process.argv.slice(2);
+const titleArg = (i => i < 0 ? null : args[i+1])(args.indexOf('--title'));
+const lines = fs.readFileSync(args[0], 'utf8').split(/\r?\n/);
+
+// IGC turnpoint codes are terse; expand the ones we've flown for readability.
+const NAMES = {WOR: 'WORCESTER', VRY: 'LAKE VYRNWY'};
+// Label placement overrides, for turnpoints whose default (above the marker)
+// would collide with the trace. dx/dy are relative to the marker.
+const LABELS = {
+  USK: {dy: 24},
+  WORCESTER: {dx: 12, dy: 4, anchor: 'start'}
+};
 
 function parseLat(s) { // DDMMmmm + N/S
   const d = +s.slice(0,2), m = +s.slice(2,4) + (+s.slice(4,7))/1000;
@@ -36,10 +49,17 @@ for (const l of lines) {
   if (!/^C\d{7}[NS]\d{8}[EW]/.test(l)) continue;
   const lat = parseLat(l.slice(1,9));
   const lon = parseLon(l.slice(9,18));
-  const name = l.slice(18).trim();
-  if (Math.abs(lat) < 0.01 || /TAKEOFF|LANDING/.test(name)) continue;
-  task.push({lat, lon, name});
+  const code = l.slice(18).trim();
+  if (Math.abs(lat) < 0.01 || /TAKEOFF|LANDING/.test(code)) continue;
+  task.push({lat, lon, name: NAMES[code] || code.toUpperCase()});
 }
+
+// flight date (HFDTE, DDMMYY) and glider, from the header records
+const hdr = re => (lines.find(l => re.test(l)) || '').split(':').pop().trim();
+const dmy = (lines.find(l => /^HFDTE\d{6}/.test(l)) || '').slice(5, 11);
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const date = `${dmy.slice(0,2)} ${MONTHS[+dmy.slice(2,4) - 1]} 20${dmy.slice(4,6)}`;
+const glider = [hdr(/^HFGTY/), hdr(/^HFGID/)].filter(Boolean).join(' · ');
 
 // trim ground time: find first/last fix where position changes meaningfully
 function hav(a, b) {
@@ -96,32 +116,29 @@ for (let a=500; a<=altTop; a+=500) gridLines.push({y: by(a), label: a});
 
 
 // ---- emit section markup ----
-const lab = {
-  'USK': {dy: 24, anchor: 'middle'},
-  'HEREFORD CATHEDRAL': {dy: -14, anchor: 'middle'},
-  'LEDBURY': {dy: -14, anchor: 'middle'}
-};
 const markers = tpMarkers.map(m => {
-  const l = lab[m.name] || {dy: -14, anchor: 'middle'};
+  const l = Object.assign({dx: 0, dy: -14, anchor: 'middle'}, LABELS[m.name]);
   return `        <circle class="tr-tp" cx="${m.x}" cy="${m.y}" r="4"/>\n` +
-         `        <text class="tr-label" x="${m.x}" y="${(+m.y + l.dy).toFixed(1)}" text-anchor="${l.anchor}">${m.name}</text>`;
+         `        <text class="tr-label" x="${(+m.x + l.dx).toFixed(1)}" y="${(+m.y + l.dy).toFixed(1)}" text-anchor="${l.anchor}">${m.name}</text>`;
 }).join('\n');
 const grid = gridLines.map(g =>
   `        <line class="tr-grid" x1="44" y1="${g.y}" x2="630" y2="${g.y}"/>\n` +
   `        <text class="tr-axis" x="38" y="${(+g.y + 3).toFixed(1)}" text-anchor="end">${g.label}</text>`
 ).join('\n');
-const date = '02 JUN 2025';
 const off = fmtT(t0) + 'Z', land = fmtT(t1) + 'Z';
+const titleCase = s => s.replace(/\w\S*/g, w => w[0] + w.slice(1).toLowerCase());
+const route = task.map(p => titleCase(p.name)).join(' · ');
+const title = titleArg || `The ${taskDist.toFixed(0)}km flight`;
 
-console.log(`  <!-- FLIGHT TRACE — generated from the 02 Jun 2025 IGC log by scripts/igc-trace.js -->
-  <section>
+console.log(`  <!-- FLIGHT TRACE — generated from the ${titleCase(date)} IGC log by scripts/igc-trace.js -->
+  <section id="trace">
     <div class="section-head">
       <div class="section-num">§ 01 / Flight trace</div>
-      <h2 class="section-title">The 100km diploma flight <span class="t-dim">— Usk · Hereford · Ledbury · Usk.</span></h2>
+      <h2 class="section-title">${title} <span class="t-dim">— ${route}.</span></h2>
     </div>
     <div class="t-trace">
       <figure class="t-trace-map">
-        <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="GPS trace of the 100km diploma flight: a triangle from Usk to Hereford Cathedral to Ledbury and back">
+        <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="GPS trace of the ${taskDist.toFixed(0)}km task: a triangle from ${task.map(p => titleCase(p.name)).join(' to ')}">
           <polyline class="tr-task" points="${taskPts}"/>
           <polyline class="tr-line" points="${tracePts}"/>
 ${markers}
@@ -134,7 +151,7 @@ ${markers}
       <div class="t-trace-side">
         <dl class="tr-data">
           <div><dt>Date</dt><dd>${date}</dd></div>
-          <div><dt>Glider</dt><dd>PIK-20D · G-DDLY</dd></div>
+          <div><dt>Glider</dt><dd>${glider}</dd></div>
           <div><dt>Task</dt><dd>${taskDist.toFixed(0)} KM TRIANGLE</dd></div>
           <div><dt>Distance flown</dt><dd>${Number(dist.toFixed(0)).toLocaleString()} KM</dd></div>
           <div><dt>Max altitude</dt><dd>${maxAlt.toLocaleString()} M</dd></div>
