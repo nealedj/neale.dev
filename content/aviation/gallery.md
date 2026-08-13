@@ -9,6 +9,11 @@ description: "A selection of gliding photos"
 
 <div class="gallery-grid">
 <div class="gallery-item">
+<a href="/img/aviation/gold_distance_300km.jpg" target="_blank"><img src="/img/aviation/gold_distance_300km.jpg" alt="PIK 20D G-DDLY on the 300km flight"></a>
+<p>G-DDLY on the day of the 303km triangle — Gold distance and Diamond goal, 19 July 2026.</p>
+</div>
+
+<div class="gallery-item">
 <a href="/img/aviation/glacier_blanc.jpg" target="_blank"><img src="/img/aviation/glacier_blanc.jpg" alt="Glacier Blanc"></a>
 <p>Flew in the French Alps in July 2025.</p>
 </div>
