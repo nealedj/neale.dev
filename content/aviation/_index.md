@@ -3,7 +3,7 @@ title: "Aviation"
 date: 2025-01-27
 weight: 10
 image: /img/aviation/aviation-hero.jpg
-description: "Glider pilot and SPL holder. FAI Silver C badge (1000m height gain, 50km distance, 5 hours), 100km diploma, Gold distance and Diamond goal on a 303km triangle. Member of South Wales Gliding Club."
+description: "Glider pilot, SPL holder with a TMG extension. FAI Silver C badge (1000m height gain, 50km distance, 5 hours), 100km diploma, Gold distance and Diamond goal on a 303km triangle. Member of South Wales Gliding Club."
 sitemap:
   priority: 0.8
 ---
@@ -14,7 +14,7 @@ Welcome to my aviation journey!
 
 I first went gliding at 14 with the Air Scouts and promptly forgot about it for two decades. Returning in 2022, I somehow ended up becoming a member of South Wales Gliding Club, flying the French Alps, learning to fly motorgliders and somewhere along the way I bought my own glider. This page documents how that happened.
 
-I hold a Sailplane License (SPL). I've achieved my FAI Silver C badge (1000m height gain, 50km distance and 5 hours duration), my 100km diploma, and — on a declared 303km triangle from Usk to Worcester to Lake Vyrnwy and back in July 2026 — Gold distance and Diamond goal.
+I hold a Sailplane Licence (SPL) with a TMG (touring motor glider) extension, passed in August 2026. I've achieved my FAI Silver C badge (1000m height gain, 50km distance and 5 hours duration), my 100km diploma, and — on a declared 303km triangle from Usk to Worcester to Lake Vyrnwy and back in July 2026 — Gold distance and Diamond goal.
 
 This section documents my aviation achievements, including the milestones that shaped my development as a pilot, the practical tools I've created to help fellow pilots in their training, and the adventures I've experienced in the skies.
 
@@ -164,6 +164,18 @@ A chronological record of my journey as a pilot, from first learning to glide to
         <div class="timeline-description">Completed a declared 303km triangle in the PIK 20D on 19 July — Usk, Worcester, Lake Vyrnwy, Usk. Five hours airborne, topping out at 2,102m, claiming both the Gold distance leg and the Diamond goal.</div>
         <div class="timeline-image-container">
             <img src="/img/aviation/gold_distance_300km.jpg" alt="PIK 20D G-DDLY on the 300km flight" class="timeline-image">
+        </div>
+    </div>
+</div>
+
+<div class="timeline-item milestone">
+    <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
+    <div class="timeline-content">
+        <div class="timeline-date">August 2026</div>
+        <div class="timeline-title">SPL TMG extension</div>
+        <div class="timeline-description">Passed the TMG skills test on 25 August in a Grob 109B — the last requirement for the touring motor glider extension to my SPL. Two years on from starting the training, motorglider privileges are on the licence.</div>
+        <div class="timeline-image-container">
+            <img src="/img/aviation/tmg_skills_test.jpg" alt="In the Grob 109B immediately after the TMG skills test" class="timeline-image">
         </div>
     </div>
 </div>
