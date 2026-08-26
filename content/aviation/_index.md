@@ -173,7 +173,7 @@ A chronological record of my journey as a pilot, from first learning to glide to
     <div class="timeline-content">
         <div class="timeline-date">August 2026</div>
         <div class="timeline-title">SPL TMG extension</div>
-        <div class="timeline-description">Passed the TMG skills test on 25 August in a Grob 109B — the last requirement for the touring motor glider extension to my SPL. Two years on from starting the training, motorglider privileges are on the licence.</div>
+        <div class="timeline-description">Completed my TMG extension.</div>
         <div class="timeline-image-container">
             <img src="/img/aviation/tmg_skills_test.jpg" alt="In the Grob 109B immediately after the TMG skills test" class="timeline-image">
         </div>
