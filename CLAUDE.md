@@ -28,7 +28,7 @@ The homepage (`layouts/index.html`) and aviation page (`layouts/aviation/list.ht
 - `content/aviation/_index.md` — aviation timeline (uses raw HTML inside Markdown; `unsafe = true` is set in config)
 - `content/aviation/gallery.md` — photo gallery
 - `content/aviation/posters.md` — TMG training poster pages
-- `content/projects/creations/loan-amortisation.md` — project page
+- `content/projects/creations/*.md` — project pages (polar visualiser, IGC analyser, loan amortisation)
 
 ## Layout Structure
 
