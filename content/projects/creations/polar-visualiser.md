@@ -6,14 +6,25 @@
     "featured":true
 }
 
-I built this as a way to explore how polar curves shift with ballast and different MacCready value.
+## What it's for
 
-The app fetches polar data directly from [XCSoar's codebase](https://github.com/XCSoar/XCSoar). It parses the struct definitions using regex, then fits a quadratic curve through the three measured data points using a Cramer's rule regression.
+Shows how a glider's polar curve shifts with ballast and MacCready setting, and what that means for speed to fly, across 200+ glider types.
 
-From there it applies MacCready theory: given a thermal strength setting, it calculates the optimum inter-thermal cruise speed, the effective cross-country speed, and marks the tangent point on the polar. Ballast adjusts the polar by scaling the wing loading, which shifts the whole curve right and down as you'd expect.
+## How to use it
 
-Supports multiple unit types and allows users to overlay two gliders in order to compare their performance.
+Open [polars.neale.dev](https://polars.neale.dev/) and pick a glider. Set a thermal strength and a ballast load, and the curve and the derived speeds update with it. Add a second glider to compare the two.
 
-Test it properly at [polars.neale.dev](https://polars.neale.dev/).
+## Features
+
+- Over 200 glider types, with polar data taken directly from [XCSoar's codebase](https://github.com/XCSoar/XCSoar)
+- Hover any point on the curve to read the sink rate and glide ratio at that speed
+- MacCready speed-to-fly: for a given thermal strength it gives the optimum inter-thermal cruise speed and the effective cross-country speed, and marks the tangent point on the polar
+- Ballast adjustment by wing loading, which shifts the whole curve right and down
+- Two gliders overlaid on the same axes for a direct performance comparison
+- Multiple unit systems
+
+## How it works
+
+Polar data is fetched from the XCSoar source, parsing the struct definitions with regex. A quadratic is fitted through the three measured points using a Cramer's rule regression, and MacCready theory is applied to the fitted curve.
 
 {{< iframe src="https://polars.neale.dev/" height="900" >}}
