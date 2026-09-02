@@ -461,24 +461,6 @@ body.terminal-page a:hover { color: var(--phosphor); }
 .t-prose p + p { margin-top: 1em; }
 .t-prose strong { color: var(--ink); font-weight: 500; }
 .t-prose a { color: var(--phosphor); border-bottom: 1px solid var(--phosphor-dim); }
-.t-prose ul {
-  padding-left: 0;
-  list-style: none;
-  margin: 16px 0;
-}
-.t-prose ul li {
-  padding: 6px 0 6px 22px;
-  position: relative;
-  line-height: 1.55;
-}
-.t-prose ul li::before {
-  content: "\2192";
-  position: absolute;
-  left: 0; top: 8px;
-  color: var(--phosphor);
-  font-family: var(--mono);
-  font-size: 12px;
-}
 
 .t-lede {
   font-size: clamp(20px, 2.2vw, 28px);
@@ -1125,6 +1107,29 @@ footer.t-foot a:hover { color: var(--phosphor); }
   max-width: 100%;
   height: auto;
   display: block;
+}
+.t-prose ul {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+}
+.t-prose ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-top: 12px;
+}
+.t-prose ul li::before {
+  content: "\203A";
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  font-family: var(--mono);
+  color: var(--phosphor);
+}
+.t-prose code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  color: var(--ink);
 }
 
 /* -------- Aviation subpages (gallery, posters) -------- */
