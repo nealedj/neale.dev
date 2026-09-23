@@ -2,7 +2,7 @@
 // section used in layouts/aviation/list.html.
 //
 // Usage: node scripts/igc-trace.js scripts/data/20260719-300km-gold-diamond.igc \
-//          --title "The 300km Gold distance flight"
+//          --title "Gold distance &amp; Diamond goal"
 //
 // Prints the full <section> markup to stdout; paste it over the existing
 // FLIGHT TRACE section in the template. Stats (distances, altitude, duration)
@@ -118,56 +118,67 @@ for (let a=500; a<=altTop; a+=500) gridLines.push({y: by(a), label: a});
 // ---- emit section markup ----
 const markers = tpMarkers.map(m => {
   const l = Object.assign({dx: 0, dy: -14, anchor: 'middle'}, LABELS[m.name]);
-  return `        <circle class="tr-tp" cx="${m.x}" cy="${m.y}" r="4"/>\n` +
-         `        <text class="tr-label" x="${(+m.x + l.dx).toFixed(1)}" y="${(+m.y + l.dy).toFixed(1)}" text-anchor="${l.anchor}">${m.name}</text>`;
+  return `            <circle class="tr-tp" cx="${m.x}" cy="${m.y}" r="4"/>\n` +
+         `            <text class="tr-label" x="${(+m.x + l.dx).toFixed(1)}" y="${(+m.y + l.dy).toFixed(1)}" text-anchor="${l.anchor}">${m.name}</text>`;
 }).join('\n');
 const grid = gridLines.map(g =>
-  `        <line class="tr-grid" x1="44" y1="${g.y}" x2="630" y2="${g.y}"/>\n` +
-  `        <text class="tr-axis" x="38" y="${(+g.y + 3).toFixed(1)}" text-anchor="end">${g.label}</text>`
+  `              <line class="tr-grid" x1="44" y1="${g.y}" x2="630" y2="${g.y}"/>\n` +
+  `              <text class="tr-axis" x="38" y="${(+g.y + 3).toFixed(1)}" text-anchor="end">${g.label}</text>`
 ).join('\n');
 const off = fmtT(t0) + 'Z', land = fmtT(t1) + 'Z';
 const titleCase = s => s.replace(/\w\S*/g, w => w[0] + w.slice(1).toLowerCase());
 const route = task.map(p => titleCase(p.name)).join(' · ');
 const title = titleArg || `The ${taskDist.toFixed(0)}km flight`;
+// shaded area under the barogram: the altitude line closed down to 0 m
+const baroArea = `${bx(t0)},${by(0)} ${baroPts} ${bx(t1)},${by(0)}`;
 
 console.log(`  <!-- FLIGHT TRACE — generated from the ${titleCase(date)} IGC log by scripts/igc-trace.js -->
-  <section id="trace">
+  <section class="section container" id="trace" aria-labelledby="trace-title">
     <div class="section-head">
-      <div class="section-num">§ 01 / Flight trace</div>
-      <h2 class="section-title">${title} <span class="t-dim">— ${route}.</span></h2>
+      <span class="eyebrow">Flight trace</span>
+      <h2 id="trace-title">${title}</h2>
+      <p>${route}. The actual GPS track, turnpoints and barogram, plotted straight from the IGC logger file.</p>
     </div>
-    <div class="t-trace">
-      <figure class="t-trace-map">
-        <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="GPS trace of the ${taskDist.toFixed(0)}km task: a triangle from ${task.map(p => titleCase(p.name)).join(' to ')}">
-          <polyline class="tr-task" points="${taskPts}"/>
-          <polyline class="tr-line" points="${tracePts}"/>
+    <div class="showcase">
+      <div class="showcase-bar">
+        <span class="showcase-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>IGC log · ${titleCase(date)}</span>
+        <span class="showcase-bar-end">${taskDist.toFixed(0)} km triangle</span>
+      </div>
+      <div class="trace-body">
+        <figure class="trace-map">
+          <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="GPS trace of the ${taskDist.toFixed(0)}km task: a triangle from ${task.map(p => titleCase(p.name)).join(' to ')}">
+            <polyline class="tr-task" points="${taskPts}"/>
+            <polyline class="tr-line" points="${tracePts}"/>
 ${markers}
-        </svg>
-        <figcaption class="tr-caption">
-          <span>ACTUAL GPS TRACK</span>
-          <span class="tr-key"><span class="tr-key-task"></span> DECLARED TASK</span>
-        </figcaption>
-      </figure>
-      <div class="t-trace-side">
-        <dl class="tr-data">
-          <div><dt>Date</dt><dd>${date}</dd></div>
-          <div><dt>Glider</dt><dd>${glider}</dd></div>
-          <div><dt>Task</dt><dd>${taskDist.toFixed(0)} KM TRIANGLE</dd></div>
-          <div><dt>Distance flown</dt><dd>${Number(dist.toFixed(0)).toLocaleString()} KM</dd></div>
-          <div><dt>Max altitude</dt><dd>${maxAlt.toLocaleString()} M</dd></div>
-          <div><dt>Duration</dt><dd>${hh}h ${String(mm).padStart(2,'0')}m · ${off} – ${land}</dd></div>
-        </dl>
-        <figure class="t-trace-baro">
-          <svg viewBox="0 0 ${BW} ${BH}" role="img" aria-label="Barogram: altitude over the duration of the flight, peaking at ${maxAlt} metres">
-${grid}
-            <line class="tr-grid" x1="44" y1="${by(0)}" x2="630" y2="${by(0)}"/>
-            <polyline class="tr-line" points="${baroPts}"/>
-            <text class="tr-axis" x="44" y="${BH - 8}">${off}</text>
-            <text class="tr-axis" x="630" y="${BH - 8}" text-anchor="end">${land}</text>
-            <text class="tr-axis" x="38" y="${BH - 8}" text-anchor="end">ALT M</text>
           </svg>
-          <figcaption class="tr-caption"><span>BAROGRAM</span></figcaption>
+          <figcaption class="trace-caption eyebrow">
+            <span class="trace-key"><span class="trace-key-line"></span> Actual GPS track</span>
+            <span class="trace-key"><span class="trace-key-task"></span> Declared task</span>
+          </figcaption>
         </figure>
+        <div class="trace-side">
+          <dl class="trace-data">
+            <div><dt class="eyebrow">Date</dt><dd>${titleCase(date)}</dd></div>
+            <div><dt class="eyebrow">Glider</dt><dd>${glider}</dd></div>
+            <div><dt class="eyebrow">Task</dt><dd>${taskDist.toFixed(0)} km triangle</dd></div>
+            <div><dt class="eyebrow">Distance flown</dt><dd>${Number(dist.toFixed(0)).toLocaleString()} km</dd></div>
+            <div><dt class="eyebrow">Max altitude</dt><dd>${maxAlt.toLocaleString()} m</dd></div>
+            <div><dt class="eyebrow">Duration</dt><dd>${hh}h ${String(mm).padStart(2,'0')}m · ${off} – ${land}</dd></div>
+          </dl>
+          <figure class="trace-baro showcase-panel">
+            <figcaption class="trace-caption eyebrow"><span>Barogram</span><span>Peak ${maxAlt.toLocaleString()} m</span></figcaption>
+            <svg viewBox="0 0 ${BW} ${BH}" role="img" aria-label="Barogram: altitude over the duration of the flight, peaking at ${maxAlt} metres">
+${grid}
+              <line class="tr-grid" x1="44" y1="${by(0)}" x2="630" y2="${by(0)}"/>
+              <polygon class="tr-area" points="${baroArea}"/>
+              <polyline class="tr-line" points="${baroPts}"/>
+              <text class="tr-axis" x="44" y="${BH - 8}">${off}</text>
+              <text class="tr-axis" x="630" y="${BH - 8}" text-anchor="end">${land}</text>
+              <text class="tr-axis" x="38" y="${BH - 8}" text-anchor="end">ALT M</text>
+            </svg>
+          </figure>
+        </div>
       </div>
     </div>
   </section>`);

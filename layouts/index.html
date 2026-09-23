@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,251 +13,248 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="author" content="David Neale">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="preload" href="/fonts/b612-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/b612mono-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/terminal.css">
+  {{ partial "head.html" . }}
 </head>
-<body class="terminal-page" data-scanlines="on">
+<body>
 
-<nav class="t-nav">
-  <div class="t-nav-inner">
-    <a href="#top" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
-    <div class="t-nav-links" id="t-nav-links">
-      <a href="#about" class="active">About</a>
-      <a href="#case">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#currently">Now</a>
-      <a href="#projects">Projects</a>
-      <a href="/aviation/">Aviation</a>
-    </div>
-    <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
-  </div>
-</nav>
+{{ partial "nav.html" . }}
 
-<aside class="instrument-rail" aria-hidden="true"></aside>
-
-<main class="t-shell" id="top">
+<main id="main" class="site-main">
 
   <!-- HERO -->
-  <section class="t-hero" id="about">
-    <div class="t-hero-meta">
-      <span>§ 00 &nbsp;//&nbsp; HOME</span>
-      <span class="coord" data-coord data-metar title="Live weather at Cardiff Airport (METAR)">51.4816°N&nbsp;&nbsp;3.1791°W</span>
-      <span>CARDIFF · UK</span>
+  <section class="hero" aria-labelledby="hero-title">
+    <a class="hero-pill" href="#about">
+      <img src="/img/davidportrait.jpg" alt="" width="32" height="32">
+      <span class="hero-pill-name">David Neale</span>
+      <span class="hero-pill-sep" aria-hidden="true"></span>
+      <span class="hero-pill-role">Chief Architect, Admiral Money</span>
+    </a>
+    <h1 id="hero-title">I help organisations build, deliver and manage software that’s reliable, secure, and effective.</h1>
+    <p class="hero-sub">
+      Currently owning the technology strategy for a £1.8bn consumer lending business.
+      Before that: police software, Google's developer programmes, and the UK's first
+      digital-first census.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#case">See featured work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch {{ partial "icon.html" (dict "name" "arrow-right") }}</a>
     </div>
+  </section>
 
-    <div class="t-hero-main">
-      <div>
-        <div class="t-hero-role">Chief Architect · Admiral Money</div>
-        <h1 class="t-hero-title">
-          <span class="given">David</span>
-          <span class="surname">Neale.</span>
-        </h1>
-        <p class="t-hero-bio">
-          I help organisations build, deliver and manage software that's reliable, secure,
-          and effective. Currently owning the technology strategy for a £1.8bn consumer
-          lending business.
-        </p>
+  <!-- STATS -->
+  <section class="container" aria-label="At a glance">
+    <div class="stats">
+      <div class="stat">
+        <span class="eyebrow">Loan book built</span>
+        <div class="stat-num">£1.8<span class="unit">bn</span></div>
       </div>
-      <div class="t-hero-portrait">
-        <img src="/img/davidportrait.jpg" alt="David Neale" width="320" height="400">
+      <div class="stat">
+        <span class="eyebrow">Concurrent users engineered for</span>
+        <div class="stat-num">1<span class="unit">m</span></div>
       </div>
-    </div>
-
-    <div class="t-hero-footer">
-      <div class="t-stat">
-        <div class="t-stat-num"><span data-drums>£1.8</span><span class="unit">bn</span></div>
-        <div class="t-stat-label">Loan book built</div>
+      <div class="stat">
+        <span class="eyebrow">Professional experience</span>
+        <div class="stat-num">19<span class="unit">yrs</span></div>
       </div>
-      <div class="t-stat">
-        <div class="t-stat-num"><span data-drums>1</span><span class="unit">m</span></div>
-        <div class="t-stat-label">Concurrent users engineered for</div>
-      </div>
-      <div class="t-stat">
-        <div class="t-stat-num"><span data-drums>19</span><span class="unit">yrs</span></div>
-        <div class="t-stat-label">Professional experience</div>
-      </div>
-      <div class="t-stat">
-        <div class="t-stat-num"><span data-drums>80</span><span class="unit">+</span></div>
-        <div class="t-stat-label">Engineers led</div>
+      <div class="stat">
+        <span class="eyebrow">Engineers led</span>
+        <div class="stat-num">80<span class="unit">+</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT LONGFORM -->
-  <section id="about-long">
+  <!-- ABOUT -->
+  <section class="section container" id="about" aria-labelledby="about-title">
     <div class="section-head">
-      <div class="section-num">§ 01 / About</div>
-      <h2 class="section-title">My career: <span class="t-dim">from police software, to Google, to the UK's first digital census, to Admiral Money.</span></h2>
+      <span class="eyebrow">About</span>
+      <h2 id="about-title">From police software, to Google, to the UK’s first digital census, to Admiral Money.</h2>
     </div>
-    <div class="t-grid-2">
-      <p class="t-lede">
-        Varied technologies, a range of industries, and always with complex trade-offs.
-      </p>
-      <div class="t-prose">
-        <p>
-          I'm currently <strong>Chief Architect at Admiral Money</strong>, where I own the
-          technology strategy for a £1.8bn consumer lending business.
-        </p>
-        <p>
-          I've also been driving adoption of AI tooling: from governed LLM access across the
-          business, to agentic developer tooling with Claude Code, to early-stage
-          experiments in contact-centre automation.
-        </p>
-        <p>
-          Aviation has changed how I think about engineering. Achieving my Sailplane Pilot
-          Licence and working towards other endorsements involves systems thinking and human factors.
-          In safety-critical environments, clear checklists, unambiguous communication and disciplined
-          decision-making are what keeps things from going wrong. I bring that same diligence to
-          architecture decisions and incident response.
-        </p>
-        <p>
-          Outside of work you'll usually find me flying, travelling around in my camper van, tinkering
-          with electronics, cooking, walking, or playing music (piano and guitar).
-        </p>
+    <div class="about-grid">
+      <figure class="portrait-card">
+        <img src="/img/davidportrait.jpg" alt="David Neale" width="480" height="600" loading="lazy">
+        <figcaption><span>David Neale</span><span class="muted">Cardiff, UK</span></figcaption>
+      </figure>
+      <div>
+        <p class="lede">Varied technologies, a range of industries, and always with complex trade-offs.</p>
+        <div class="prose">
+          <p>
+            I'm currently <strong>Chief Architect at Admiral Money</strong>, where I own the
+            technology strategy for a £1.8bn consumer lending business.
+          </p>
+          <p>
+            I've also been driving adoption of AI tooling: from governed LLM access across the
+            business, to agentic developer tooling with Claude Code, to early-stage
+            experiments in contact-centre automation.
+          </p>
+          <p>
+            Aviation has changed how I think about engineering. Achieving my Sailplane Pilot
+            Licence and working towards other endorsements involves systems thinking and human factors.
+            In safety-critical environments, clear checklists, unambiguous communication and disciplined
+            decision-making are what keeps things from going wrong. I bring that same diligence to
+            architecture decisions and incident response.
+          </p>
+          <p>
+            Outside of work you'll usually find me <a href="/aviation/">flying</a>, travelling around in my camper van, tinkering
+            with electronics, cooking, walking, or playing music (piano and guitar).
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CASE STUDY -->
-  <section id="case">
+  <section class="section container" id="case" aria-labelledby="case-title">
     <div class="section-head">
-      <div class="section-num">§ 02 / Featured work</div>
-      <h2 class="section-title">2021 UK Digital-First Census <span class="t-dim">- one huge event, every ten years.</span></h2>
+      <span class="eyebrow">Featured work</span>
+      <h2 id="case-title">2021 UK Digital-First Census</h2>
+      <p>One huge event, every ten years.</p>
     </div>
-    <div class="t-case">
-      <aside>
-        <div class="tag">Case study</div>
-        <div><span class="t-dim">Client</span><br>Office for National Statistics</div>
-        <div style="margin-top:14px;"><span class="t-dim">Dates</span><br>2018 – 2019</div>
-        <div style="margin-top:14px;"><span class="t-dim">Role</span><br>Technical Lead / Architect</div>
-        <div style="margin-top:14px;"><span class="t-dim">Scale</span><br>~1M concurrent users</div>
-      </aside>
-      <div>
-        <h3>The UK holds a census once a decade and 2021 was the first to be designed digital-first.</h3>
-
-        <h4>The challenge</h4>
-        <p>
-          The existing survey data collection platform was running on AWS. The architectural
-          team had two mandates: prove that the system was cloud-portable by migrating it to
-          Google Cloud Platform, and validate that it could handle the anticipated peak load -
-          roughly one million households attempting to complete simultaneously on census day.
-        </p>
-
-        <h4>My role</h4>
-        <p>
-          I joined the ONS architecture team as a technical lead for the electronic questionnaire
-          (eQ) application. I subsequently moved into the Cloud Architecture team to work
-          across software engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
-          introducing Kubernetes-native deployments as part of the migration. I also designed
-          the performance testing strategy — generating a million concurrent, realistic
-          synthetic users is a non-trivial problem in itself, requiring careful modelling of
-          submission behaviour and infrastructure headroom. This required close working with
-          Google engineers to consider usage patterns that were beyond their usual planned levels.
-        </p>
-
-        <h4>The outcome</h4>
-        <p>
-          On 21 March 2021, the census launched and the digital collection system held. It handled 
-          a peak of 30,186 requests per second with 427,838 submissions during that peak hour. The
-          groundwork laid during the architecture phase — cloud portability, Kubernetes
-          orchestration, validated performance envelopes — proved robust under real-world
-          load. It remains one of the largest public-sector digital delivery projects in UK
-          government history.
-        </p>
-
-        <p>A technical review of the delivery can be downloaded from the ONS:
-          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/articles/deliveringthecensus2021digitalservice/2021-10-04/pdf">Delivering the Census 2021 digital service</a>.
-        </p>
+    <article class="showcase">
+      <div class="showcase-bar">
+        <span class="showcase-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Case study · Office for National Statistics</span>
+        <span class="showcase-bar-end">2018 – 2019</span>
       </div>
-    </div>
+      <div class="showcase-body">
+        <div class="showcase-main">
+          <dl class="case-meta">
+            <div><dt class="eyebrow">Client</dt><dd>Office for National Statistics</dd></div>
+            <div><dt class="eyebrow">Dates</dt><dd>2018 – 2019</dd></div>
+            <div><dt class="eyebrow">Role</dt><dd>Technical Lead / Architect</dd></div>
+            <div><dt class="eyebrow">Scale</dt><dd>~1M concurrent users</dd></div>
+          </dl>
+          <h3 class="case-lead">The UK holds a census once a decade and 2021 was the first to be designed digital-first.</h3>
+          <div class="case-block">
+            <h4 class="eyebrow">The challenge</h4>
+            <p>
+              The existing survey data collection platform was running on AWS. The architectural
+              team had two mandates: prove that the system was cloud-portable by migrating it to
+              Google Cloud Platform, and validate that it could handle the anticipated peak load -
+              roughly one million households attempting to complete simultaneously on census day.
+            </p>
+          </div>
+          <div class="case-block">
+            <h4 class="eyebrow">My role</h4>
+            <p>
+              I joined the ONS architecture team as a technical lead for the electronic questionnaire
+              (eQ) application. I subsequently moved into the Cloud Architecture team to work
+              across software engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
+              introducing Kubernetes-native deployments as part of the migration. I also designed
+              the performance testing strategy — generating a million concurrent, realistic
+              synthetic users is a non-trivial problem in itself, requiring careful modelling of
+              submission behaviour and infrastructure headroom. This required close working with
+              Google engineers to consider usage patterns that were beyond their usual planned levels.
+            </p>
+          </div>
+          <div class="case-block">
+            <h4 class="eyebrow">The outcome</h4>
+            <p>
+              On 21 March 2021, the census launched and the digital collection system held. It handled
+              a peak of 30,186 requests per second with 427,838 submissions during that peak hour. The
+              groundwork laid during the architecture phase — cloud portability, Kubernetes
+              orchestration, validated performance envelopes — proved robust under real-world
+              load. It remains one of the largest public-sector digital delivery projects in UK
+              government history.
+            </p>
+            <p>A technical review of the delivery can be downloaded from the ONS:
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/articles/deliveringthecensus2021digitalservice/2021-10-04/pdf">Delivering the Census 2021 digital service</a>.
+            </p>
+          </div>
+        </div>
+        <aside class="showcase-panel" aria-label="Census day in numbers">
+          <span class="eyebrow">Census day · 21 March 2021</span>
+          <div class="case-figures">
+            <div class="case-figure">
+              <div class="case-figure-num">30,186</div>
+              <div class="case-figure-label">requests per second at peak</div>
+            </div>
+            <div class="case-figure">
+              <div class="case-figure-num">427,838</div>
+              <div class="case-figure-label">submissions in the peak hour</div>
+            </div>
+            <div class="case-figure">
+              <div class="case-figure-num">~1M</div>
+              <div class="case-figure-label">concurrent users modelled in performance testing</div>
+            </div>
+            <div class="case-figure">
+              <div class="case-figure-num">AWS {{ partial "icon.html" (dict "name" "arrow-right" "class" "icon-inline") }} GCP</div>
+              <div class="case-figure-label">cloud portability proven, with Kubernetes-native deployments</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills">
+  <section class="section container" id="skills" aria-labelledby="skills-title">
     <div class="section-head">
-      <div class="section-num">§ 03 / Skills</div>
-      <h2 class="section-title">Stack <span class="t-dim">- technologies I've had the most exposure to</span></h2>
+      <span class="eyebrow">Skills</span>
+      <h2 id="skills-title">Stack</h2>
+      <p>Technologies I’ve had the most exposure to.</p>
     </div>
-    <div class="t-skills-grid">
-      <div class="t-skill-group">
-        <h4>Architecture &amp; Strategy</h4>
-        <ul class="t-skill-list">
-          <li>Cloud Architecture</li>
-          <li>Technical Strategy</li>
-          <li>API Design</li>
-          <li>Microservices</li>
-          <li>Distributed Systems</li>
-          <li>TOGAF</li>
-          <li>Cybersecurity</li>
-          <li>Gen AI</li>
+    <ul class="tile-grid">
+      <li class="tile"><span class="tile-name">Amazon Web Services</span><span class="eyebrow">Cloud</span></li>
+      <li class="tile"><span class="tile-name">Google Cloud Platform</span><span class="eyebrow">Cloud</span></li>
+      <li class="tile"><span class="tile-name">Kubernetes</span><span class="eyebrow">Infra</span></li>
+      <li class="tile"><span class="tile-name">Docker</span><span class="eyebrow">Infra</span></li>
+      <li class="tile"><span class="tile-name">Terraform</span><span class="eyebrow">Infra</span></li>
+      <li class="tile"><span class="tile-name">Linux</span><span class="eyebrow">Infra</span></li>
+      <li class="tile"><span class="tile-name">git</span><span class="eyebrow">Tooling</span></li>
+      <li class="tile"><span class="tile-name">Claude Code</span><span class="eyebrow">Tooling</span></li>
+      <li class="tile"><span class="tile-name">Python</span><span class="eyebrow">Language</span></li>
+      <li class="tile"><span class="tile-name">Go</span><span class="eyebrow">Language</span></li>
+      <li class="tile"><span class="tile-name">TypeScript</span><span class="eyebrow">Language</span></li>
+      <li class="tile"><span class="tile-name">Java</span><span class="eyebrow">Language</span></li>
+      <li class="tile"><span class="tile-name">React</span><span class="eyebrow">Framework</span></li>
+      <li class="tile"><span class="tile-name">PostgreSQL</span><span class="eyebrow">Data</span></li>
+      <li class="tile"><span class="tile-name">MySQL</span><span class="eyebrow">Data</span></li>
+      <li class="tile"><span class="tile-name">DynamoDB</span><span class="eyebrow">Data</span></li>
+    </ul>
+    <div class="skills-extra">
+      <div class="card">
+        <h3 class="eyebrow">Architecture &amp; strategy</h3>
+        <ul class="tag-list">
+          <li class="pill">Cloud Architecture</li>
+          <li class="pill">Technical Strategy</li>
+          <li class="pill">API Design</li>
+          <li class="pill">Microservices</li>
+          <li class="pill">Distributed Systems</li>
+          <li class="pill">TOGAF</li>
+          <li class="pill">Cybersecurity</li>
+          <li class="pill">Gen AI</li>
         </ul>
       </div>
-      <div class="t-skill-group">
-        <h4>Cloud &amp; Infrastructure</h4>
-        <ul class="t-skill-list">
-          <li>Amazon Web Services</li>
-          <li>Google Cloud Platform</li>
-          <li>Kubernetes</li>
-          <li>Docker</li>
-          <li>Linux</li>
-          <li>git</li>
-        </ul>
-      </div>
-      <div class="t-skill-group">
-        <h4>Languages &amp; Frameworks</h4>
-        <ul class="t-skill-list">
-          <li>Claude Code</li>
-          <li>Python</li>
-          <li>Go</li>
-          <li>TypeScript</li>
-          <li>React</li>
-          <li>Java</li>
-          <li>Terraform</li>
-        </ul>
-      </div>
-      <div class="t-skill-group">
-        <h4>Data</h4>
-        <ul class="t-skill-list">
-          <li>PostgreSQL</li>
-          <li>MySQL</li>
-          <li>DynamoDB</li>
-        </ul>
-        <h4 style="margin-top:32px;">Certifications</h4>
-        <ul class="t-skill-list">
-          <li>AWS SA Professional</li>
-          <li>AWS SA Associate</li>
-          <li>TOGAF® 9</li>
-          <li>CCSP</li>
+      <div class="card">
+        <h3 class="eyebrow">Certifications</h3>
+        <ul class="cert-list">
+          <li>{{ partial "icon.html" (dict "name" "shield") }}AWS Solutions Architect – Professional</li>
+          <li>{{ partial "icon.html" (dict "name" "shield") }}AWS Solutions Architect – Associate</li>
+          <li>{{ partial "icon.html" (dict "name" "shield") }}TOGAF® 9</li>
+          <li>{{ partial "icon.html" (dict "name" "shield") }}CCSP</li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience">
+  <section class="section container" id="experience" aria-labelledby="experience-title">
     <div class="section-head">
-      <div class="section-num">§ 04 / Experience</div>
-      <h2 class="section-title">Engineering logbook <span class="t-dim">— professional experience.</span></h2>
+      <span class="eyebrow">Experience</span>
+      <h2 id="experience-title">Engineering logbook</h2>
+      <p>Professional experience, most recent first.</p>
     </div>
-    <div class="t-log">
+    <ol class="job-list">
 
-      <div class="t-log-head" aria-hidden="true">
-        <span>Dates · Base · Time</span>
-        <span>Role &amp; remarks</span>
-      </div>
-
-      <div class="t-log-entry">
-        <div class="t-log-meta">
-          <span class="date">2019 — NOW</span>
-          <span>CARDIFF</span>
-          <span>5+ YRS</span>
+      <li class="card job">
+        <div class="job-meta">
+          <span class="eyebrow job-date">2019 — Now</span>
+          <span class="eyebrow">Cardiff · 5+ yrs</span>
+          <span class="pill"><span class="live-dot" aria-hidden="true"></span>Current role</span>
         </div>
-        <div class="t-log-body">
+        <div class="job-body">
           <h3>Chief Architect</h3>
-          <div class="co">Admiral Money</div>
+          <div class="job-co">Admiral Money</div>
           <p>
             Lead the technology strategy and oversee the development of scalable and secure
             systems. Joined when the company had £400m of loan balances pre-profit; in 2025
@@ -269,19 +266,20 @@
             <li>Designed and implemented a loan originations system; extended into wider CRM capabilities.</li>
             <li>Drove AI adoption across the business: governed self-hosted AI chat platform, Claude Code for agentic dev tooling, early contact-centre experiments.</li>
           </ul>
-          <div class="t-log-tech"><span class="k">TECH ·</span> Kubernetes · AWS · Go · Python · Terraform · Docker</div>
+          <ul class="tag-list" aria-label="Technologies">
+            <li class="pill">Kubernetes</li><li class="pill">AWS</li><li class="pill">Go</li><li class="pill">Python</li><li class="pill">Terraform</li><li class="pill">Docker</li>
+          </ul>
         </div>
-      </div>
+      </li>
 
-      <div class="t-log-entry">
-        <div class="t-log-meta">
-          <span class="date">2018 — 2019</span>
-          <span>ONS</span>
-          <span>1Y 5M</span>
+      <li class="card job">
+        <div class="job-meta">
+          <span class="eyebrow job-date">2018 — 2019</span>
+          <span class="eyebrow">ONS · 1y 5m</span>
         </div>
-        <div class="t-log-body">
+        <div class="job-body">
           <h3>Technical Lead</h3>
-          <div class="co">Office for National Statistics</div>
+          <div class="job-co">Office for National Statistics</div>
           <p>
             Tech lead on a multidisciplinary team developing the dynamic form builder
             powering online surveys. Moved into the architectural team focused on the 2021
@@ -292,19 +290,20 @@
             <li>Designed a scalable perf testing solution simulating 1M concurrent users.</li>
             <li>Worked across engineering, DevOps and architecture disciplines.</li>
           </ul>
-          <div class="t-log-tech"><span class="k">TECH ·</span> Kubernetes · GCP · AWS · Python · Go · Terraform · React · Docker</div>
+          <ul class="tag-list" aria-label="Technologies">
+            <li class="pill">Kubernetes</li><li class="pill">GCP</li><li class="pill">AWS</li><li class="pill">Python</li><li class="pill">Go</li><li class="pill">Terraform</li><li class="pill">React</li><li class="pill">Docker</li>
+          </ul>
         </div>
-      </div>
+      </li>
 
-      <div class="t-log-entry">
-        <div class="t-log-meta">
-          <span class="date">2012 — 2018</span>
-          <span>LONDON</span>
-          <span>5Y 10M</span>
+      <li class="card job">
+        <div class="job-meta">
+          <span class="eyebrow job-date">2012 — 2018</span>
+          <span class="eyebrow">London · 5y 10m</span>
         </div>
-        <div class="t-log-body">
+        <div class="job-body">
           <h3>Senior Developer</h3>
-          <div class="co">Potato London Ltd</div>
+          <div class="job-co">Potato London Ltd</div>
           <p>
             Joined as a contractor working on Google projects and was offered a permanent
             role; promoted to senior developer not long after.
@@ -315,241 +314,181 @@
             <li>Tech lead for the backend API of Google Ideas' (Jigsaw) Montage - collaborative YouTube discovery platform, later sold to Storyful and open-sourced.</li>
             <li>Rewrote engineering hiring test to be both more revealing and more respectful of candidates' time.</li>
           </ul>
-          <div class="t-log-tech"><span class="k">TECH ·</span> Python · JS · App Engine · Django · Angular · MySQL</div>
+          <ul class="tag-list" aria-label="Technologies">
+            <li class="pill">Python</li><li class="pill">JS</li><li class="pill">App Engine</li><li class="pill">Django</li><li class="pill">Angular</li><li class="pill">MySQL</li>
+          </ul>
         </div>
-      </div>
+      </li>
 
-      <div class="t-log-entry">
-        <div class="t-log-meta">
-          <span class="date">2011 — 2012</span>
-          <span>CARDIFF</span>
-          <span>1Y 1M</span>
+      <li class="card job">
+        <div class="job-meta">
+          <span class="eyebrow job-date">2011 — 2012</span>
+          <span class="eyebrow">Cardiff · 1y 1m</span>
         </div>
-        <div class="t-log-body">
+        <div class="job-body">
           <h3>Senior Web Developer</h3>
-          <div class="co">The Number UK Ltd (118 118)</div>
+          <div class="job-co">The Number UK Ltd (118 118)</div>
           <p>
             Continued development of the ASP.NET MVC website, then co-architected a
             cloud-hosted global search API used across kgb's international group. Wrote a
             durable, multi-threaded distribution system keeping data indexed across SQL,
             MongoDB and ElasticSearch.
           </p>
-          <div class="t-log-tech"><span class="k">TECH ·</span> C# · Python · ASP.NET MVC · Django · AWS · MongoDB · ElasticSearch · RabbitMQ</div>
+          <ul class="tag-list" aria-label="Technologies">
+            <li class="pill">C#</li><li class="pill">Python</li><li class="pill">ASP.NET MVC</li><li class="pill">Django</li><li class="pill">AWS</li><li class="pill">MongoDB</li><li class="pill">ElasticSearch</li><li class="pill">RabbitMQ</li>
+          </ul>
         </div>
-      </div>
+      </li>
 
-      <div class="t-log-entry">
-        <div class="t-log-meta">
-          <span class="date">2010 — 2011</span>
-          <span>CARDIFF</span>
-          <span>11M</span>
+      <li class="card job">
+        <div class="job-meta">
+          <span class="eyebrow job-date">2010 — 2011</span>
+          <span class="eyebrow">Cardiff · 11m</span>
         </div>
-        <div class="t-log-body">
+        <div class="job-body">
           <h3>Senior Web Developer</h3>
-          <div class="co">Zipporah Ltd</div>
+          <div class="job-co">Zipporah Ltd</div>
           <p>
             Re-architected a suite of solutions in use across local government in UK and
             Australia. Guided a team of six in MVC, NHibernate, IoC and unit testing;
             introduced continuous integration.
           </p>
-          <div class="t-log-tech"><span class="k">TECH ·</span> C# · JS · ASP.NET MVC · MS SQL Server</div>
+          <ul class="tag-list" aria-label="Technologies">
+            <li class="pill">C#</li><li class="pill">JS</li><li class="pill">ASP.NET MVC</li><li class="pill">MS SQL Server</li>
+          </ul>
         </div>
-      </div>
+      </li>
 
-      <div class="t-log-entry">
-        <div class="t-log-meta">
-          <span class="date">2007 — 2010</span>
-          <span>BRISTOL</span>
-          <span>3Y 4M</span>
+      <li class="card job">
+        <div class="job-meta">
+          <span class="eyebrow job-date">2007 — 2010</span>
+          <span class="eyebrow">Bristol · 3y 4m</span>
         </div>
-        <div class="t-log-body">
+        <div class="job-body">
           <h3>Software Engineer</h3>
-          <div class="co">Avon and Somerset Constabulary</div>
+          <div class="job-co">Avon and Somerset Constabulary</div>
           <p>
             Formative technology experience, working initially in 2nd line application
             support and then in software development.
           </p>
         </div>
-      </div>
+      </li>
 
-      <div class="t-log-totals">
-        <div class="t-log-totals-label">Totals carried forward</div>
-        <div class="t-log-totals-vals">
-          <span>19 yrs</span>
-          <span>6 companies</span>
-          <span>80+ engineers led</span>
-          <span>£1.8bn loan book</span>
-        </div>
-      </div>
-
+    </ol>
+    <div class="log-totals">
+      <span class="eyebrow">Totals carried forward</span>
+      <span class="log-totals-vals">
+        <span>19 yrs</span>
+        <span>6 companies</span>
+        <span>80+ engineers led</span>
+        <span>£1.8bn loan book</span>
+      </span>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section class="section container" id="projects" aria-labelledby="projects-title">
     <div class="section-head">
-      <div class="section-num">§ 05 / Projects</div>
-      <h2 class="section-title">Personal projects <span class="t-dim">— things I've built to explore or solve.</span></h2>
+      <span class="eyebrow">Projects</span>
+      <h2 id="projects-title">Personal projects</h2>
+      <p>Things I’ve built to explore or solve. Everything listed is open source.</p>
     </div>
-    <div class="t-proj-grid">
-      <div class="t-checklist-item">
-        <div class="t-checklist-num">PROJ · 01</div>
-        <h4>Hand Map</h4>
+    <ul class="feature-row">
+      <li class="feature feature--red">
+        {{ partial "icon.html" (dict "name" "hand") }}
+        <span class="eyebrow">Latest</span>
+        <h3><a class="feature-link" href="/projects/creations/hand-map/">Hand Map</a></h3>
         <p>A browser-only tool for hand therapists: mark problem areas on a hand diagram, tag them with issue types and export a PNG for the case file. Nothing is saved or sent, and the tests prove it.</p>
-        <div class="t-log-tech"><span class="k">TECH ·</span> TypeScript · Vite · SVG · Playwright</div>
-        <a href="/projects/creations/hand-map/" class="t-proj-link">View project →</a>
-      </div>
-      <div class="t-checklist-item">
-        <div class="t-checklist-num">PROJ · 02</div>
-        <h4>IGC Flight Log Analyser</h4>
-        <p>Drop a glider flight log in the browser and get a soaring debrief: the phase split, the climbs and their circle geometry, the wind, and the energy balance of the straight legs. Runs entirely client-side.</p>
-        <div class="t-log-tech"><span class="k">TECH ·</span> TypeScript · Vite · SVG</div>
-        <a href="/projects/creations/igc-analyser/" class="t-proj-link">View project →</a>
-      </div>
-      <div class="t-checklist-item">
-        <div class="t-checklist-num">PROJ · 03</div>
-        <h4>SWGC Flight Track Analysis</h4>
-        <p>A self-hosted map of a gliding club's flight traces, synced from gliding.app. Density, corridor and gate views, plus 3D over terrain, show where circuit and approach traffic actually flies.</p>
-        <div class="t-log-tech"><span class="k">TECH ·</span> TypeScript · React · deck.gl · SQLite</div>
-        <a href="/projects/creations/swgc-igc-analysis/" class="t-proj-link">View project →</a>
-      </div>
-      <div class="t-checklist-item">
-        <div class="t-checklist-num">PROJ · 04</div>
-        <h4>Glider Polar Visualiser</h4>
+        <span class="feature-meta">TypeScript · Vite · SVG · Playwright</span>
+      </li>
+      <li class="feature">
+        {{ partial "icon.html" (dict "name" "activity") }}
+        <h3><a class="feature-link" href="/projects/creations/igc-analyser/">IGC Flight Log Analyser</a></h3>
+        <p>Drop a glider flight log in the browser and get a soaring debrief: the phase split, the climbs and their circle geometry, the wind, and the energy balance of the straight legs.</p>
+        <span class="feature-meta">TypeScript · Vite · SVG</span>
+      </li>
+      <li class="feature">
+        {{ partial "icon.html" (dict "name" "map") }}
+        <h3><a class="feature-link" href="/projects/creations/swgc-igc-analysis/">SWGC Flight Track Analysis</a></h3>
+        <p>A self-hosted map of a gliding club's flight traces, synced from gliding.app. Density, corridor and gate views, plus 3D over terrain.</p>
+        <span class="feature-meta">TypeScript · React · deck.gl · SQLite</span>
+      </li>
+      <li class="feature">
+        {{ partial "icon.html" (dict "name" "polar") }}
+        <h3><a class="feature-link" href="/projects/creations/polar-visualiser/">Glider Polar Visualiser</a></h3>
         <p>Interactive polar curve visualiser for gliders. Fetches real data from XCSoar, applies MacCready speed-to-fly theory, and supports ballast adjustments.</p>
-        <div class="t-log-tech"><span class="k">TECH ·</span> JavaScript · Canvas API</div>
-        <a href="/projects/creations/polar-visualiser/" class="t-proj-link">View project →</a>
-      </div>
-      <div class="t-checklist-item">
-        <div class="t-checklist-num">PROJ · 05</div>
-        <h4>Loan Amortisation Calculator</h4>
+        <span class="feature-meta">JavaScript · Canvas API</span>
+      </li>
+      <li class="feature">
+        {{ partial "icon.html" (dict "name" "calculator") }}
+        <h3><a class="feature-link" href="/projects/creations/loan-amortisation/">Loan Amortisation Calculator</a></h3>
         <p>A loan schedule calculator compiled to WebAssembly and runnable entirely in the browser. Supports all common interest calculation methods.</p>
-        <div class="t-log-tech"><span class="k">TECH ·</span> Rust · WASM</div>
-        <a href="/projects/creations/loan-amortisation/" class="t-proj-link">View project →</a>
-      </div>
-    </div>
+        <span class="feature-meta">Rust · WASM</span>
+      </li>
+    </ul>
   </section>
 
   <!-- CURRENTLY -->
-  <section id="currently">
+  <section class="section container" id="currently" aria-labelledby="currently-title">
     <div class="section-head">
-      <div class="section-num">§ 06 / Currently</div>
-      <h2 class="section-title">What I'm working on <span class="t-dim">and thinking about.</span></h2>
+      <span class="eyebrow">Currently</span>
+      <h2 id="currently-title">What I’m working on and thinking about</h2>
     </div>
-    <!-- Challenge–response, like a pre-flight checklist -->
-    <div class="t-clist">
-      <div class="t-clist-row">
-        <div class="t-clist-line">
-          <h4 class="t-clist-challenge">Agentic AI in software delivery</h4>
-          <span class="t-clist-leader" aria-hidden="true"></span>
-          <span class="t-clist-status">Active</span>
+    <ul class="quote-grid">
+      <li class="card quote-card">
+        <div class="quote-head">
+          <span class="quote-avatar">{{ partial "icon.html" (dict "name" "sparkle") }}</span>
+          <div>
+            <h3>Agentic AI in software delivery</h3>
+            <div class="quote-handle">Work</div>
+          </div>
+          <span class="pill quote-status"><span class="live-dot" aria-hidden="true"></span>Active</span>
         </div>
-        <p class="t-clist-note">Running Claude Code extensively across my engineering team and thinking about what agentic tooling means for how software gets built.</p>
-      </div>
-      <div class="t-clist-row">
-        <div class="t-clist-line">
-          <h4 class="t-clist-challenge">Glider avionics panel</h4>
-          <span class="t-clist-leader" aria-hidden="true"></span>
-          <span class="t-clist-status">In progress</span>
+        <p>Running Claude Code extensively across my engineering team and thinking about what agentic tooling means for how software gets built.</p>
+      </li>
+      <li class="card quote-card">
+        <div class="quote-head">
+          <span class="quote-avatar">{{ partial "icon.html" (dict "name" "gauge") }}</span>
+          <div>
+            <h3>Glider avionics panel</h3>
+            <div class="quote-handle">Aviation</div>
+          </div>
+          <span class="pill quote-status">In progress</span>
         </div>
-        <p class="t-clist-note">Designing and building a new panel for my PIK 20D.</p>
-      </div>
-      <div class="t-clist-row">
-        <div class="t-clist-line">
-          <h4 class="t-clist-challenge">Electronics &amp; embedded systems</h4>
-          <span class="t-clist-leader" aria-hidden="true"></span>
-          <span class="t-clist-status">Ongoing</span>
+        <p>Designing and building a new panel for my PIK 20D.</p>
+      </li>
+      <li class="card quote-card">
+        <div class="quote-head">
+          <span class="quote-avatar">{{ partial "icon.html" (dict "name" "chip") }}</span>
+          <div>
+            <h3>Electronics &amp; embedded systems</h3>
+            <div class="quote-handle">Tinkering</div>
+          </div>
+          <span class="pill quote-status">Ongoing</span>
         </div>
-        <p class="t-clist-note">Working through Arduino projects just for fun.</p>
-      </div>
-    </div>
+        <p>Working through Arduino projects just for fun.</p>
+      </li>
+    </ul>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section class="section container contact" id="contact" aria-labelledby="contact-title">
     <div class="section-head">
-      <div class="section-num">§ 07 / Contact</div>
-      <h2 class="section-title">Get in touch <span class="t-dim">or find me elsewhere.</span></h2>
+      <span class="eyebrow">Contact</span>
+      <h2 id="contact-title">Get in touch</h2>
+      <p>The best way to reach me is on LinkedIn. You'll also find my code on GitHub and my flying on Instagram.</p>
     </div>
-    <div class="t-contact-strip">
-      <a href="https://www.linkedin.com/in/davidjneale/" target="_blank" rel="noopener" class="t-contact-link">
-        <span>LinkedIn</span>
-        <span class="t-contact-arrow">→</span>
-      </a>
-      <a href="https://github.com/nealedj/" target="_blank" rel="noopener" class="t-contact-link">
-        <span>GitHub</span>
-        <span class="t-contact-arrow">→</span>
-      </a>
-      <a href="https://www.instagram.com/neale.dj/" target="_blank" rel="noopener" class="t-contact-link">
-        <span>Instagram</span>
-        <span class="t-contact-arrow">→</span>
-      </a>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/davidjneale/" rel="noopener">Message me on LinkedIn {{ partial "icon.html" (dict "name" "arrow-up-right") }}</a>
+      <a class="btn btn-ghost" href="https://github.com/nealedj/" rel="noopener">GitHub {{ partial "icon.html" (dict "name" "arrow-up-right") }}</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/neale.dj/" rel="noopener">Instagram {{ partial "icon.html" (dict "name" "arrow-up-right") }}</a>
     </div>
   </section>
 
-  <footer class="t-foot">
-    <span>© David Neale · Cardiff, UK</span>
-    <span data-coord>N 51°28'54" &nbsp;&nbsp; W 3°10'44"</span>
-    <span><a href="/colophon/">Colophon</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/aviation/">Aviation →</a></span>
-  </footer>
-
 </main>
 
-<script src="/js/instruments.js"></script>
-<script src="/js/drums.js"></script>
-<script src="/js/metar.js"></script>
-<script src="/js/tweaks.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  var updaters = DNInstruments.mountRail(".instrument-rail",
-    ["altimeter", "airspeed", "vario", "attitude"]);
-  DNInstruments.setUpdaters(updaters);
-  DNInstruments.start();
-
-  DNDrums.init();
-
-  // Hamburger
-  var hamburger = document.getElementById("t-nav-hamburger");
-  var navLinks = document.getElementById("t-nav-links");
-  hamburger.addEventListener("click", function() {
-    var open = navLinks.classList.toggle("open");
-    hamburger.textContent = open ? "CLOSE" : "MENU";
-  });
-  navLinks.querySelectorAll("a").forEach(function(a) {
-    a.addEventListener("click", function() {
-      navLinks.classList.remove("open");
-      hamburger.textContent = "MENU";
-    });
-  });
-
-  // Nav active state
-  var sections = ["about", "case", "skills", "experience", "currently", "contact"];
-  var links = document.querySelectorAll(".t-nav-links a");
-  function updateNav() {
-    var active = "about";
-    for (var i = 0; i < sections.length; i++) {
-      var el = document.getElementById(sections[i]);
-      if (!el) continue;
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.5) active = sections[i];
-    }
-    links.forEach(function(a) {
-      a.classList.toggle("active", a.getAttribute("href") === "#" + active);
-    });
-  }
-  window.addEventListener("scroll", updateNav, { passive: true });
-  updateNav();
-});
-</script>
-
-{{ if .Site.Params.google.analytics.trackerID }}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.google.analytics.trackerID }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ .Site.Params.google.analytics.trackerID }}');
-</script>
-{{ end }}
+{{ partial "footer.html" . }}
+{{ partial "analytics.html" . }}
 
 </body>
 </html>

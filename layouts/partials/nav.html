@@ -1,15 +1,26 @@
-<nav class="t-nav">
-  <div class="t-nav-inner">
-    <a href="/" class="t-brand"><span class="t-brand-dot"></span>DAVID&nbsp;NEALE<span class="t-dim">&nbsp;/&nbsp;CDF</span></a>
-    <div class="t-nav-links" id="t-nav-links">
-      <a href="/#about">About</a>
-      <a href="/#case">Work</a>
-      <a href="/#skills">Skills</a>
-      <a href="/#experience">Experience</a>
-      <a href="/#currently">Now</a>
-      <a href="/projects/creations/"{{ if hasPrefix .RelPermalink "/projects" }} class="active"{{ end }}>Projects</a>
-      <a href="/aviation/"{{ if hasPrefix .RelPermalink "/aviation" }} class="active"{{ end }}>Aviation</a>
+{{- /* Site navigation. Section links point at /#id so the same markup
+       works on every page; on the homepage js/nav.js highlights the
+       section in view. */ -}}
+{{- $path := .RelPermalink -}}
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-nav">
+  <nav class="site-nav-inner" aria-label="Main">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">DN</span><span class="brand-name">David Neale</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#case">Work</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#experience">Experience</a></li>
+      <li><a href="/projects/creations/"{{ if hasPrefix $path "/projects" }} class="is-active" aria-current="page"{{ end }}>Projects</a></li>
+      <li><a href="/aviation/"{{ if hasPrefix $path "/aviation" }} class="is-active" aria-current="page"{{ end }}>Aviation</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-ghost nav-github" href="https://github.com/nealedj/" rel="noopener">GitHub</a>
+      <a class="btn btn-primary" href="/#contact">Get in touch</a>
+      <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+        {{ partial "icon.html" (dict "name" "menu" "class" "icon-menu") }}
+        {{ partial "icon.html" (dict "name" "close" "class" "icon-close") }}
+      </button>
     </div>
-    <button class="t-nav-hamburger" id="t-nav-hamburger" aria-label="Menu">MENU</button>
-  </div>
-</nav>
+  </nav>
+</header>

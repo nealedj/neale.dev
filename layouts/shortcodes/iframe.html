@@ -2,6 +2,7 @@
   width="{{ .Get "width" | default "100%" }}" 
   height="{{ .Get "height" | default "500" }}" 
   src="{{ .Get "src" }}" 
+  title="{{ .Get "title" | default (printf "%s — live demo" .Page.Title) }}"
   frameborder="{{ .Get "frameborder" | default "0" }}"
   style="{{ .Get "style" }}"
   allowfullscreen="{{ .Get "allowfullscreen" | default "true" }}">

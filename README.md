@@ -7,8 +7,9 @@ Personal portfolio and CV website for David Neale — Chief Architect, AWS/GCP s
 ## Tech Stack
 
 - **Generator:** [Hugo Extended](https://gohugo.io/) v0.115.4
-- **Design:** Fully custom terminal-aesthetic (no theme dependency)
-- **CSS:** Custom (`static/css/terminal.css`) — no CSS framework
+- **Design:** Fully custom — warm paper canvas, white cards, single red accent (no theme dependency)
+- **CSS:** Custom (`static/css/site.css`) — no CSS framework
+- **Fonts:** Inter and Space Grotesk, self-hosted
 - **Hosting:** GitHub Pages via GitHub Actions
 - **Analytics:** Google Analytics 4
 
@@ -33,8 +34,9 @@ neale.dev/
 │   ├── _default/baseof.html # Base shell for secondary pages
 │   └── partials/            # Reusable template partials
 └── static/
-    ├── css/terminal.css     # All site styles
-    ├── js/                  # site.js, tweaks.js, instruments.js
+    ├── css/site.css         # All site styles and design tokens
+    ├── fonts/               # Self-hosted Inter and Space Grotesk
+    ├── js/                  # nav.js, metar.js
     └── img/                 # Profile photo and aviation gallery images
 ```
 
