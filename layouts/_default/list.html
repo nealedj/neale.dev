@@ -1,12 +1,20 @@
 {{ define "main" }}
-<main class="t-main t-prose">
+<header class="page-header">
   <h1>{{ .Title }}</h1>
-  {{ .Content }}
+  {{ with .Content }}<div class="page-header-intro">{{ . }}</div>{{ end }}
+</header>
+<ul class="link-grid link-grid--wide">
   {{ range .Pages }}
-  <article>
+  <li class="card link-card">
     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    {{ .Summary }}
-  </article>
+    <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 160 }}{{ end }}</p>
+    {{ with .Params.tags }}
+    <ul class="tag-list" aria-label="Technologies">
+      {{ range . }}<li class="pill">{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+    <span class="feature-cta">View {{ if .IsNode }}all{{ else }}project{{ end }} {{ partial "icon.html" (dict "name" "arrow-right") }}</span>
+  </li>
   {{ end }}
-</main>
+</ul>
 {{ end }}

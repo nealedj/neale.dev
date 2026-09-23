@@ -1,25 +1,27 @@
 ---
 title: "Colophon"
-description: "How this site is built: hand-coded Hugo templates, cockpit typography, and real flight data."
+description: "How this site is built: hand-coded Hugo templates, a paper-and-red-ink design system, and real flight data."
 ---
 
 This site is hand-built. There's no theme, no CSS framework, no JavaScript
 framework — just [Hugo](https://gohugo.io/), custom templates, one stylesheet,
-and a few small scripts. The full source is on
+and a couple of small scripts. The full source is on
 [GitHub](https://github.com/nealedj/neale.dev).
+
+## Design
+
+The look is an engineer's whiteboard on cream paper: a warm off-white canvas,
+white cards lifted off it by a barely-there shadow, near-black ink, and a
+single red accent used sparingly — the highlighted card in a row, the active
+link in the navigation, the line of a flight trace. Blue appears only inside
+the "product" panels, like the barogram on the aviation page.
 
 ## Type
 
-Text is set in **B612**, the typeface Airbus and Intactile DESIGN developed
-for cockpit display legibility, with **B612 Mono** for labels and data. It
-seemed right for a glider pilot's site. Both faces are self-hosted, so no
+Headlines are set in **Inter** at a light weight, with Inter at regular and
+medium weights for body text and interface. Small labels are **Space
+Grotesk**, uppercase and widely tracked. Both faces are self-hosted, so no
 third-party font services are involved.
-
-## Instruments
-
-The gauges in the margin — altimeter, ASI, vario, attitude indicator — are
-hand-coded SVG, drawn once and driven by scroll position. The altimeter winds
-up as you read down the page.
 
 ## Flight data
 
@@ -27,14 +29,8 @@ The flight trace on the [aviation page](/aviation/) is the actual GPS track
 from my 300km Gold distance and Diamond goal flight (Usk – Worcester –
 Lake Vyrnwy – Usk, July 2026), plotted straight from the IGC logger file by a
 small script — trace, turnpoints and barogram all come out of the log. The
-weather line in the header is the live METAR for Cardiff (EGFF), fetched from
-the Norwegian Meteorological Institute's open API.
-
-## Lighting
-
-The TWEAKS panel (bottom right) adjusts accent colour, density and panel
-lighting. Night mode shifts the whole site to red — the same reason cockpit
-lighting is red: it preserves your dark adaptation.
+weather line at the top of that page is the live METAR for Cardiff (EGFF),
+fetched from the Norwegian Meteorological Institute's open API.
 
 ## Infrastructure
 

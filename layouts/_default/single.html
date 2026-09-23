@@ -1,6 +1,22 @@
 {{ define "main" }}
-<main class="t-main t-prose">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-</main>
+<article>
+  <header class="page-header">
+    {{ if eq .Section "projects" }}<span class="eyebrow"><a href="/projects/creations/">Projects</a></span>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    {{ with .Params.tags }}
+    <ul class="tag-list" aria-label="Technologies">
+      {{ range . }}<li class="pill">{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+    {{ with .Params.link }}
+    <div class="btn-row">
+      <a class="btn btn-primary" href="{{ . }}" rel="noopener">{{ if in . "github.com" }}Source on GitHub{{ else }}Visit{{ end }} {{ partial "icon.html" (dict "name" "arrow-up-right") }}</a>
+    </div>
+    {{ end }}
+  </header>
+  <div class="page-body">
+    {{ .Content }}
+  </div>
+</article>
 {{ end }}
