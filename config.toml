@@ -9,7 +9,7 @@ email = "david@neale.dev"
 favicon = "img/logo.svg"
 firstName = "David"
 lastName = "Neale"
-description = "A delivery-oriented technical strategist with extensive experience across software engineering, AWS, GCP, Kubernetes, and cybersecurity. Chief Architect at Admiral Money."
+description = "Chief Architect at Admiral Money. Before that: the 2021 census, Google's developer programmes and police software."
 profileImage = "img/davidportrait.jpg"
 
 [params.google]
