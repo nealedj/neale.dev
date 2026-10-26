@@ -7,7 +7,7 @@ description: "During TMG training I found myself struggling to memorise the vari
 
 ## TMG Training Mnemonics
 
-To support powered motorglider training, I've created a series of posters that help pilots remember essential checklists and procedures. These visual aids distil complex procedures into memorable formats, perfect for study and quick reference.
+I made these posters during motorglider training to help me remember the checklists and mnemonics. Each one covers a single check.
 
 ### Poster 1: FREDA checks
 

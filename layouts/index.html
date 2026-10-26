@@ -44,8 +44,8 @@
   <section class="container" aria-label="At a glance">
     <div class="stats">
       <div class="stat">
-        <span class="eyebrow">Loan book during my time at Admiral Money</span>
-        <div class="stat-num">£400<span class="unit">m</span> → £1.8<span class="unit">bn</span></div>
+        <span class="eyebrow">Companies</span>
+        <div class="stat-num">6</div>
       </div>
       <div class="stat">
         <span class="eyebrow">Concurrent users load-tested for the census</span>
@@ -75,7 +75,7 @@
             I started in application support at Avon and Somerset Constabulary in 2007 and moved
             into development there. Since then I've built software for local government, 118 118
             and Google's open-source programmes, led the cloud work behind the 2021 census, and
-            joined Admiral Money in 2019, when it had £400m of loans and wasn't yet profitable.
+            joined Admiral Money in 2019.
           </p>
           <p>
             As <strong>Chief Architect</strong> I own the technology strategy. Day to day, that
@@ -122,8 +122,8 @@
             <p>
               The existing survey data collection platform was running on AWS. The architectural
               team had two mandates: prove that the system was cloud-portable by migrating it to
-              Google Cloud Platform, and validate that it could handle the anticipated peak load -
-              roughly one million households attempting to complete simultaneously on census day.
+              Google Cloud Platform, and show that it could handle the expected peak load:
+              roughly one million households trying to complete it at the same time on census day.
             </p>
           </div>
           <div class="case-block">
@@ -133,21 +133,17 @@
               (eQ) application. I subsequently moved into the Cloud Architecture team to work
               across software engineering, DevOps and architecture. I led the AWS-to-GCP cloud portability work,
               introducing Kubernetes-native deployments as part of the migration. I also designed
-              the performance testing strategy — generating a million concurrent, realistic
-              synthetic users is a non-trivial problem in itself, requiring careful modelling of
-              submission behaviour and infrastructure headroom. This required close working with
-              Google engineers to consider usage patterns that were beyond their usual planned levels.
+              the performance testing strategy. Generating a million realistic synthetic users at
+              once is hard in itself: it meant modelling how people submit and how much headroom the
+              infrastructure needed. We worked closely with Google engineers, because our load was
+              beyond what they normally planned for.
             </p>
           </div>
           <div class="case-block">
             <h4 class="eyebrow">The outcome</h4>
             <p>
-              On 21 March 2021, the census launched and the digital collection system held. It handled
-              a peak of 30,186 requests per second with 427,838 submissions during that peak hour. The
-              groundwork laid during the architecture phase — cloud portability, Kubernetes
-              orchestration, validated performance envelopes — proved robust under real-world
-              load. It remains one of the largest public-sector digital delivery projects in UK
-              government history.
+              On 21 March 2021 the census launched and the digital collection system held. It peaked
+              at 30,186 requests per second, with 427,838 submissions in the peak hour.
             </p>
             <p>A technical review of the delivery can be downloaded from the ONS:
               <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/articles/deliveringthecensus2021digitalservice/2021-10-04/pdf">Delivering the Census 2021 digital service</a>.
@@ -184,7 +180,7 @@
     <div class="section-head">
       <span class="eyebrow">Skills</span>
       <h2 id="skills-title">Stack</h2>
-      <p>Technologies I’ve had the most exposure to.</p>
+      <p>What I’ve used most.</p>
     </div>
     <ul class="tile-grid">
       <li class="tile"><span class="tile-name">Amazon Web Services</span><span class="eyebrow">Cloud</span></li>
@@ -242,20 +238,19 @@
       <li class="card job">
         <div class="job-meta">
           <span class="eyebrow job-date">2019 — Now</span>
-          <span class="eyebrow">Cardiff · 5+ yrs</span>
+          <span class="eyebrow">Cardiff · 7 yrs</span>
           <span class="pill"><span class="live-dot" aria-hidden="true"></span>Current role</span>
         </div>
         <div class="job-body">
           <h3>Chief Architect</h3>
           <div class="job-co">Admiral Money</div>
           <p>
-            Lead the technology strategy and oversee the development of scalable and secure
-            systems. Joined when the company had £400m of loan balances pre-profit; in 2025
-            it managed £1.8bn with £26m profit.
+            Own the technology strategy. Joined when the company had £400m of loan balances
+            and wasn't yet profitable; in 2025 it managed £1.8bn with £26m profit.
           </p>
           <ul>
-            <li>Direct integration with Price Comparison Websites offering real-rate loan quotes, including a high-performance decision engine.</li>
-            <li>Designed and delivered a secure, scalable microservice application platform.</li>
+            <li>Direct integration with price comparison websites offering real-rate loan quotes, including a high-performance decision engine.</li>
+            <li>Designed and delivered the company's microservice platform on Kubernetes (EKS).</li>
             <li>Designed and implemented a loan originations system; extended into wider CRM capabilities.</li>
             <li>Drove AI adoption across the business: governed self-hosted AI chat platform, Claude Code for agentic dev tooling, early contact-centre experiments.</li>
           </ul>
@@ -302,8 +297,8 @@
             role; promoted to senior developer not long after.
           </p>
           <ul>
-            <li>Architected two web applications for Google's flagship open-source programmes — Summer of Code and Code-in — tech lead on a team of up to 18 on a $2m project in 123 countries.</li>
-            <li>Designed Google Partners' global incentivisation programme with 30-language support and a bespoke fault-tolerant distributed transaction system.</li>
+            <li>Architected two web applications for Google's open-source programmes — Summer of Code and Code-in — tech lead on a team of up to 18. The project cost around $2m and had users in 123 countries.</li>
+            <li>Designed Google Partners' global incentivisation programme with 30-language support and a fault-tolerant distributed transaction system.</li>
             <li>Tech lead for the backend API of Google Ideas' (Jigsaw) Montage - collaborative YouTube discovery platform, later sold to Storyful and open-sourced.</li>
             <li>Rewrote engineering hiring test to be both more revealing and more respectful of candidates' time.</li>
           </ul>
@@ -361,8 +356,8 @@
           <h3>Software Engineer</h3>
           <div class="job-co">Avon and Somerset Constabulary</div>
           <p>
-            Formative technology experience, working initially in 2nd line application
-            support and then in software development.
+            Started in second-line application support, then moved into software
+            development.
           </p>
         </div>
       </li>
@@ -384,7 +379,7 @@
     <div class="section-head">
       <span class="eyebrow">Projects</span>
       <h2 id="projects-title">Personal projects</h2>
-      <p>Things I’ve built to explore or solve. Everything listed is open source.</p>
+      <p>Things I’ve built, mostly for gliding. All open source.</p>
     </div>
     <ul class="feature-row">
       <li class="feature feature--red">
@@ -437,7 +432,7 @@
           </div>
           <span class="pill quote-status"><span class="live-dot" aria-hidden="true"></span>Active</span>
         </div>
-        <p>Running Claude Code extensively across my engineering team and thinking about what agentic tooling means for how software gets built.</p>
+        <p>Running Claude Code across my engineering team and learning how to get the best out of it.</p>
       </li>
       <li class="card quote-card">
         <div class="quote-head">

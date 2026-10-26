@@ -8,4 +8,4 @@ sitemap:
   weight: 0.8
 ---
 
-Projects I've built to explore new technologies, solve real problems, or just learn something new.
+Things I've built, mostly for gliding. All open source.
