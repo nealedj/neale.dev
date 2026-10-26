@@ -430,7 +430,7 @@ a.hero-pill:hover { box-shadow: var(--shadow-md); }
 /* ---------- Stat block ---------- */
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--spacing-32);
   padding-top: var(--section-gap);
   text-align: center;
@@ -445,7 +445,7 @@ a.hero-pill:hover { box-shadow: var(--shadow-md); }
 }
 .stat-num .unit { font-size: 0.5em; color: var(--color-charcoal); margin-left: 2px; letter-spacing: -0.01em; }
 @media (max-width: 720px) {
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--spacing-48); }
+  .stats { grid-template-columns: 1fr; row-gap: var(--spacing-48); }
 }
 
 /* ---------- Cards ---------- */
