@@ -2,17 +2,22 @@
 // section used in layouts/aviation/list.html.
 //
 // Usage: node scripts/igc-trace.js scripts/data/20260719-300km-gold-diamond.igc \
-//          --title "Gold distance &amp; Diamond goal"
+//          --title "Gold distance &amp; Diamond goal" --flown 317
 //
 // Prints the full <section> markup to stdout; paste it over the existing
 // FLIGHT TRACE section in the template. Stats (distances, altitude, duration)
 // are computed from the log's B records; the dashed task triangle comes from
 // the declared task C records; date and glider come from the H records. The
-// only flight-specific tuning left is the section title (--title) and, for a
-// turnpoint whose label collides with the trace, an entry in LABELS below.
+// only flight-specific tuning left is the section title (--title), the
+// distance flown (--flown, in km, as scored; the raw fix-to-fix sum counts
+// every thermal circle and badly overstates it) and, for a turnpoint whose
+// label collides with the trace, an entry in LABELS below. Altitudes are
+// shown in feet.
 const fs = require('fs');
 const args = process.argv.slice(2);
-const titleArg = (i => i < 0 ? null : args[i+1])(args.indexOf('--title'));
+const argVal = name => (i => i < 0 ? null : args[i+1])(args.indexOf(name));
+const titleArg = argVal('--title');
+const flownArg = argVal('--flown');
 const lines = fs.readFileSync(args[0], 'utf8').split(/\r?\n/);
 
 // IGC turnpoint codes are terse; expand the ones we've flown for readability.
@@ -39,7 +44,7 @@ for (const l of lines) {
   const t = +l.slice(1,3)*3600 + +l.slice(3,5)*60 + +l.slice(5,7);
   const lat = parseLat(l.slice(7,15));
   const lon = parseLon(l.slice(15,24));
-  const galt = +l.slice(30,35);
+  const galt = Math.round(+l.slice(30,35) * 3.28084); // GPS altitude, m -> ft
   fixes.push({t, lat, lon, galt});
 }
 
@@ -75,6 +80,7 @@ const fl = fixes.slice(Math.max(0,i0-2), i1+2);
 // stats
 let dist = 0;
 for (let i=1;i<fl.length;i++) dist += hav(fl[i-1], fl[i]);
+if (flownArg) dist = +flownArg;
 let taskDist = 0;
 for (let i=1;i<task.length;i++) taskDist += hav(task[i-1], task[i]);
 const maxAlt = Math.max(...fl.map(f=>f.galt));
@@ -107,12 +113,12 @@ const tpMarkers = task.filter(p => !seen.has(p.name) && seen.add(p.name))
 const BW=640, BH=170, BPAD=10, BL=44, BB=24;
 const t0=fl[0].t, t1=fl[fl.length-1].t;
 const bx = t => (BL + (t-t0)/(t1-t0)*(BW-BL-BPAD)).toFixed(1);
-const altTop = Math.ceil(maxAlt/500)*500;
+const altTop = Math.ceil(maxAlt/1000)*1000;
 const by = a => (BPAD + (1 - a/altTop)*(BH-BPAD-BB)).toFixed(1);
 const bstep = Math.max(1, Math.floor(fl.length/500));
 const baroPts = fl.filter((_,i)=>i%bstep===0 || i===fl.length-1).map(p=>bx(p.t)+','+by(p.galt)).join(' ');
 const gridLines = [];
-for (let a=500; a<=altTop; a+=500) gridLines.push({y: by(a), label: a});
+for (let a=1000; a<=altTop; a+=1000) gridLines.push({y: by(a), label: a});
 
 
 // ---- emit section markup ----
@@ -129,7 +135,7 @@ const off = fmtT(t0) + 'Z', land = fmtT(t1) + 'Z';
 const titleCase = s => s.replace(/\w\S*/g, w => w[0] + w.slice(1).toLowerCase());
 const route = task.map(p => titleCase(p.name)).join(' · ');
 const title = titleArg || `The ${taskDist.toFixed(0)}km flight`;
-// shaded area under the barogram: the altitude line closed down to 0 m
+// shaded area under the barogram: the altitude line closed down to 0 ft
 const baroArea = `${bx(t0)},${by(0)} ${baroPts} ${bx(t1)},${by(0)}`;
 
 console.log(`  <!-- FLIGHT TRACE — generated from the ${titleCase(date)} IGC log by scripts/igc-trace.js -->
@@ -163,19 +169,19 @@ ${markers}
             <div><dt class="eyebrow">Glider</dt><dd>${glider}</dd></div>
             <div><dt class="eyebrow">Task</dt><dd>${taskDist.toFixed(0)} km triangle</dd></div>
             <div><dt class="eyebrow">Distance flown</dt><dd>${Number(dist.toFixed(0)).toLocaleString()} km</dd></div>
-            <div><dt class="eyebrow">Max altitude</dt><dd>${maxAlt.toLocaleString()} m</dd></div>
+            <div><dt class="eyebrow">Max altitude</dt><dd>${maxAlt.toLocaleString()} ft</dd></div>
             <div><dt class="eyebrow">Duration</dt><dd>${hh}h ${String(mm).padStart(2,'0')}m · ${off} – ${land}</dd></div>
           </dl>
           <figure class="trace-baro showcase-panel">
-            <figcaption class="trace-caption eyebrow"><span>Barogram</span><span>Peak ${maxAlt.toLocaleString()} m</span></figcaption>
-            <svg viewBox="0 0 ${BW} ${BH}" role="img" aria-label="Barogram: altitude over the duration of the flight, peaking at ${maxAlt} metres">
+            <figcaption class="trace-caption eyebrow"><span>Barogram</span><span>Peak ${maxAlt.toLocaleString()} ft</span></figcaption>
+            <svg viewBox="0 0 ${BW} ${BH}" role="img" aria-label="Barogram: altitude over the duration of the flight, peaking at ${maxAlt.toLocaleString()} feet">
 ${grid}
               <line class="tr-grid" x1="44" y1="${by(0)}" x2="630" y2="${by(0)}"/>
               <polygon class="tr-area" points="${baroArea}"/>
               <polyline class="tr-line" points="${baroPts}"/>
               <text class="tr-axis" x="44" y="${BH - 8}">${off}</text>
               <text class="tr-axis" x="630" y="${BH - 8}" text-anchor="end">${land}</text>
-              <text class="tr-axis" x="38" y="${BH - 8}" text-anchor="end">ALT M</text>
+              <text class="tr-axis" x="38" y="${BH - 8}" text-anchor="end">ALT FT</text>
             </svg>
           </figure>
         </div>
