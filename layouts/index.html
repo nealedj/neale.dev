@@ -381,10 +381,16 @@
       <h2 id="projects-title">Personal projects</h2>
       <p>Things I’ve built, mostly for gliding. All open source.</p>
     </div>
-    <ul class="feature-row">
+    <ul class="feature-row feature-row--3">
       <li class="feature feature--red">
-        {{ partial "icon.html" (dict "name" "hand") }}
+        {{ partial "icon.html" (dict "name" "gauge") }}
         <span class="eyebrow">Latest</span>
+        <h3><a class="feature-link" href="/projects/creations/glider-panel-designer/">Glider Panel Designer</a></h3>
+        <p>A CAD-style tool in the browser for planning a glider instrument panel: front, rear and wiring from one model. It outputs 1:1 cutting templates, a wiring diagram, a wire list and a bill of materials.</p>
+        <span class="feature-meta">TypeScript · React · SVG · Playwright</span>
+      </li>
+      <li class="feature">
+        {{ partial "icon.html" (dict "name" "hand") }}
         <h3><a class="feature-link" href="/projects/creations/hand-map/">Hand Map</a></h3>
         <p>A browser-only tool for hand therapists: mark problem areas on a hand diagram, tag them with issue types and export a PNG for the case file. Nothing is saved or sent, and the tests prove it.</p>
         <span class="feature-meta">TypeScript · Vite · SVG · Playwright</span>
