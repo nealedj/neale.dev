@@ -161,7 +161,7 @@ A chronological record of my journey as a pilot, from first learning to glide to
     <div class="timeline-content">
         <div class="timeline-date">July 2026</div>
         <div class="timeline-title">Gold distance &amp; Diamond goal</div>
-        <div class="timeline-description">Completed a declared 303km triangle in the PIK 20D on 19 July — Usk, Worcester, Lake Vyrnwy, Usk. Five hours airborne, topping out at 2,102m, claiming both the Gold distance leg and the Diamond goal.</div>
+        <div class="timeline-description">Completed a declared 303km triangle in the PIK 20D on 19 July — Usk, Worcester, Lake Vyrnwy, Usk. Five hours airborne, topping out at 6,896ft, claiming both the Gold distance leg and the Diamond goal.</div>
         <div class="timeline-image-container">
             <img src="/img/aviation/gold_distance_300km.jpg" alt="PIK 20D G-DDLY on the 300km flight" class="timeline-image">
         </div>
