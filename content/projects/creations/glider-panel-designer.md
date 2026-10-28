@@ -19,6 +19,10 @@ I built it for my own PIK-20D re-panel, and that panel ships with the app as a w
 
 It's a planning aid only. Nothing it produces means a design is approved or airworthy. Panel changes still go through the normal inspection and approval route, and every dimension needs checking against the real parts before anything is cut. The app says so on screen and on every export.
 
+## How to use it
+
+Open [glider-panel-designer.neale.dev](https://glider-panel-designer.neale.dev/). A first visit shows a welcome and a three-step walkthrough: pick a panel template, place an instrument, then check and export. File › Open PIK-20D example project opens the reference panel with everything already done. Press `?` for every shortcut. It works best on a desktop screen.
+
 ![The PIK-20D example panel in the front view, with instruments, switch and fuses placed on the T-panel template](/img/projects/glider-panel-designer/front.png)
 
 ## Features
@@ -49,4 +53,4 @@ Part data is never made up. An unknown value stays empty and is flagged. A set o
 
 Tests cover a lot of it. Golden-file tests export a fixture to SVG, DXF and PDF, then measure every cutout with independent readers to within 0.05 mm. Share links and project files must round-trip exactly. Playwright flows build the whole PIK-20D example through the interface, from template to share link. Design decisions are recorded as ADRs in the repo.
 
-The app isn't hosted yet. To run it, clone the [repository](https://github.com/nealedj/glider-panel-designer), then run `npm install` and `npm run dev` in `app/`. File › Open PIK-20D example project opens the reference panel.
+{{< iframe src="https://glider-panel-designer.neale.dev/" height="900" >}}
