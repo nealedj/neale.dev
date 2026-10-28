@@ -641,12 +641,15 @@ a.hero-pill:hover { box-shadow: var(--shadow-md); }
   font-weight: 500;
 }
 .feature-cta .icon { width: 16px; height: 16px; transition: transform .2s ease; }
+/* Three across, for rows of six */
+.feature-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 1080px) {
   .feature-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
   .feature-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
   .feature--red { grid-column: 1 / -1; }
+  .feature-row--3 .feature--red { grid-column: auto; }
 }
 @media (max-width: 460px) {
   .feature-row { grid-template-columns: 1fr; }
