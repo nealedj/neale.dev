@@ -19,6 +19,10 @@ I built it for my own PIK-20D re-panel, and that panel ships with the app as a w
 
 It's a planning aid only. Nothing it produces means a design is approved or airworthy. Panel changes still go through the normal inspection and approval route, and every dimension needs checking against the real parts before anything is cut. The app says so on screen and on every export.
 
+The demo below starts in the 3D view of the PIK-20D example, then works through the front, rear and schematic views.
+
+{{< video src="/video/glider-panel-designer-demo.webm" >}}
+
 ## How to use it
 
 Open [glider-panel-designer.neale.dev](https://glider-panel-designer.neale.dev/). A first visit shows a welcome and a three-step walkthrough: pick a panel template, place an instrument, then check and export. File › Open PIK-20D example project opens the reference panel with everything already done. Press `?` for every shortcut. It works best on a desktop screen.
